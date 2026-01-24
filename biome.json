@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.3.10/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.3.12/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -15,27 +15,6 @@
         "rules": {
           "suspicious": {
             "noUnknownAtRules": "off"
-          }
-        }
-      }
-    },
-    {
-      "includes": ["app/fish/page.tsx"],
-      "linter": {
-        "rules": {
-          "suspicious": {
-            "noArrayIndexKey": "off"
-          }
-        }
-      }
-    },
-    {
-      "includes": ["app/playground/components/ColumnFilterDropdown.tsx"],
-      "linter": {
-        "rules": {
-          "a11y": {
-            "noStaticElementInteractions": "off",
-            "useKeyWithClickEvents": "off"
           }
         }
       }

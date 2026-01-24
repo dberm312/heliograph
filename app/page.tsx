@@ -1,65 +1,175 @@
-import Image from "next/image";
+import {
+  ArrowRight,
+  Bot,
+  Briefcase,
+  Building2,
+  Code2,
+  Lightbulb,
+  MessageSquare,
+  Sparkles,
+  Users,
+} from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen text-white/80">
+      <main>
+        {/* Hero */}
+        <section className="px-6 pt-16 pb-24 md:pt-24 md:pb-32 text-white/80">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+              Align your teams.
+              <br />
+              Amplify your impact.
+            </h1>
+            <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed">
+              Heliograph transforms how B2B companies bridge the gap between
+              customer-facing innovation and core product development.
+            </p>
+          </div>
+        </section>
+
+        {/* Problem Section */}
+        <section className="px-6 py-16 md:py-24 bg-white/5 backdrop-blur-sm">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">
+              The Convergence Challenge
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm">
+                <ArrowRight className="w-8 h-8 mb-4 text-orange-300" />
+                <h3 className="font-semibold mb-2">Product to Services</h3>
+                <p className="text-white/70 text-sm">
+                  B2B companies must create custom approaches for every
+                  customer. What starts as &quot;we&apos;ll productize
+                  later&quot; becomes permanent.
+                </p>
+              </div>
+              <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm">
+                <ArrowRight className="w-8 h-8 mb-4 text-orange-300 rotate-180" />
+                <h3 className="font-semibold mb-2">Services to Product</h3>
+                <p className="text-white/70 text-sm">
+                  Consulting firms race to productize expertise. The pressure to
+                  capture and reuse intellectual property is existential.
+                </p>
+              </div>
+              <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm">
+                <Lightbulb className="w-8 h-8 mb-4 text-orange-300" />
+                <h3 className="font-semibold mb-2">Missing Infrastructure</h3>
+                <p className="text-white/70 text-sm">
+                  Both end up where custom work and core capabilities must flow
+                  together—but the tools don&apos;t exist.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Solution Section */}
+        <section className="px-6 py-16 md:py-24">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-center">
+              Connect the Edge to the Core
+            </h2>
+            <p className="text-white/70 text-center mb-12 max-w-2xl mx-auto">
+              Turn custom work into strategic intelligence. Enable teams to move
+              as one.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="p-8 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
+                <Sparkles className="w-10 h-10 mb-4 text-orange-300" />
+                <h3 className="text-xl font-semibold mb-3">
+                  Edge-to-Core Intelligence
+                </h3>
+                <p className="text-white/70">
+                  AI automatically tracks every custom request across your
+                  organization. Surface patterns, identify what should become
+                  core, and see draft implementations—not just reports.
+                </p>
+              </div>
+              <div className="p-8 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
+                <MessageSquare className="w-10 h-10 mb-4 text-orange-300" />
+                <h3 className="text-xl font-semibold mb-3">Heliograms</h3>
+                <p className="text-white/70">
+                  Lightweight, embeddable feedback forms that capture
+                  stakeholder input with full attribution. Think Typeform meets
+                  Loom meets decision intelligence.
+                </p>
+              </div>
+              <div className="p-8 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
+                <Bot className="w-10 h-10 mb-4 text-orange-300" />
+                <h3 className="text-xl font-semibold mb-3">
+                  AI-Native Workspace
+                </h3>
+                <p className="text-white/70">
+                  A platform where humans and AI collaborate natively. AI agents
+                  create customizations, generate forms, and draft code—with
+                  humans making the final call.
+                </p>
+              </div>
+              <div className="p-8 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
+                <Users className="w-10 h-10 mb-4 text-orange-300" />
+                <h3 className="text-xl font-semibold mb-3">
+                  Cross-Functional Collaboration
+                </h3>
+                <p className="text-white/70">
+                  Break down silos. Sales shares signals with context,
+                  engineering provides real-time feasibility, and product
+                  decides with full visibility.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Target Audience */}
+        <section className="px-6 py-16 md:py-24 bg-white/5 backdrop-blur-sm">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-8">
+              Built for the Convergence
+            </h2>
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="p-4 rounded-xl bg-white/10">
+                <Building2 className="w-6 h-6 mx-auto mb-2 text-orange-300" />
+                <p className="text-sm text-white/80">
+                  B2B companies with high-touch customer success
+                </p>
+              </div>
+              <div className="p-4 rounded-xl bg-white/10">
+                <Code2 className="w-6 h-6 mx-auto mb-2 text-orange-300" />
+                <p className="text-sm text-white/80">
+                  Enterprise software with FDE teams
+                </p>
+              </div>
+              <div className="p-4 rounded-xl bg-white/10">
+                <Briefcase className="w-6 h-6 mx-auto mb-2 text-orange-300" />
+                <p className="text-sm text-white/80">
+                  Consulting firms productizing IP
+                </p>
+              </div>
+              <div className="p-4 rounded-xl bg-white/10">
+                <Sparkles className="w-6 h-6 mx-auto mb-2 text-orange-300" />
+                <p className="text-sm text-white/80">
+                  Professional services going digital
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="px-6 py-8 border-t border-white/10">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+          <span className="text-sm text-white/60">
+            &copy; {new Date().getFullYear()} Heliograph
+          </span>
+          <p className="text-sm text-white/40 italic">
+            Named after the heliograph—a device that focused the sun&apos;s
+            broad energy into precise, directed signals.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/8 px-5 transition-colors hover:border-transparent hover:bg-black/4 dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </footer>
     </div>
   );
 }

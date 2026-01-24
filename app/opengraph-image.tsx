@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Helioscope - Structured wide research you can trust";
+export const alt = "Heliograph - Align your teams. Amplify your impact.";
 export const size = {
   width: 1200,
   height: 630,
@@ -31,7 +31,7 @@ export default async function Image() {
           letterSpacing: "-3px",
         }}
       >
-        Helioscope
+        Heliograph
       </div>
 
       {/* Tagline */}
@@ -44,7 +44,7 @@ export default async function Image() {
           fontWeight: 500,
         }}
       >
-        Multiply your impact without losing quality.
+        Align your teams.
       </div>
       <div
         style={{
@@ -55,7 +55,7 @@ export default async function Image() {
           fontWeight: 500,
         }}
       >
-        Orchestrate AI as a manager, not an engineer.
+        Amplify your impact.
       </div>
 
       {/* URL */}
@@ -67,7 +67,7 @@ export default async function Image() {
           fontWeight: 500,
         }}
       >
-        helioscope.co
+        heliograph.dev
       </div>
     </div>,
     {
