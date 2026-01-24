@@ -33,6 +33,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/heliograph-logo-small.png" sizes="any" />
         <meta name="theme-color" content="#96B0F8" />
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
       </head>
       <body
         className="min-h-screen bg-blue-600 relative text-white font-sans selection:bg-orange-500/50"

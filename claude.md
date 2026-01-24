@@ -69,3 +69,20 @@ npm run lint     # Run ESLint
 - Components should be functional with hooks
 - Keep the edge-to-core mental model in mind when designing features
 - "Heliogram" is our term for feedback/polling forms—use it consistently
+
+## UI/Frontend Work
+
+When working on UI components, pages, or frontend design:
+
+1. **Always invoke design skills** before writing or reviewing UI code:
+   - `/web-design-guidelines` — Review code for Web Interface Guidelines compliance (accessibility, semantics, focus states, animations, etc.)
+   - `/frontend-design` — Create distinctive, production-grade interfaces that avoid generic AI aesthetics
+
+2. **Design principles for this project:**
+   - Use **Clash Display** for headings and **Satoshi** for body text
+   - Maintain the warm-to-cool gradient aesthetic (orange → blue)
+   - Use glass morphism with noise textures for cards
+   - Respect `prefers-reduced-motion` for all animations
+   - Follow proper heading hierarchy (`h1` → `h2` → `h3`)
+   - Add `aria-hidden="true"` to decorative elements
+   - Use explicit CSS transition properties (never `transition: all`)
