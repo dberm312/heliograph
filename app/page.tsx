@@ -454,7 +454,7 @@ export default function Home() {
             </p>
             <div className="animate-fade-in-up delay-200">
               <a
-                href="mailto:hello@heliograph.co"
+                href="mailto:hello@heliograph.dev"
                 className="inline-flex items-center gap-2 glass-card rounded-full px-8 py-4 text-lg font-semibold text-white hover:text-orange-200 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600"
               >
                 Get Early Access

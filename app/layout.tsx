@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: "Heliograph - The Toolchain for Forward-Deployed Engineers",
   description:
     "One integrated platform combining project management, version control, and stakeholder tracking—built for FDEs shipping custom solutions.",
-  metadataBase: new URL("https://www.heliograph.co"),
+  metadataBase: new URL("https://www.heliograph.dev"),
   openGraph: {
     title: "Heliograph - The Toolchain for Forward-Deployed Engineers",
     description:
       "One integrated platform combining project management, version control, and stakeholder tracking—built for FDEs shipping custom solutions.",
-    url: "https://www.heliograph.co",
+    url: "https://www.heliograph.dev",
     siteName: "Heliograph",
     type: "website",
   },
