@@ -1,253 +1,55 @@
-**Heliograph**
-
-*Align your teams. Amplify your impact.*
-
-Vision
-======
-
-Heliograph transforms how B2B companies bridge the gap between
-customer-facing innovation and core product development. Like the
-heliograph of old---which focused the sun\'s broad energy into precise,
-directed signals---Heliograph channels the diffuse energy of frontline
-teams into clear, actionable direction for your entire organization.
-
-We believe the most valuable innovations happen at the edge: in sales
-calls, client implementations, and custom solutions. But too often, this
-knowledge stays trapped---in spreadsheets, in Slack threads, in the
-heads of forward-deployed engineers who built something brilliant for
-one client. Meanwhile, product teams work in the dark, building features
-no one asked for while ignoring patterns hiding in plain sight.
-
-Heliograph is the AI-native platform that makes your organization move
-as one. We connect the edge to the core, turning custom work into
-strategic intelligence and enabling teams to row in the same direction.
-
-The Problem
-===========
-
-B2B companies are standing still. Not because they lack talented people
-or good ideas---but because those people and ideas are pulling in
-orthogonal directions. The result is coordination chaos.
-
-The Great Convergence
----------------------
+# Heliograph
 
-Two powerful forces are colliding. From opposite directions, companies
-are converging on the same painful middle ground---and nobody has the
-infrastructure to navigate it.
+*Quickly align, build, and codify your customer solutions with Heliograph*
 
-**Product companies are becoming services businesses.** Especially at
-the early stage, B2B and B2B2C companies must create custom approaches
-for every customer. Onboarding isn\'t a product feature---it\'s a
-bespoke engagement. Customer success means fitting into each client\'s
-unique workflows, not asking them to adopt yours. What starts as
-\"we\'ll productize this later\" becomes a permanent reality of
-high-touch, customized delivery.
+## TL;DR
 
-**Services companies are becoming product businesses.** The economics of
-pure consulting don\'t scale. Smart firms are racing to productize their
-expertise:
+Heliograph combines project management, version control, and stakeholder tracking in one AI-native platform built specifically for forward-deployed engineers (FDEs). These teams sit at the intersection of sales, consulting, and engineering—too technical for pure CRMs, too customer-facing for pure dev tools. Existing solutions force them to cobble together Linear, SharePoint, Notion, and spreadsheets. We're building the integrated toolchain they actually need.
 
--   **Bain\'s Private Equity practice** is transforming commercial due
-    > diligence from 100% manual, start-from-scratch engagements into
-    > repeatable playbooks and purpose-built software.
+## Long-term Vision
 
--   **McKinsey\'s transformation work** increasingly deploys custom
-    > software alongside consultants---tools that accelerate client
-    > outcomes but then need to evolve into reusable assets.
+Heliograph aims to bring developer best practices—version control, modular architecture, continuous iteration—to customer-facing technical teams. Our goal is to build the best toolset for organizations to create highly customized solutions for their customers while maintaining the ability to scale.
 
--   Every major consulting firm is asking the same question: how do we
-    > capture the intellectual property we create on engagements and
-    > turn it into leverage for the next one?
+We're designing from the start for AI agent integration. This means structured data, clear APIs, and workflows that allow AI to search, implement, and iterate on work. Teams should be able to run multiple solution variants in parallel, let AI propose improvements, and merge the best ideas back into their core offerings.
 
-**Both sides end up in the same place:** organizations where custom work
-and core capabilities must flow seamlessly between each other---and
-where the tools don\'t exist to make that happen.
+## Short-term Focus
 
-The Symptoms
-------------
+We're focused on forward-deployed engineers—a role that has emerged as defining for the 2020s. With AI making building faster than ever, the real constraint has shifted to understanding customers and designing systems that work for them. FDEs live at this intersection.
 
--   **Lost Innovation:** Forward-deployed engineers, consultants, and
-    > solutions teams build incredible custom solutions that never make
-    > it back to the core product. Companies rebuild the same wheel
-    > dozens of times.
+The problem: the toolchain for these roles doesn't exist. FDEs aren't pure developers (so GitHub alone doesn't work), aren't pure salespeople (so Salesforce alone doesn't work), and aren't pure consultants (so traditional project management alone doesn't work). They need something purpose-built that integrates CRMs, project management, and source control.
 
--   **Broken Feedback Loops:** Sales knows what customers want. Product
-    > doesn\'t. The gap between frontline insight and roadmap decisions
-    > is filled with telephone games, lost emails, and forgotten feature
-    > requests.
+## Why Now
 
--   **Tool Fragmentation:** Teams cobble together Jira, Salesforce,
-    > custom spreadsheets, and PowerPoint trackers. None of these tools
-    > were designed for the messy reality of services-heavy,
-    > customization-heavy businesses.
+**AI enables faster building:** The bottleneck has shifted from 'can we build it?' to 'should we build it and for whom?'—exactly where FDEs operate.
 
--   **Slow Iteration:** Getting stakeholder input on a UI mockup or
-    > strategic decision requires scheduling meetings, chasing down
-    > approvals, and manually synthesizing feedback. By the time you
-    > have alignment, the moment has passed.
+**Role maturation:** FDE roles are becoming standardized across the industry. Companies like Palantir, Databricks, and many AI startups have made this a core function.
 
-The rise of forward-deployed engineering has made this worse. Companies
-like Palantir pioneered embedding engineers directly with clients to
-build custom solutions. Now this model is everywhere---but the
-infrastructure to learn from it doesn\'t exist. Every FDE is an island.
+**AI-native opportunity:** Building now means designing for AI agents from day one, rather than retrofitting later.
 
-The Solution
-============
+## Product Areas
 
-Heliograph is an AI-native platform that unifies CRM, project
-management, and stakeholder feedback into a single system designed for
-customization-heavy businesses. Unlike existing tools built purely for
-product companies, Heliograph embraces the reality that your most
-valuable work often starts as \"custom.\"
+Heliograph is one integrated platform with three core modules. Each addresses a gap where existing tools fail FDEs.
 
-Core Components
----------------
+### 1. Project Management
 
-### 1. Edge-to-Core Intelligence
+**The problem:** Linear and Jira are built for product teams shipping one product to many users. FDEs ship many custom solutions to individual customers. Service teams currently resort to low-tech checklists in docs, spreadsheets, or elaborate Notion setups.
 
-Heliograph automatically tracks every custom request, implementation,
-and solution across your organization. Our AI agents analyze patterns to
-surface what should become core:
+**Our approach:** An integrated task system that connects directly to CRM data, so you can see which client needs what, who's working on it, and what the timeline is. Easy to create todo lists that match how people actually work, with tasks broken down into hours, days, weeks, months, and quarters. Native integration with version control for requesting feedback on specific versions.
 
--   \"Three enterprise clients requested similar SSO integrations this
-    > quarter\"
+**AI angle:** AI agents can search and implement tasks directly. AI-powered search prevents duplicate work and surfaces relevant past solutions.
 
--   \"This custom reporting feature could reduce implementation time by
-    > 40% if productized\"
+### 2. Version Control & Review
 
--   \"Here\'s a draft PR showing what it would take to move this to
-    > core---estimated 2 sprints\"
+**The problem:** GitHub is great for code going into one central CI/CD pipeline. But FDE work often involves notebooks, presentations, and project plans for specific clients. You end up forking repos or creating messy branch structures. Meanwhile, the alternative is SharePoint folders with manual versioning ('final_v3_FINAL.docx').
 
-The AI doesn\'t just flag patterns---it drafts prototypes, estimates
-complexity, and shows product managers what\'s easy versus what\'s hard.
-But humans always make the final call.
+**Our approach:** Git-style versioning for all artifacts—presentations, project plans, documentation—not just code. Easy branching for client-specific variants while maintaining connection to a core 'main' version. Learnings from edge deployments can be merged back to the center; improvements to the center can be pushed out to the edge.
 
-### 2. Heliograms: Instant Stakeholder Feedback
+**AI angle:** Multiple AI agents can work on the same section in parallel, proposing different versions. Users choose the best variant to merge. The system learns which approaches work best across clients.
 
-A \"Heliogram\" is our answer to the feedback problem. Think Typeform
-meets Loom meets decision intelligence---lightweight, embeddable forms
-that capture stakeholder input with full attribution and context.
+### 3. Stakeholder Management
 
-Use cases:
+**The problem:** Product orgs often keep stakeholder information in someone's head or scattered Notion docs. Service orgs use CRMs, but CRM hygiene is notoriously spotty, and there's no systematic connection between stakeholder requirements and the actual work being done.
 
--   UI preference polls: \"Which dashboard layout do you prefer? A, B,
-    > or C?\"
+**Our approach:** Simple integrations that give everyone visibility into what stakeholders need. Ability to maintain different requirement versions for different stakeholders, all tracked in one place.
 
--   Strategic questions: \"Does this company fit our ICP? Why or why
-    > not?\"
-
--   Feature validation: \"Would this capability change your workflow?
-    > Rate 1-10.\"
-
--   Implementation sign-offs: \"Confirm this matches your
-    > requirements.\"
-
-AI agents can generate Heliograms on the fly---a salesperson mentions a
-client concern, and the system creates a quick poll to validate it
-across the team. All responses are automatically attributed,
-timestamped, and integrated into the relevant project context.
-
-### 3. AI-Native Workspace
-
-Heliograph is built for AI agents from the ground up. This isn\'t a
-traditional tool with AI bolted on---it\'s a platform where humans and
-AI collaborate natively:
-
--   **Sales asks, AI builds:** \"Client needs a custom export format.\"
-    > The AI agent creates the customization, generates a test, and
-    > opens a review.
-
--   **Bi-directional flow:** Product can push capabilities to the edge
-    > just as easily as the edge can surface needs to core.
-
--   **Intelligent triage:** Requests are automatically categorized: Is
-    > this a one-off? A pattern? A quick win? A major initiative?
-
-### 4. Cross-Functional Collaboration
-
-Unlike traditional project management tools that silo by function,
-Heliograph brings everyone into the same conversation:
-
--   Sales shares customer signals with context, not just complaints
-
--   Marketing weighs in on positioning implications
-
--   Engineering provides feasibility estimates in real-time
-
--   Product makes decisions with full visibility
-
-Competitive Landscape
-=====================
-
-Heliograph competes against fragmented workflows, not any single tool.
-Our real competitors are:
-
-  **Alternative**             **What It Does**                                                      **Why It Falls Short**
-  --------------------------- --------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------
-  **Jira + Salesforce**       The incumbent stack: CRM for customer data, Jira for product work     No connection between systems. Custom work is invisible. Requires manual translation between worlds.
-  **Productboard / Canny**    Feature request tracking and roadmap prioritization                   Built for product companies, not services. Can\'t track custom implementations or handle the edge-to-core workflow.
-  **Monday / Asana**          General project management and team coordination                      Generic tools without domain intelligence. No AI agents. No feedback collection. Just organized task lists.
-  **Custom Internal Tools**   Spreadsheets, Notion databases, PowerPoint trackers, homegrown apps   Fragile, manual, siloed. Requires constant maintenance. No AI. No scale. Knowledge walks out the door.
-
-**Our differentiation:** Heliograph is the only platform designed
-specifically for the edge-to-core workflow. We don\'t force
-services-heavy businesses into product-centric paradigms. We embrace
-customization as a feature, not a bug---and use AI to turn that
-customization into strategic advantage.
-
-  
-
-Target Customer
-===============
-
-Primary: Companies in the Convergence
--------------------------------------
-
--   **B2B/B2B2C product companies with high-touch models:** Early-stage
-    > companies where onboarding and customer success require custom
-    > approaches tailored to each client\'s workflows
-
--   **Enterprise software with FDE teams:** Companies that embed
-    > engineers with clients to build custom solutions (the Palantir
-    > model)
-
--   **Consulting firms productizing their IP:** Bain, McKinsey, BCG, and
-    > boutique firms turning repeatable engagements into software and
-    > playbooks
-
--   **Professional services going digital:** Any firm that deploys
-    > custom software alongside human expertise and needs to capture
-    > that value
-
-Why Now
-=======
-
-1.  **The convergence is accelerating:** Product companies need more
-    > services. Services companies need more product. Everyone is stuck
-    > in the messy middle without tools designed for it.
-
-2.  **FDE is mainstream:** What Palantir pioneered is now standard
-    > practice. Every enterprise software company has some version of
-    > forward-deployed teams, but no tools designed for them.
-
-3.  **AI agents are production-ready:** For the first time, we can build
-    > a platform where AI does real work---creating customizations,
-    > generating forms, drafting code---not just chatbots.
-
-4.  **Tool fatigue is peaking:** Companies are drowning in disconnected
-    > tools. The appetite for unified platforms has never been higher.
-
-5.  **Consulting firms are desperate:** The pressure to productize is
-    > existential. Firms that can\'t capture and reuse their
-    > intellectual property will lose to those that can.
-
-Summary
-=======
-
-Heliograph is the operating system for companies that live at the
-intersection of services and product. We help you capture innovation at
-the edge, align your teams around what matters, and move faster
-together.
-
-*Align your teams. Amplify your impact.*
+**AI angle:** AI has access to stakeholder context to inform decisions and assist with communication, while humans retain control over relationship strategy.

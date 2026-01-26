@@ -4,23 +4,23 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Heliograph - Align your teams. Amplify your impact.",
+  title: "Heliograph - The Toolchain for Forward-Deployed Engineers",
   description:
-    "AI-native platform that bridges customer-facing innovation and core product development for B2B companies.",
+    "One integrated platform combining project management, version control, and stakeholder tracking—built for FDEs shipping custom solutions.",
   metadataBase: new URL("https://www.heliograph.co"),
   openGraph: {
-    title: "Heliograph - Align your teams. Amplify your impact.",
+    title: "Heliograph - The Toolchain for Forward-Deployed Engineers",
     description:
-      "AI-native platform that bridges customer-facing innovation and core product development for B2B companies.",
+      "One integrated platform combining project management, version control, and stakeholder tracking—built for FDEs shipping custom solutions.",
     url: "https://www.heliograph.co",
     siteName: "Heliograph",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Heliograph - Align your teams. Amplify your impact.",
+    title: "Heliograph - The Toolchain for Forward-Deployed Engineers",
     description:
-      "AI-native platform that bridges customer-facing innovation and core product development for B2B companies.",
+      "One integrated platform combining project management, version control, and stakeholder tracking—built for FDEs shipping custom solutions.",
   },
 };
 
@@ -45,10 +45,10 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <div className="fixed inset-0 bg-linear-to-br from-orange-400 via-blue-500 to-blue-600 -z-10" />
-        <header className="sticky top-0 z-50 px-6 py-4 backdrop-blur-md">
+        <header className="sticky top-0 z-50 px-6 py-4 backdrop-blur-3xl bg-white/25">
           <div className="max-w-6xl mx-auto flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3">
-              <div className="bg-white/20 rounded-lg p-1.5">
+              <div className="bg-white/80 rounded-lg p-1.5">
                 <Image
                   src="/heliograph-logo.svg"
                   alt="Heliograph"
@@ -57,7 +57,7 @@ export default function RootLayout({
                   className="w-8 h-8"
                 />
               </div>
-              <span className="text-xl font-semibold tracking-tight text-white">
+              <span className="text-3xl font-semibold tracking-tight text-white">
                 Heliograph
               </span>
             </Link>
