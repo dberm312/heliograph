@@ -244,7 +244,7 @@ export default function Home() {
             {/* Staggered 3-column grid */}
             <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
               {/* Module 1 - Project Management */}
-              <div className="glass-card rounded-3xl p-8 lg:p-10 relative noise-texture animate-fade-in-up delay-200">
+              <div className="glass-card rounded-3xl p-8 lg:p-10 relative noise-texture animate-fade-in-up delay-200 flex flex-col">
                 <div className="animate-float">
                   <ClipboardList
                     className="w-14 h-14 mb-6 text-orange-300 icon-glow"
@@ -263,14 +263,14 @@ export default function Home() {
                   client needs what, who&apos;s working on it, and what&apos;s
                   next.
                 </p>
-                <div className="ai-badge">
+                <div className="ai-badge mt-auto">
                   <Bot className="w-3.5 h-3.5" aria-hidden="true" />
                   AI agents search and implement tasks
                 </div>
               </div>
 
               {/* Module 2 - Version Control (Elevated) */}
-              <div className="glass-card rounded-3xl p-8 lg:p-10 relative noise-texture md:-mt-8 animate-fade-in-up delay-300">
+              <div className="glass-card rounded-3xl p-8 lg:p-10 relative noise-texture md:-mt-8 animate-fade-in-up delay-300 flex flex-col">
                 <div className="animate-float delay-200">
                   <GitBranch
                     className="w-14 h-14 mb-6 text-orange-300 icon-glow"
@@ -288,14 +288,14 @@ export default function Home() {
                   documentation. Branch for client-specific variants while
                   maintaining connection to your core &quot;main&quot; version.
                 </p>
-                <div className="ai-badge">
+                <div className="ai-badge mt-auto">
                   <Bot className="w-3.5 h-3.5" aria-hidden="true" />
                   Multiple AI agents propose variants
                 </div>
               </div>
 
               {/* Module 3 - Stakeholder Management */}
-              <div className="glass-card rounded-3xl p-8 lg:p-10 relative noise-texture md:mt-8 animate-fade-in-up delay-400">
+              <div className="glass-card rounded-3xl p-8 lg:p-10 relative noise-texture animate-fade-in-up delay-400 flex flex-col">
                 <div className="animate-float delay-400">
                   <Users
                     className="w-14 h-14 mb-6 text-orange-300 icon-glow"
@@ -313,7 +313,7 @@ export default function Home() {
                   Notion docs. Track different requirement versions for
                   different stakeholders in one place.
                 </p>
-                <div className="ai-badge">
+                <div className="ai-badge mt-auto">
                   <Bot className="w-3.5 h-3.5" aria-hidden="true" />
                   AI informed by stakeholder context
                 </div>
@@ -371,7 +371,7 @@ export default function Home() {
               </div>
 
               {/* Card 3 - AI-Native */}
-              <div className="glass-card rounded-3xl p-8 relative noise-texture md:mt-4 animate-fade-in-up delay-300">
+              <div className="glass-card rounded-3xl p-8 relative noise-texture animate-fade-in-up delay-300">
                 <div className="animate-float delay-400">
                   <Bot
                     className="w-10 h-10 mb-6 text-orange-300 icon-glow"
@@ -403,26 +403,26 @@ export default function Home() {
             </p>
 
             {/* Floating badge layout */}
-            <div className="flex flex-wrap justify-center gap-4 md:gap-5">
+            <div className="justify-center gap-4 md:gap-5 grid grid-cols-3 text-center">
               <div className="glass-card rounded-2xl px-6 py-4 animate-scale-in delay-200">
                 <span className="text-sm md:text-base text-white/80 font-medium">
                   Forward-Deployed Engineers
                 </span>
               </div>
 
-              <div className="glass-card rounded-2xl px-6 py-4 animate-scale-in delay-300 md:mt-6">
+              <div className="glass-card rounded-2xl px-6 py-4 animate-scale-in delay-300">
                 <span className="text-sm md:text-base text-white/80 font-medium">
                   Solutions Engineers
                 </span>
               </div>
 
-              <div className="glass-card rounded-2xl px-6 py-4 animate-scale-in delay-400 md:-mt-2">
+              <div className="glass-card rounded-2xl px-6 py-4 animate-scale-in delay-400">
                 <span className="text-sm md:text-base text-white/80 font-medium">
                   Technical Account Managers
                 </span>
               </div>
 
-              <div className="glass-card rounded-2xl px-6 py-4 animate-scale-in delay-500 md:mt-4">
+              <div className="glass-card rounded-2xl px-6 py-4 animate-scale-in delay-500">
                 <span className="text-sm md:text-base text-white/80 font-medium">
                   Customer Engineers
                 </span>
@@ -434,7 +434,7 @@ export default function Home() {
                 </span>
               </div>
 
-              <div className="glass-card rounded-2xl px-6 py-4 animate-scale-in delay-700 md:-mt-4">
+              <div className="glass-card rounded-2xl px-6 py-4 animate-scale-in delay-700">
                 <span className="text-sm md:text-base text-white/80 font-medium">
                   AI Startup Founders
                 </span>
