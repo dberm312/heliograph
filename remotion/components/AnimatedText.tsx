@@ -25,10 +25,15 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({
   if (typewriter) {
     const charsPerFrame = typewriterSpeed / fps;
     const charsToShow = Math.floor(
-      interpolate(frame - delay, [0, text.length / charsPerFrame], [0, text.length], {
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      })
+      interpolate(
+        frame - delay,
+        [0, text.length / charsPerFrame],
+        [0, text.length],
+        {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        },
+      ),
     );
     const displayText = text.slice(0, charsToShow);
 

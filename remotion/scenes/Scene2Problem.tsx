@@ -46,12 +46,9 @@ export const Scene2Problem: React.FC = () => {
   });
 
   // Question mark pulsing
-  const questionScale = interpolate(
-    frame % 30,
-    [0, 15, 30],
-    [1, 1.1, 1],
-    { extrapolateRight: "clamp" }
-  );
+  const questionScale = interpolate(frame % 30, [0, 15, 30], [1, 1.1, 1], {
+    extrapolateRight: "clamp",
+  });
   const questionOpacity = interpolate(frame - 75, [0, 15], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",

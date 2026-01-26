@@ -41,8 +41,8 @@ export const Scene1Logo: React.FC = () => {
       {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
-      }
-    )
+      },
+    ),
   );
 
   const displayTagline = tagline.slice(0, charsToShow);

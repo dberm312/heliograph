@@ -43,7 +43,9 @@ export default function Home() {
             <div className="md:ml-12 lg:ml-24">
               <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] mb-8">
                 <span className="block animate-fade-in-up">The modern</span>
-                <span className="block animate-fade-in-up delay-100">toolchain for</span>
+                <span className="block animate-fade-in-up delay-100">
+                  toolchain for
+                </span>
                 <span className="block animate-fade-in-up delay-200 gradient-text">
                   customer-facing
                 </span>
@@ -150,25 +152,37 @@ export default function Home() {
                   </p>
                   <ul className="space-y-2.5 text-left text-white/70 text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400/80 mt-0.5" aria-hidden="true">
+                      <span
+                        className="text-red-400/80 mt-0.5"
+                        aria-hidden="true"
+                      >
                         ×
                       </span>
                       Code variants become branch chaos
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400/80 mt-0.5" aria-hidden="true">
+                      <span
+                        className="text-red-400/80 mt-0.5"
+                        aria-hidden="true"
+                      >
                         ×
                       </span>
                       Notebooks &amp; docs lose version control
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400/80 mt-0.5" aria-hidden="true">
+                      <span
+                        className="text-red-400/80 mt-0.5"
+                        aria-hidden="true"
+                      >
                         ×
                       </span>
                       Presentations drift from reality
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400/80 mt-0.5" aria-hidden="true">
+                      <span
+                        className="text-red-400/80 mt-0.5"
+                        aria-hidden="true"
+                      >
                         ×
                       </span>
                       Requirements stay in someone&apos;s head
@@ -222,7 +236,8 @@ export default function Home() {
                 One integrated platform
               </h2>
               <p className="text-xl text-white/60 max-w-2xl mx-auto animate-fade-in-up delay-100">
-                Three core modules. Built for the way customer-facing builders actually work.
+                Three core modules. Built for the way customer-facing builders
+                actually work.
               </p>
             </div>
 
@@ -333,8 +348,8 @@ export default function Home() {
                 </h3>
                 <p className="text-white/60 leading-relaxed">
                   AI has shifted the bottleneck from &quot;can we build
-                  it?&quot; to &quot;should we build it and for whom?&quot;—exactly
-                  where customer-facing builders operate.
+                  it?&quot; to &quot;should we build it and for
+                  whom?&quot;—exactly where customer-facing builders operate.
                 </p>
               </div>
 
