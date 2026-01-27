@@ -1,5 +1,5 @@
-import { spring, useCurrentFrame, useVideoConfig, interpolate } from "remotion";
 import type { ReactNode } from "react";
+import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 
 type AnimatedIconProps = {
   children: ReactNode;

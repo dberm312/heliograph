@@ -1,4 +1,4 @@
-import { useCurrentFrame, useVideoConfig, interpolate, spring } from "remotion";
+import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 
 type AnimatedTextProps = {
   text: string;

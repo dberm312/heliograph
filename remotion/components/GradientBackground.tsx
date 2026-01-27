@@ -1,4 +1,4 @@
-import { AbsoluteFill, useCurrentFrame, interpolate } from "remotion";
+import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 import { COLORS } from "../utils/colors";
 
 export const GradientBackground: React.FC = () => {

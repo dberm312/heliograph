@@ -1,32 +1,45 @@
-import { AbsoluteFill } from "remotion";
-import { TransitionSeries, linearTiming } from "@remotion/transitions";
+import {
+  linearTiming,
+  springTiming,
+  TransitionSeries,
+} from "@remotion/transitions";
 import { fade } from "@remotion/transitions/fade";
 import { slide } from "@remotion/transitions/slide";
-
-import { Scene1Logo } from "./scenes/Scene1Logo";
-import { Scene2Problem } from "./scenes/Scene2Problem";
-import { Scene3Solution } from "./scenes/Scene3Solution";
-import { Scene4Features } from "./scenes/Scene4Features";
-import { Scene5CTA } from "./scenes/Scene5CTA";
+import { useEffect } from "react";
+import { AbsoluteFill } from "remotion";
+import { CTAScene } from "./scenes/CTAScene";
+import { FeaturesScene } from "./scenes/FeaturesScene";
+import { HookScene } from "./scenes/HookScene";
+import { PainScene } from "./scenes/PainScene";
+import { RevealScene } from "./scenes/RevealScene";
+import { loadFonts } from "./utils/fonts";
 
 export const HeliographVideo: React.FC = () => {
-  // Scene durations (in frames at 30fps)
-  const scene1Duration = 100; // ~3.3s - Logo intro
-  const scene2Duration = 130; // ~4.3s - Problem
-  const scene3Duration = 130; // ~4.3s - Solution
-  const scene4Duration = 150; // ~5s - Features
-  const scene5Duration = 75; // ~2.5s - CTA
+  // Load fonts on mount
+  useEffect(() => {
+    loadFonts();
+  }, []);
 
-  // Transition durations
-  const fadeTransition = linearTiming({ durationInFrames: 20 });
-  const slideTransition = linearTiming({ durationInFrames: 25 });
+  // Scene durations (in frames at 30fps) - Total ~22s = 660 frames
+  const hookDuration = 90; // ~3s
+  const painDuration = 180; // ~6s
+  const revealDuration = 120; // ~4s
+  const featuresDuration = 180; // ~6s
+  const ctaDuration = 90; // ~3s
+
+  // Transition configurations
+  const fadeTransition = linearTiming({ durationInFrames: 15 });
+  const slideTransition = springTiming({
+    config: { damping: 200 },
+    durationInFrames: 20,
+  });
 
   return (
     <AbsoluteFill>
       <TransitionSeries>
-        {/* Scene 1: Logo Intro */}
-        <TransitionSeries.Sequence durationInFrames={scene1Duration}>
-          <Scene1Logo />
+        {/* Scene 1: Hook */}
+        <TransitionSeries.Sequence durationInFrames={hookDuration}>
+          <HookScene />
         </TransitionSeries.Sequence>
 
         {/* Transition: Fade */}
@@ -35,9 +48,9 @@ export const HeliographVideo: React.FC = () => {
           timing={fadeTransition}
         />
 
-        {/* Scene 2: The Problem */}
-        <TransitionSeries.Sequence durationInFrames={scene2Duration}>
-          <Scene2Problem />
+        {/* Scene 2: Pain Point */}
+        <TransitionSeries.Sequence durationInFrames={painDuration}>
+          <PainScene />
         </TransitionSeries.Sequence>
 
         {/* Transition: Slide from right */}
@@ -46,9 +59,9 @@ export const HeliographVideo: React.FC = () => {
           timing={slideTransition}
         />
 
-        {/* Scene 3: The Solution */}
-        <TransitionSeries.Sequence durationInFrames={scene3Duration}>
-          <Scene3Solution />
+        {/* Scene 3: Solution Reveal */}
+        <TransitionSeries.Sequence durationInFrames={revealDuration}>
+          <RevealScene />
         </TransitionSeries.Sequence>
 
         {/* Transition: Fade */}
@@ -58,8 +71,8 @@ export const HeliographVideo: React.FC = () => {
         />
 
         {/* Scene 4: Features */}
-        <TransitionSeries.Sequence durationInFrames={scene4Duration}>
-          <Scene4Features />
+        <TransitionSeries.Sequence durationInFrames={featuresDuration}>
+          <FeaturesScene />
         </TransitionSeries.Sequence>
 
         {/* Transition: Fade */}
@@ -69,8 +82,8 @@ export const HeliographVideo: React.FC = () => {
         />
 
         {/* Scene 5: CTA */}
-        <TransitionSeries.Sequence durationInFrames={scene5Duration}>
-          <Scene5CTA />
+        <TransitionSeries.Sequence durationInFrames={ctaDuration}>
+          <CTAScene />
         </TransitionSeries.Sequence>
       </TransitionSeries>
     </AbsoluteFill>

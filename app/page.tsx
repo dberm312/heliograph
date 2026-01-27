@@ -3,7 +3,6 @@ import {
   Bot,
   ChevronRight,
   ClipboardList,
-  FileText,
   GitBranch,
   LayoutList,
   Sparkles,
@@ -15,13 +14,13 @@ import {
 export default function Home() {
   return (
     <div className="min-h-screen text-white/90 overflow-x-hidden">
-      {/* Decorative gradient orbs */}
+      {/* Decorative gradient orbs - hidden on mobile to prevent overflow */}
       <div
-        className="gradient-orb w-[600px] h-[600px] bg-orange-400/30 -top-48 -right-48 fixed animate-pulse-glow"
+        className="hidden md:block gradient-orb w-[600px] h-[600px] bg-orange-400/30 -top-48 -right-48 fixed animate-pulse-glow"
         aria-hidden="true"
       />
       <div
-        className="gradient-orb w-[500px] h-[500px] bg-blue-400/20 top-1/2 -left-64 fixed"
+        className="hidden md:block gradient-orb w-[500px] h-[500px] bg-blue-400/20 top-1/2 -left-64 fixed"
         aria-hidden="true"
       />
 
@@ -90,14 +89,13 @@ export default function Home() {
 
           <div className="max-w-5xl mx-auto relative">
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-center animate-fade-in-up">
-              It&apos;s hard to be a customer-facing builder
+              Your teams use different tools. They don&apos;t talk.
             </h2>
             <p className="text-lg text-white/60 text-center mb-16 max-w-3xl mx-auto animate-fade-in-up delay-100">
-              There&apos;s an incredible ecosystem for building great
-              products—GitHub, Linear, Figma, Notion. But the moment you need to
-              create variants for different customers, maintain multiple
-              versions, or connect stakeholder requirements to actual
-              deliverables, the tools fall apart.
+              Product lives in Linear and Notion. Engineering lives in GitHub.
+              Sales lives in CRMs and spreadsheets. The moment you need to ship
+              a custom solution, you&apos;re cobbling together workflows across
+              three worlds that were never designed to connect.
             </p>
 
             {/* Three-stage progression */}
@@ -108,36 +106,37 @@ export default function Home() {
                   <p className="text-sm text-orange-300 font-medium mb-4 uppercase tracking-wide">
                     What you have
                   </p>
-                  <div className="flex-1 flex items-center justify-center">
-                    <div className="grid grid-cols-2 gap-3 w-fit mx-auto">
-                      <div className="p-2 rounded-lg bg-white/5">
-                        <GitBranch
-                          className="w-6 h-6 text-white/70"
-                          aria-hidden="true"
-                        />
-                      </div>
-                      <div className="p-2 rounded-lg bg-white/5">
-                        <LayoutList
-                          className="w-6 h-6 text-white/70"
-                          aria-hidden="true"
-                        />
-                      </div>
-                      <div className="p-2 rounded-lg bg-white/5">
-                        <FileText
-                          className="w-6 h-6 text-white/70"
-                          aria-hidden="true"
-                        />
-                      </div>
-                      <div className="p-2 rounded-lg bg-white/5">
-                        <Users
-                          className="w-6 h-6 text-white/70"
-                          aria-hidden="true"
-                        />
-                      </div>
+                  <div className="flex-1 space-y-3">
+                    <div className="flex items-center gap-3">
+                      <LayoutList
+                        className="w-5 h-5 text-white/60"
+                        aria-hidden="true"
+                      />
+                      <span className="text-sm text-white/70">
+                        Product: Linear, Jira, Notion
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <GitBranch
+                        className="w-5 h-5 text-white/60"
+                        aria-hidden="true"
+                      />
+                      <span className="text-sm text-white/70">
+                        Engineering: GitHub, GitLab
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Users
+                        className="w-5 h-5 text-white/60"
+                        aria-hidden="true"
+                      />
+                      <span className="text-sm text-white/70">
+                        Sales: Salesforce, HubSpot, sheets
+                      </span>
                     </div>
                   </div>
-                  <p className="text-white/80 text-sm">
-                    A world-class toolkit for building products
+                  <p className="text-white/80 text-sm mt-4">
+                    Great tools—for their own worlds
                   </p>
                 </div>
               </div>
@@ -158,40 +157,28 @@ export default function Home() {
                   </p>
                   <ul className="space-y-2.5 text-left text-white/70 text-sm">
                     <li className="flex items-start gap-2">
-                      <span
-                        className="text-white mt-0.5"
-                        aria-hidden="true"
-                      >
+                      <span className="text-white mt-0.5" aria-hidden="true">
                         ×
                       </span>
-                      Code variants become branch chaos
+                      Product roadmaps disconnect from engineering reality
                     </li>
                     <li className="flex items-start gap-2">
-                      <span
-                        className="text-white mt-0.5"
-                        aria-hidden="true"
-                      >
+                      <span className="text-white mt-0.5" aria-hidden="true">
                         ×
                       </span>
-                      Notebooks &amp; docs lose version control
+                      Customer requirements live in someone&apos;s CRM notes
                     </li>
                     <li className="flex items-start gap-2">
-                      <span
-                        className="text-white mt-0.5"
-                        aria-hidden="true"
-                      >
+                      <span className="text-white mt-0.5" aria-hidden="true">
                         ×
                       </span>
-                      Presentations drift from reality
+                      Engineering ships—but sales doesn&apos;t know what changed
                     </li>
                     <li className="flex items-start gap-2">
-                      <span
-                        className="text-white mt-0.5"
-                        aria-hidden="true"
-                      >
+                      <span className="text-white mt-0.5" aria-hidden="true">
                         ×
                       </span>
-                      Requirements stay in someone&apos;s head
+                      Three tools, three sources of truth, zero sync
                     </li>
                   </ul>
                 </div>
@@ -220,7 +207,8 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="text-white/80 text-sm ">
-                    Something purpose-built for customer-facing work
+                    One platform that connects Product, Engineering, and
+                    Customer teams
                   </p>
                 </div>
               </div>
@@ -453,10 +441,11 @@ export default function Home() {
         <section className="px-6 py-20 md:py-32 relative">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fade-in-up">
-              Stop cobbling together tools
+              Stop living in three disconnected worlds
             </h2>
             <p className="text-xl text-white/60 mb-10 animate-fade-in-up delay-100">
-              One platform for the work customer-facing builders actually do.
+              One platform where Product, Engineering, and Customer teams
+              finally sync.
             </p>
             <div className="animate-fade-in-up delay-200">
               <a
