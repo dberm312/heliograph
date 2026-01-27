@@ -13,10 +13,14 @@
     "remotion:build": "remotion render remotion/index.ts HeliographPromo public/videos/heliograph-promo.mp4"
   },
   "dependencies": {
+    "@react-three/fiber": "^9.5.0",
+    "@remotion/three": "4.0.409",
+    "@types/three": "^0.182.0",
     "lucide-react": "^0.563.0",
     "next": "16.1.4",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "three": "^0.182.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.0.0",
