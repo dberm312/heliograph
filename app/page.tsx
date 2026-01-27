@@ -109,7 +109,7 @@ export default function Home() {
                     What you have
                   </p>
                   <div className="flex-1 flex items-center justify-center">
-                    <div className="flex justify-center gap-3">
+                    <div className="grid grid-cols-2 gap-3 w-fit mx-auto">
                       <div className="p-2 rounded-lg bg-white/5">
                         <GitBranch
                           className="w-6 h-6 text-white/70"
@@ -124,6 +124,12 @@ export default function Home() {
                       </div>
                       <div className="p-2 rounded-lg bg-white/5">
                         <FileText
+                          className="w-6 h-6 text-white/70"
+                          aria-hidden="true"
+                        />
+                      </div>
+                      <div className="p-2 rounded-lg bg-white/5">
+                        <Users
                           className="w-6 h-6 text-white/70"
                           aria-hidden="true"
                         />
@@ -153,7 +159,7 @@ export default function Home() {
                   <ul className="space-y-2.5 text-left text-white/70 text-sm">
                     <li className="flex items-start gap-2">
                       <span
-                        className="text-red-400/80 mt-0.5"
+                        className="text-white mt-0.5"
                         aria-hidden="true"
                       >
                         ×
@@ -162,7 +168,7 @@ export default function Home() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span
-                        className="text-red-400/80 mt-0.5"
+                        className="text-white mt-0.5"
                         aria-hidden="true"
                       >
                         ×
@@ -171,7 +177,7 @@ export default function Home() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span
-                        className="text-red-400/80 mt-0.5"
+                        className="text-white mt-0.5"
                         aria-hidden="true"
                       >
                         ×
@@ -180,7 +186,7 @@ export default function Home() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span
-                        className="text-red-400/80 mt-0.5"
+                        className="text-white mt-0.5"
                         aria-hidden="true"
                       >
                         ×
@@ -208,7 +214,7 @@ export default function Home() {
                   <div className="flex justify-center my-auto">
                     <div className="animate-float">
                       <Sparkles
-                        className="w-8 h-8 text-blue-300 icon-glow"
+                        className="w-16 h-16 text-blue-300 icon-glow"
                         aria-hidden="true"
                       />
                     </div>
@@ -257,7 +263,7 @@ export default function Home() {
                 <p className="text-sm text-orange-300/80 mb-4">
                   Built for custom solutions
                 </p>
-                <p className="text-white/60 leading-relaxed mb-6">
+                <p className="text-white/60 leading-relaxed mb-6 flex-1">
                   Ship many solutions to individual customers, not one product
                   to many users. Tasks connect directly to CRM data—see which
                   client needs what, who&apos;s working on it, and what&apos;s
@@ -270,7 +276,7 @@ export default function Home() {
               </div>
 
               {/* Module 2 - Version Control (Elevated) */}
-              <div className="glass-card rounded-3xl p-8 lg:p-10 relative noise-texture md:-mt-8 animate-fade-in-up delay-300 flex flex-col">
+              <div className="glass-card rounded-3xl p-8 lg:p-10 relative noise-texture animate-fade-in-up delay-300 flex flex-col">
                 <div className="animate-float delay-200">
                   <GitBranch
                     className="w-14 h-14 mb-6 text-orange-300 icon-glow"
@@ -283,7 +289,7 @@ export default function Home() {
                 <p className="text-sm text-orange-300/80 mb-4">
                   For everything, not just code
                 </p>
-                <p className="text-white/60 leading-relaxed mb-6">
+                <p className="text-white/60 leading-relaxed mb-6 flex-1">
                   Git-style versioning for presentations, project plans, and
                   documentation. Branch for client-specific variants while
                   maintaining connection to your core &quot;main&quot; version.
@@ -308,7 +314,7 @@ export default function Home() {
                 <p className="text-sm text-orange-300/80 mb-4">
                   Requirements meet reality
                 </p>
-                <p className="text-white/60 leading-relaxed mb-6">
+                <p className="text-white/60 leading-relaxed mb-6 flex-1">
                   Stop keeping requirements in someone&apos;s head or scattered
                   Notion docs. Track different requirement versions for
                   different stakeholders in one place.
@@ -336,7 +342,7 @@ export default function Home() {
 
             <div className="grid md:grid-cols-3 gap-6 md:gap-8">
               {/* Card 1 - AI Acceleration */}
-              <div className="glass-card rounded-3xl p-8 relative noise-texture animate-fade-in-up delay-100">
+              <div className="glass-card rounded-3xl p-8 relative noise-texture animate-fade-in-up delay-100 flex flex-col">
                 <div className="animate-float">
                   <Zap
                     className="w-10 h-10 mb-6 text-orange-300 icon-glow"
@@ -346,7 +352,7 @@ export default function Home() {
                 <h3 className="font-display text-xl font-semibold mb-3 gradient-text-orange">
                   Building is faster than ever
                 </h3>
-                <p className="text-white/60 leading-relaxed">
+                <p className="text-white/60 leading-relaxed flex-1">
                   AI has shifted the bottleneck from &quot;can we build
                   it?&quot; to &quot;should we build it and for
                   whom?&quot;—exactly where customer-facing builders operate.
@@ -354,7 +360,7 @@ export default function Home() {
               </div>
 
               {/* Card 2 - Role Maturation (Elevated) */}
-              <div className="glass-card rounded-3xl p-8 relative noise-texture md:-mt-4 animate-fade-in-up delay-200">
+              <div className="glass-card rounded-3xl p-8 relative noise-texture animate-fade-in-up delay-200 flex flex-col">
                 <div className="animate-float delay-200">
                   <TrendingUp
                     className="w-10 h-10 mb-6 text-orange-300 icon-glow"
@@ -364,14 +370,14 @@ export default function Home() {
                 <h3 className="font-display text-xl font-semibold mb-3 gradient-text-orange">
                   Customer-facing builders are the new standard
                 </h3>
-                <p className="text-white/60 leading-relaxed">
+                <p className="text-white/60 leading-relaxed flex-1">
                   Palantir. Databricks. Every AI startup. Customer-facing
                   building has become a core function, not an experiment.
                 </p>
               </div>
 
               {/* Card 3 - AI-Native */}
-              <div className="glass-card rounded-3xl p-8 relative noise-texture animate-fade-in-up delay-300">
+              <div className="glass-card rounded-3xl p-8 relative noise-texture animate-fade-in-up delay-300 flex flex-col">
                 <div className="animate-float delay-400">
                   <Bot
                     className="w-10 h-10 mb-6 text-orange-300 icon-glow"
@@ -381,7 +387,7 @@ export default function Home() {
                 <h3 className="font-display text-xl font-semibold mb-3 gradient-text-orange">
                   AI-native by design
                 </h3>
-                <p className="text-white/60 leading-relaxed">
+                <p className="text-white/60 leading-relaxed flex-1">
                   Building now means AI integration from day one—structured
                   data, clear APIs, workflows where AI searches, implements, and
                   iterates.
@@ -403,38 +409,38 @@ export default function Home() {
             </p>
 
             {/* Floating badge layout */}
-            <div className="justify-center gap-4 md:gap-5 grid grid-cols-3 text-center">
-              <div className="glass-card rounded-2xl px-6 py-4 animate-scale-in delay-200">
+            <div className="justify-center gap-4 md:gap-5 grid grid-cols-3 auto-rows-fr text-center">
+              <div className="glass-card rounded-2xl px-6 py-4 flex items-center justify-center animate-scale-in delay-200">
                 <span className="text-sm md:text-base text-white/80 font-medium">
                   Forward-Deployed Engineers
                 </span>
               </div>
 
-              <div className="glass-card rounded-2xl px-6 py-4 animate-scale-in delay-300">
+              <div className="glass-card rounded-2xl px-6 py-4 flex items-center justify-center animate-scale-in delay-300">
                 <span className="text-sm md:text-base text-white/80 font-medium">
                   Solutions Engineers
                 </span>
               </div>
 
-              <div className="glass-card rounded-2xl px-6 py-4 animate-scale-in delay-400">
+              <div className="glass-card rounded-2xl px-6 py-4 flex items-center justify-center animate-scale-in delay-400">
                 <span className="text-sm md:text-base text-white/80 font-medium">
                   Technical Account Managers
                 </span>
               </div>
 
-              <div className="glass-card rounded-2xl px-6 py-4 animate-scale-in delay-500">
+              <div className="glass-card rounded-2xl px-6 py-4 flex items-center justify-center animate-scale-in delay-500">
                 <span className="text-sm md:text-base text-white/80 font-medium">
                   Customer Engineers
                 </span>
               </div>
 
-              <div className="glass-card rounded-2xl px-6 py-4 animate-scale-in delay-600">
+              <div className="glass-card rounded-2xl px-6 py-4 flex items-center justify-center animate-scale-in delay-600">
                 <span className="text-sm md:text-base text-white/80 font-medium">
                   Implementation Teams
                 </span>
               </div>
 
-              <div className="glass-card rounded-2xl px-6 py-4 animate-scale-in delay-700">
+              <div className="glass-card rounded-2xl px-6 py-4 flex items-center justify-center animate-scale-in delay-700">
                 <span className="text-sm md:text-base text-white/80 font-medium">
                   AI Startup Founders
                 </span>
@@ -454,7 +460,9 @@ export default function Home() {
             </p>
             <div className="animate-fade-in-up delay-200">
               <a
-                href="mailto:hello@heliograph.dev"
+                href="https://forms.gle/8eMhsfNjWp2hXFuX9"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 glass-card rounded-full px-8 py-4 text-lg font-semibold text-white hover:text-orange-200 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600"
               >
                 Get Early Access
@@ -479,10 +487,6 @@ export default function Home() {
           <span className="text-sm text-white/50">
             &copy; {new Date().getFullYear()} Heliograph
           </span>
-          <p className="text-sm text-white/40 italic text-center md:text-right max-w-md">
-            Named after the heliograph—a device that focused the sun&apos;s
-            broad energy into precise, directed signals.
-          </p>
         </div>
       </footer>
     </div>

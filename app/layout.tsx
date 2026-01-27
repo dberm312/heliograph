@@ -6,21 +6,21 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Heliograph - The Toolchain for Forward-Deployed Engineers",
   description:
-    "One integrated platform combining project management, version control, and stakeholder tracking—built for FDEs shipping custom solutions.",
+    "One integrated platform combining project management, version control, and stakeholder tracking—built for customer-facing builders.",
   metadataBase: new URL("https://www.heliograph.dev"),
   openGraph: {
-    title: "Heliograph - The Toolchain for Forward-Deployed Engineers",
+    title: "Heliograph - The Toolchain for customer-facing builders",
     description:
-      "One integrated platform combining project management, version control, and stakeholder tracking—built for FDEs shipping custom solutions.",
+      "One integrated platform combining project management, version control, and stakeholder tracking—built for customer-facing builders.",
     url: "https://www.heliograph.dev",
     siteName: "Heliograph",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Heliograph - The Toolchain for Forward-Deployed Engineers",
+    title: "Heliograph - The Toolchain for customer-facing builders",
     description:
-      "One integrated platform combining project management, version control, and stakeholder tracking—built for FDEs shipping custom solutions.",
+      "One integrated platform combining project management, version control, and stakeholder tracking—built for customer-facing builders.",
   },
 };
 
