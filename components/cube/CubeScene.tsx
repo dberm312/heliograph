@@ -22,9 +22,9 @@ function useReducedMotion() {
 
 // The three pillars
 const PILLARS = [
-  { label: "CRM for Sales", color: "#f97316" }, // Orange
-  { label: "Project Management", color: "#8b5cf6" }, // Purple
-  { label: "Version Control", color: "#3b82f6" }, // Blue
+  { label: "CRM for Sales", color: "#38bdf8", icon: "Users" }, // Sky blue
+  { label: "Project Management", color: "#3b82f6", icon: "ClipboardList" }, // Blue
+  { label: "Version Control", color: "#6366f1", icon: "GitBranch" }, // Indigo
 ];
 
 // Face order in the primary (front-facing) sequence as cube rotates CCW:
@@ -144,6 +144,7 @@ export function CubeScene() {
           <CubeFace
             label={getPillar(3).label}
             color={getPillar(3).color}
+            icon={getPillar(3).icon}
             opacity={panelOpacity[0]}
             transform={`translateX(${leftTranslateX}px) rotateY(${leftRotation}deg) translateZ(${leftTranslateZ}px)`}
           />
@@ -152,6 +153,7 @@ export function CubeScene() {
           <CubeFace
             label={getPillar(0).label}
             color={getPillar(0).color}
+            icon={getPillar(0).icon}
             opacity={panelOpacity[1]}
             transform={`translateZ(${centerTranslateZ}px)`}
           />
@@ -160,6 +162,7 @@ export function CubeScene() {
           <CubeFace
             label={getPillar(1).label}
             color={getPillar(1).color}
+            icon={getPillar(1).icon}
             opacity={panelOpacity[2]}
             transform={`translateX(${rightTranslateX}px) rotateY(${rightRotation}deg) translateZ(${rightTranslateZ}px)`}
           />
@@ -169,6 +172,7 @@ export function CubeScene() {
             <CubeFace
               label={getPillar(2).label}
               color={getPillar(2).color}
+              icon={getPillar(2).icon}
               opacity={additionalFacesOpacity}
               transform={`translateZ(${-halfSize}px) rotateY(180deg)`}
             />
@@ -195,7 +199,6 @@ export function CubeScene() {
                 background:
                   "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
                 border: "2px solid rgba(255, 255, 255, 0.15)",
-                borderRadius: 16,
                 backfaceVisibility: "hidden",
               }}
               aria-hidden="true"
