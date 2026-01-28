@@ -119,11 +119,7 @@ export function CTACubeScene({
     : "";
 
   return (
-    <div
-      ref={containerRef}
-      className="relative"
-      style={{ height: "300vh" }}
-    >
+    <div ref={containerRef} className="relative" style={{ height: "300vh" }}>
       {/* Sticky wrapper keeps cube centered during scroll */}
       <div
         className="sticky top-0 h-screen flex items-center justify-center"

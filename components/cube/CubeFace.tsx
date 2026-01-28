@@ -19,7 +19,13 @@ interface CubeFaceProps {
 
 const FACE_SIZE = 280;
 
-export function CubeFace({ label, color, transform, opacity, icon }: CubeFaceProps) {
+export function CubeFace({
+  label,
+  color,
+  transform,
+  opacity,
+  icon,
+}: CubeFaceProps) {
   const IconComponent = icon ? ICONS[icon] : null;
 
   return (

@@ -59,7 +59,11 @@ export function CubeScene() {
 
   // Phase 5: Tagline (95-100%)
   const taglineOpacity = interpolate(effectiveProgress, [0.95, 1.0], [0, 1]);
-  const taglineTranslateY = interpolate(effectiveProgress, [0.95, 1.0], [20, 0]);
+  const taglineTranslateY = interpolate(
+    effectiveProgress,
+    [0.95, 1.0],
+    [20, 0],
+  );
 
   // Logo glow intensity increases during tilt
   const logoGlow = interpolate(effectiveProgress, [0.8, 0.95], [0.3, 1]);
@@ -116,11 +120,7 @@ export function CubeScene() {
     : "";
 
   return (
-    <div
-      ref={containerRef}
-      className="relative"
-      style={{ height: "500vh" }}
-    >
+    <div ref={containerRef} className="relative" style={{ height: "500vh" }}>
       {/* Sticky wrapper keeps cube centered during scroll */}
       <div
         className="sticky top-0 h-screen flex items-center justify-center"

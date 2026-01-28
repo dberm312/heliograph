@@ -68,7 +68,7 @@ export function useScrollProgress({
 export function interpolate(
   progress: number,
   inputRange: [number, number],
-  outputRange: [number, number]
+  outputRange: [number, number],
 ): number {
   const [inMin, inMax] = inputRange;
   const [outMin, outMax] = outputRange;

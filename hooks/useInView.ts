@@ -30,7 +30,7 @@ export function useInView<T extends HTMLElement = HTMLElement>({
         setIsInView(entry.isIntersecting);
       }
     },
-    [triggerOnce]
+    [triggerOnce],
   );
 
   useEffect(() => {
