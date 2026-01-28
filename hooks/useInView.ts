@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface UseInViewOptions {
   threshold?: number;
@@ -30,7 +30,7 @@ export function useInView<T extends HTMLElement = HTMLElement>({
         setIsInView(entry.isIntersecting);
       }
     },
-    [triggerOnce]
+    [triggerOnce],
   );
 
   useEffect(() => {
