@@ -200,51 +200,52 @@ export function CTACubeScene({
             />
           )}
         </div>
-      </div>
 
-      {/* CTA Content - positioned at the bottom of the scroll container */}
-      <div
-        className="absolute bottom-0 left-0 right-0 flex justify-center px-6 py-20"
-        style={{
-          opacity: ctaOpacity,
-          transform: `translateY(${ctaTranslateY}px)`,
-        }}
-      >
-        <div className="max-w-3xl text-center">
-          <h2
-            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
-            style={{
-              color: "rgba(255, 255, 255, 1)",
-              textShadow: "0 4px 20px rgba(0,0,0,0.3)",
-            }}
-          >
-            {heading}
-          </h2>
-          <p
-            className="text-xl mb-10"
-            style={{
-              color: "rgba(255, 255, 255, 0.6)",
-            }}
-          >
-            {description}
-          </p>
-          <a
-            href={ctaHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 glass-card rounded-full px-8 py-4 text-lg font-semibold text-white hover:text-orange-200 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600"
-          >
-            {ctaText}
-            <ArrowRight className="w-5 h-5" aria-hidden="true" />
-          </a>
-          <p
-            className="text-sm mt-8"
-            style={{
-              color: "rgba(255, 255, 255, 0.4)",
-            }}
-          >
-            {secondaryText}
-          </p>
+        {/* CTA Content - positioned below the cube */}
+        <div
+          className="absolute left-0 right-0 px-6 text-center"
+          style={{
+            top: "calc(50% + 200px)",
+            opacity: ctaOpacity,
+            transform: `translateY(${ctaTranslateY}px)`,
+          }}
+        >
+          <div className="max-w-3xl mx-auto">
+            <h2
+              className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+              style={{
+                color: "rgba(255, 255, 255, 1)",
+                textShadow: "0 4px 20px rgba(0,0,0,0.3)",
+              }}
+            >
+              {heading}
+            </h2>
+            <p
+              className="text-xl mb-10"
+              style={{
+                color: "rgba(255, 255, 255, 0.6)",
+              }}
+            >
+              {description}
+            </p>
+            <a
+              href={ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 glass-card rounded-full px-8 py-4 text-lg font-semibold text-white hover:text-orange-200 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600"
+            >
+              {ctaText}
+              <ArrowRight className="w-5 h-5" aria-hidden="true" />
+            </a>
+            <p
+              className="text-sm mt-8"
+              style={{
+                color: "rgba(255, 255, 255, 0.4)",
+              }}
+            >
+              {secondaryText}
+            </p>
+          </div>
         </div>
       </div>
     </div>
