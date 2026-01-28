@@ -1,5 +1,4 @@
 import {
-  ArrowRight,
   Bot,
   ChevronRight,
   ClipboardList,
@@ -11,10 +10,11 @@ import {
   Zap,
 } from "lucide-react";
 import { AnimatedSection } from "@/components/ScrollAnimation";
+import { CTACubeScene } from "@/components/cube/CTACubeScene";
 
 export default function Home() {
   return (
-    <div className="min-h-screen text-white/90 overflow-x-hidden">
+    <div className="min-h-screen text-white/90">
       {/* Decorative gradient orbs - hidden on mobile to prevent overflow */}
       <div
         className="hidden md:block gradient-orb w-[600px] h-[600px] bg-orange-400/30 -top-48 -right-48 fixed animate-pulse-glow"
@@ -25,7 +25,7 @@ export default function Home() {
         aria-hidden="true"
       />
 
-      <main>
+      <main className="overflow-x-clip">
         {/* Hero Text - Asymmetric layout */}
         <section className="px-6 pt-24 pb-32 md:pt-32 md:pb-40 relative">
           {/* Light beam decoration */}
@@ -438,32 +438,15 @@ export default function Home() {
           </AnimatedSection>
         </section>
 
-        {/* CTA Section */}
-        <section className="px-6 py-20 md:py-32 relative">
-          <AnimatedSection className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fade-in-up">
-              Stop living in three disconnected worlds
-            </h2>
-            <p className="text-xl text-white/60 mb-10 animate-fade-in-up delay-100">
-              One platform where Product, Engineering, and Customer teams
-              finally sync.
-            </p>
-            <div className="animate-fade-in-up delay-200">
-              <a
-                href="https://forms.gle/8eMhsfNjWp2hXFuX9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 glass-card rounded-full px-8 py-4 text-lg font-semibold text-white hover:text-orange-200 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600"
-              >
-                Get Early Access
-                <ArrowRight className="w-5 h-5" aria-hidden="true" />
-              </a>
-            </div>
-            <p className="text-sm text-white/40 mt-8 animate-fade-in-up delay-300">
-              Join the customer-facing builders transforming how they ship
-              custom solutions.
-            </p>
-          </AnimatedSection>
+        {/* CTA Section with Cube Animation */}
+        <section className="relative overflow-visible">
+          <CTACubeScene
+            heading="Stop living in three disconnected worlds"
+            description="One platform where Product, Engineering, and Customer teams finally sync."
+            ctaText="Get Early Access"
+            ctaHref="https://forms.gle/8eMhsfNjWp2hXFuX9"
+            secondaryText="Join the customer-facing builders transforming how they ship custom solutions."
+          />
         </section>
       </main>
 

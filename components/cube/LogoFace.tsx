@@ -30,8 +30,9 @@ export function LogoFace({ transform, opacity, glowIntensity }: LogoFaceProps) {
       <Image
         src="/heliograph-logo.svg"
         alt="Heliograph"
-        width={120}
-        height={120}
+        width={230}
+        height={230}
+        style={{ transform: "scaleX(-1)" }}
       />
     </div>
   );

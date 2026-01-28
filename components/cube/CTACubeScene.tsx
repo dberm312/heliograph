@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { useScrollProgress, interpolate } from "@/hooks/useScrollProgress";
 import { CubeFace, FACE_SIZE } from "./CubeFace";
 import { LogoFace } from "./LogoFace";
+import { ArrowRight } from "lucide-react";
 
 function useReducedMotion() {
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -29,10 +30,23 @@ const PILLARS = [
 
 // Face order in the primary (front-facing) sequence as cube rotates CW:
 // Face 0 (front) → Face 1 (right) → Face 2 (back) → Face 3 (left) → repeat
-// This maps faceIndex to its position in that sequence
 const FACE_ORDER: Record<number, number> = { 0: 0, 1: 1, 2: 2, 3: 3 };
 
-export function CubeScene() {
+interface CTACubeSceneProps {
+  heading?: string;
+  description?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  secondaryText?: string;
+}
+
+export function CTACubeScene({
+  heading = "Stop living in three disconnected worlds",
+  description = "One platform where Product, Engineering, and Customer teams finally sync.",
+  ctaText = "Get Early Access",
+  ctaHref = "https://forms.gle/8eMhsfNjWp2hXFuX9",
+  secondaryText = "Join the customer-facing builders transforming how they ship custom solutions.",
+}: CTACubeSceneProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { progress } = useScrollProgress({ containerRef });
   const reducedMotion = useReducedMotion();
@@ -42,42 +56,35 @@ export function CubeScene() {
   // If user prefers reduced motion, skip to final state
   const effectiveProgress = reducedMotion ? 1 : progress;
 
-  // Phase calculations based on scroll progress
+  // Phase calculations based on scroll progress (adjusted for 300vh)
   // All panels visible from the start
   const panelOpacity = [1, 1, 1];
 
-  // Phase 2: Fold into cube (0-20%)
-  const foldProgress = interpolate(effectiveProgress, [0, 0.2], [0, 1]);
+  // Phase 1: Fold into cube (0-25%)
+  const foldProgress = interpolate(effectiveProgress, [0, 0.25], [0, 1]);
 
-  // Phase 3: Spin 1.5 rotations clockwise (20-80%)
-  const spinProgress = interpolate(effectiveProgress, [0.2, 0.8], [0, 1]);
+  // Phase 2: Spin 1.5 rotations clockwise (25-70%)
+  const spinProgress = interpolate(effectiveProgress, [0.25, 0.7], [0, 1]);
   const spinRotationY = spinProgress * -540; // 1.5 rotations clockwise
 
-  // Phase 4: Tilt down (80-95%)
-  const tiltProgress = interpolate(effectiveProgress, [0.8, 0.95], [0, 1]);
+  // Phase 3: Tilt down (70-90%)
+  const tiltProgress = interpolate(effectiveProgress, [0.7, 0.9], [0, 1]);
   const tiltRotationX = tiltProgress * 90;
 
-  // Phase 5: Tagline (95-100%)
-  const taglineOpacity = interpolate(effectiveProgress, [0.95, 1.0], [0, 1]);
-  const taglineTranslateY = interpolate(effectiveProgress, [0.95, 1.0], [20, 0]);
+  // Phase 4: CTA content (90-100%)
+  const ctaOpacity = interpolate(effectiveProgress, [0.9, 1.0], [0, 1]);
+  const ctaTranslateY = interpolate(effectiveProgress, [0.9, 1.0], [20, 0]);
 
   // Logo glow intensity increases during tilt
-  const logoGlow = interpolate(effectiveProgress, [0.8, 0.95], [0.3, 1]);
+  const logoGlow = interpolate(effectiveProgress, [0.7, 0.9], [0.3, 1]);
 
   // Calculate dynamic pillar content based on rotation
-  // This creates the illusion of only 3 faces on a 4-sided cube
-  // Each face shows the pillar it will display when it becomes the primary (front) face
-  // Content only changes when the face is at the back (hidden from view)
   const rotationQuarter = Math.floor(Math.abs(spinRotationY) / 90);
 
   const getPillar = (faceIndex: number) => {
     const order = FACE_ORDER[faceIndex];
-    // Distance to the most recent quarter when this face was/is primary
     const distToPrev = ((rotationQuarter % 4) - order + 4) % 4;
 
-    // Calculate the "effective quarter" that determines which pillar to show
-    // If face is primary (dist=0) or just exited primary (dist=1), use current/recent quarter
-    // Otherwise (becoming primary or hidden), use the upcoming quarter
     let effectiveQ: number;
     if (distToPrev <= 1) {
       effectiveQ = rotationQuarter - distToPrev;
@@ -85,21 +92,17 @@ export function CubeScene() {
       effectiveQ = rotationQuarter + (4 - distToPrev);
     }
 
-    // Convert to pillar index (handles negative values correctly)
     const pillarIndex = ((effectiveQ % 3) + 3) % 3;
     return PILLARS[pillarIndex];
   };
 
   // Face transforms during fold phase
-  // Left face: starts at x=-280 (one face width), folds to left side
   const leftRotation = interpolate(foldProgress, [0, 1], [0, -90]);
   const leftTranslateX = interpolate(foldProgress, [0, 1], [-280, 0]);
   const leftTranslateZ = interpolate(foldProgress, [0, 1], [0, halfSize]);
 
-  // Center face: stays as front, moves forward
   const centerTranslateZ = interpolate(foldProgress, [0, 1], [0, halfSize]);
 
-  // Right face: starts at x=280 (one face width), folds to right side
   const rightRotation = interpolate(foldProgress, [0, 1], [0, 90]);
   const rightTranslateX = interpolate(foldProgress, [0, 1], [280, 0]);
   const rightTranslateZ = interpolate(foldProgress, [0, 1], [0, halfSize]);
@@ -108,7 +111,7 @@ export function CubeScene() {
   const additionalFacesOpacity = interpolate(foldProgress, [0.5, 1], [0, 1]);
 
   // Is cube formed? (for applying spin/tilt rotation)
-  const isCubeFormed = effectiveProgress >= 0.2;
+  const isCubeFormed = effectiveProgress >= 0.25;
 
   // Build cube container transform
   const cubeRotation = isCubeFormed
@@ -119,7 +122,7 @@ export function CubeScene() {
     <div
       ref={containerRef}
       className="relative"
-      style={{ height: "500vh" }}
+      style={{ height: "300vh" }}
     >
       {/* Sticky wrapper keeps cube centered during scroll */}
       <div
@@ -201,41 +204,51 @@ export function CubeScene() {
             />
           )}
         </div>
+      </div>
 
-        {/* Tagline appears after tilt completes */}
-        <div
-          className="absolute bottom-32 left-0 right-0 flex justify-center"
-          style={{
-            opacity: taglineOpacity,
-            transform: `translateY(${taglineTranslateY}px)`,
-          }}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <div
-              style={{
-                fontSize: 32,
-                fontWeight: 600,
-                color: "rgba(255, 255, 255, 1)",
-                fontFamily: "var(--font-clash-display), sans-serif",
-                textAlign: "center",
-                textShadow: "0 4px 20px rgba(0,0,0,0.3)",
-              }}
-            >
-              Quickly Align, Build, and Codify with
-            </div>
-            <div
-              style={{
-                fontSize: 48,
-                fontWeight: 700,
-                color: "#fdba74",
-                fontFamily: "var(--font-clash-display), sans-serif",
-                textAlign: "center",
-                textShadow: "0 4px 20px rgba(0,0,0,0.3)",
-              }}
-            >
-              Heliograph
-            </div>
-          </div>
+      {/* CTA Content - positioned at the bottom of the scroll container */}
+      <div
+        className="absolute bottom-0 left-0 right-0 flex justify-center px-6 py-20"
+        style={{
+          opacity: ctaOpacity,
+          transform: `translateY(${ctaTranslateY}px)`,
+        }}
+      >
+        <div className="max-w-3xl text-center">
+          <h2
+            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+            style={{
+              color: "rgba(255, 255, 255, 1)",
+              textShadow: "0 4px 20px rgba(0,0,0,0.3)",
+            }}
+          >
+            {heading}
+          </h2>
+          <p
+            className="text-xl mb-10"
+            style={{
+              color: "rgba(255, 255, 255, 0.6)",
+            }}
+          >
+            {description}
+          </p>
+          <a
+            href={ctaHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 glass-card rounded-full px-8 py-4 text-lg font-semibold text-white hover:text-orange-200 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600"
+          >
+            {ctaText}
+            <ArrowRight className="w-5 h-5" aria-hidden="true" />
+          </a>
+          <p
+            className="text-sm mt-8"
+            style={{
+              color: "rgba(255, 255, 255, 0.4)",
+            }}
+          >
+            {secondaryText}
+          </p>
         </div>
       </div>
     </div>
