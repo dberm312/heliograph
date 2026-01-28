@@ -147,38 +147,55 @@ body {
   }
 }
 
-/* Animation utilities */
-.animate-fade-in-up {
+/* Animation utilities - scroll-triggered by default */
+/* Elements start hidden and animate when parent has .in-view class */
+
+.animate-fade-in-up,
+.animate-fade-in,
+.animate-slide-in-left,
+.animate-slide-in-right,
+.animate-scale-in {
+  opacity: 0;
+}
+
+/* When parent section is in view, trigger animations */
+.in-view .animate-fade-in-up {
   animation: fade-in-up 0.8s var(--ease-out-expo) forwards;
-  opacity: 0;
 }
 
-.animate-fade-in {
+.in-view .animate-fade-in {
   animation: fade-in 0.6s var(--ease-out-expo) forwards;
+}
+
+.in-view .animate-slide-in-left {
+  animation: slide-in-left 0.8s var(--ease-out-expo) forwards;
+}
+
+.in-view .animate-slide-in-right {
+  animation: slide-in-right 0.8s var(--ease-out-expo) forwards;
+}
+
+.in-view .animate-scale-in {
+  animation: scale-in 0.6s var(--ease-out-expo) forwards;
+}
+
+/* When out of view, reset animation state */
+.out-of-view .animate-fade-in-up,
+.out-of-view .animate-fade-in,
+.out-of-view .animate-slide-in-left,
+.out-of-view .animate-slide-in-right,
+.out-of-view .animate-scale-in {
+  animation: none;
   opacity: 0;
 }
 
+/* Continuous animations (not scroll-triggered) */
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
-}
-
-.animate-slide-in-left {
-  animation: slide-in-left 0.8s var(--ease-out-expo) forwards;
-  opacity: 0;
-}
-
-.animate-slide-in-right {
-  animation: slide-in-right 0.8s var(--ease-out-expo) forwards;
-  opacity: 0;
-}
-
-.animate-scale-in {
-  animation: scale-in 0.6s var(--ease-out-expo) forwards;
-  opacity: 0;
 }
 
 /* Animation delays */
@@ -213,7 +230,12 @@ body {
   .animate-fade-in,
   .animate-slide-in-left,
   .animate-slide-in-right,
-  .animate-scale-in {
+  .animate-scale-in,
+  .in-view .animate-fade-in-up,
+  .in-view .animate-fade-in,
+  .in-view .animate-slide-in-left,
+  .in-view .animate-slide-in-right,
+  .in-view .animate-scale-in {
     animation: none;
     opacity: 1;
   }

@@ -10,6 +10,7 @@ import {
   Users,
   Zap,
 } from "lucide-react";
+import { AnimatedSection } from "@/components/ScrollAnimation";
 
 export default function Home() {
   return (
@@ -37,7 +38,7 @@ export default function Home() {
             aria-hidden="true"
           />
 
-          <div className="max-w-6xl mx-auto">
+          <AnimatedSection className="max-w-6xl mx-auto">
             {/* Offset headline for asymmetry */}
             <div className="md:ml-12 lg:ml-24">
               <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] mb-8">
@@ -77,7 +78,7 @@ export default function Home() {
                 </span>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
         </section>
 
         {/* Problem Section - The Struggle */}
@@ -87,7 +88,7 @@ export default function Home() {
             aria-hidden="true"
           />
 
-          <div className="max-w-5xl mx-auto relative">
+          <AnimatedSection className="max-w-5xl mx-auto relative">
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-center animate-fade-in-up">
               Your teams use different tools. They don&apos;t talk.
             </h2>
@@ -213,7 +214,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
         </section>
 
         {/* Three Core Modules Section */}
@@ -224,7 +225,7 @@ export default function Home() {
             aria-hidden="true"
           />
 
-          <div className="max-w-6xl mx-auto">
+          <AnimatedSection className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 animate-fade-in-up">
                 One integrated platform
@@ -313,7 +314,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
         </section>
 
         {/* Why Now Section */}
@@ -323,7 +324,7 @@ export default function Home() {
             aria-hidden="true"
           />
 
-          <div className="max-w-5xl mx-auto relative">
+          <AnimatedSection className="max-w-5xl mx-auto relative">
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-16 text-center animate-fade-in-up">
               The moment is now
             </h2>
@@ -382,12 +383,12 @@ export default function Home() {
                 </p>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
         </section>
 
         {/* Target Audience - Floating badges */}
         <section className="px-6 py-20 md:py-32 relative">
-          <div className="max-w-5xl mx-auto relative">
+          <AnimatedSection className="max-w-5xl mx-auto relative">
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-center animate-fade-in-up">
               Built for customer-facing teams
             </h2>
@@ -434,12 +435,12 @@ export default function Home() {
                 </span>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
         </section>
 
         {/* CTA Section */}
         <section className="px-6 py-20 md:py-32 relative">
-          <div className="max-w-3xl mx-auto text-center">
+          <AnimatedSection className="max-w-3xl mx-auto text-center">
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fade-in-up">
               Stop living in three disconnected worlds
             </h2>
@@ -462,7 +463,7 @@ export default function Home() {
               Join the customer-facing builders transforming how they ship
               custom solutions.
             </p>
-          </div>
+          </AnimatedSection>
         </section>
       </main>
 
