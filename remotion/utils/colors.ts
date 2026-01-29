@@ -16,3 +16,32 @@ export const COLORS = {
   // Background
   background: "#2563eb", // blue-600
 } as const;
+
+// Module-specific colors for demo video
+export const MODULE_COLORS = {
+  projectManagement: {
+    primary: "#f97316", // Orange
+    secondary: "#fdba74", // Light orange
+    accent: "#ea580c", // Dark orange
+  },
+  versionControl: {
+    primary: "#3b82f6", // Blue
+    secondary: "#93c5fd", // Light blue
+    accent: "#2563eb", // Dark blue
+  },
+  stakeholderManagement: {
+    primary: "#8b5cf6", // Purple
+    secondary: "#c4b5fd", // Light purple
+    accent: "#7c3aed", // Dark purple
+  },
+} as const;
+
+// Status colors for mockups
+export const STATUS_COLORS = {
+  backlog: "#6b7280", // Gray
+  inProgress: "#f97316", // Orange
+  review: "#3b82f6", // Blue
+  done: "#22c55e", // Green
+  approved: "#22c55e", // Green
+  pending: "#eab308", // Yellow
+} as const;

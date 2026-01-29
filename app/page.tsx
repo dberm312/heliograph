@@ -9,19 +9,19 @@ import {
   Users,
   Zap,
 } from "lucide-react";
-import { AnimatedSection } from "@/components/ScrollAnimation";
 import { CTACubeScene } from "@/components/cube/CTACubeScene";
+import { AnimatedSection } from "@/components/ScrollAnimation";
 
 export default function Home() {
   return (
-    <div className="min-h-screen text-white/90">
+    <div className="min-h-screen text-white/90 relative">
       {/* Decorative gradient orbs - hidden on mobile to prevent overflow */}
       <div
-        className="hidden md:block gradient-orb w-[600px] h-[600px] bg-orange-400/30 -top-48 -right-48 fixed animate-pulse-glow"
+        className="hidden md:block gradient-orb w-[600px] h-[600px] bg-orange-400/30 -top-48 -right-48 absolute animate-pulse-glow"
         aria-hidden="true"
       />
       <div
-        className="hidden md:block gradient-orb w-[500px] h-[500px] bg-blue-400/20 top-1/2 -left-64 fixed"
+        className="hidden md:block gradient-orb w-[500px] h-[500px] bg-blue-400/20 top-1/2 -left-64 absolute"
         aria-hidden="true"
       />
 

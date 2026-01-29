@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { useScrollProgress, interpolate } from "@/hooks/useScrollProgress";
+import { ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { interpolate, useScrollProgress } from "@/hooks/useScrollProgress";
 import { CubeFace, FACE_SIZE } from "./CubeFace";
 import { LogoFace } from "./LogoFace";
-import { ArrowRight } from "lucide-react";
 
 function useReducedMotion() {
   const [reducedMotion, setReducedMotion] = useState(false);

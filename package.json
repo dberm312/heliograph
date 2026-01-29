@@ -10,7 +10,9 @@
     "format": "biome format --write .",
     "check": "biome check --write .",
     "remotion:dev": "remotion studio remotion/index.ts",
-    "remotion:build": "remotion render remotion/index.ts HeliographPromo public/videos/heliograph-promo.mp4"
+    "remotion:build": "remotion render remotion/index.ts HeliographPromo public/videos/heliograph-promo.mp4",
+    "remotion:demo": "remotion studio remotion/index.ts",
+    "remotion:build:demo": "remotion render remotion/index.ts DemoVideo public/videos/heliograph-demo.mp4"
   },
   "dependencies": {
     "@react-three/fiber": "^9.5.0",

@@ -1,6 +1,6 @@
 "use client";
 
-import { ClipboardList, GitBranch, Users, LucideIcon } from "lucide-react";
+import { ClipboardList, GitBranch, type LucideIcon, Users } from "lucide-react";
 
 // Icon mapping
 const ICONS: Record<string, LucideIcon> = {

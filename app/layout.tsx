@@ -43,7 +43,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className="min-h-screen bg-blue-600 relative text-white font-sans selection:bg-orange-500/50"
+        className="min-h-screen bg-blue-600 relative text-white font-sans selection:bg-orange-500/50 overflow-x-clip"
         suppressHydrationWarning
       >
         <div className="fixed inset-0 bg-linear-to-br from-orange-400 via-blue-500 to-blue-600 -z-10" />

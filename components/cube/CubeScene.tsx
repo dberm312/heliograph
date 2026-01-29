@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { useScrollProgress, interpolate } from "@/hooks/useScrollProgress";
+import { useEffect, useRef, useState } from "react";
+import { interpolate, useScrollProgress } from "@/hooks/useScrollProgress";
 import { CubeFace, FACE_SIZE } from "./CubeFace";
 import { LogoFace } from "./LogoFace";
 
