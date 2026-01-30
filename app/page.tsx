@@ -10,6 +10,7 @@ import {
   Zap,
 } from "lucide-react";
 import { CTACubeScene } from "@/components/cube/CTACubeScene";
+import { StaticCTA } from "@/components/StaticCTA";
 import { AnimatedSection } from "@/components/ScrollAnimation";
 
 export default function Home() {
@@ -27,7 +28,7 @@ export default function Home() {
 
       <main className="overflow-x-clip">
         {/* Hero Text - Asymmetric layout */}
-        <section className="px-6 pt-24 pb-32 md:pt-32 md:pb-40 relative">
+        <section className="px-6 pt-24 pb-32 md:pt-32 md:pb-20 relative">
           {/* Light beam decoration */}
           <div
             className="light-beam w-[2px] h-64 absolute top-0 left-1/4 rotate-12 opacity-50"
@@ -80,6 +81,9 @@ export default function Home() {
             </div>
           </AnimatedSection>
         </section>
+
+        {/* Early CTA - Static version */}
+        <StaticCTA />
 
         {/* Problem Section - The Struggle */}
         <section className="px-6 py-20 md:py-32 relative">
