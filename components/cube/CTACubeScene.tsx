@@ -65,11 +65,11 @@ export function CTACubeScene({
 
   // Phase 2: Spin 1.5 rotations clockwise (25-70%)
   const spinProgress = interpolate(effectiveProgress, [0.25, 0.7], [0, 1]);
-  const spinRotationY = spinProgress * -540; // 1.5 rotations clockwise
+  const spinRotationY = spinProgress * -270; // 3 faces: CRM → PM → VC → CRM
 
   // Phase 3: Tilt down (70-90%)
   const tiltProgress = interpolate(effectiveProgress, [0.7, 0.9], [0, 1]);
-  const tiltRotationX = tiltProgress * 90;
+  const tiltRotationX = tiltProgress * -90;
 
   // Phase 4: CTA content (90-100%)
   const ctaOpacity = interpolate(effectiveProgress, [0.9, 1.0], [0, 1]);
@@ -114,8 +114,9 @@ export function CTACubeScene({
   const isCubeFormed = effectiveProgress >= 0.25;
 
   // Build cube container transform
+  // Order matters: rotateX first so tilt happens in world space after spin
   const cubeRotation = isCubeFormed
-    ? `rotateY(${spinRotationY}deg) rotateX(${tiltRotationX}deg)`
+    ? `rotateX(${tiltRotationX}deg) rotateY(${spinRotationY}deg)`
     : "";
 
   return (
@@ -176,7 +177,7 @@ export function CTACubeScene({
           {/* Top Face - Heliograph Logo */}
           {foldProgress > 0.3 && (
             <LogoFace
-              transform={`translateY(${-halfSize}px) rotateX(90deg)`}
+              transform={`translateY(${-halfSize}px) rotateX(90deg) rotateZ(${-spinRotationY}deg)`}
               opacity={additionalFacesOpacity}
               glowIntensity={logoGlow}
             />
