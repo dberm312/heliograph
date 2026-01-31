@@ -1,31 +1,35 @@
-import {
-  AbsoluteFill,
-  interpolate,
-  spring,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import { AbsoluteFill } from "remotion";
 import { AnimatedGradient } from "../../components/AnimatedGradient";
-import { BranchTree } from "../../components/mockups/BranchTree";
-import { DiffView } from "../../components/mockups/DiffView";
+import { FeatureCommentary } from "../../components/FeatureCommentary";
+import { DocumentViewer } from "../../components/mockups/DocumentViewer";
+import { EnhancedBranchTree } from "../../components/mockups/EnhancedBranchTree";
 import { MockupFrame } from "../../components/mockups/MockupFrame";
+import { VC_FEATURE_ITEMS } from "../../data/versionControlData";
+import { MODULE_COLORS } from "../../utils/colors";
 import { FONTS } from "../../utils/fonts";
 
 const SCENE_PADDING = 40;
+const PANEL_GAP = 32;
+// Left panel takes 1/3 of the available width
+const LEFT_PANEL_WIDTH = Math.floor((1920 - SCENE_PADDING * 2 - PANEL_GAP) / 3);
+// Right panel (mockup) takes remaining 2/3
+const MOCKUP_WIDTH = 1920 - SCENE_PADDING * 2 - LEFT_PANEL_WIDTH - PANEL_GAP;
+const MOCKUP_HEIGHT = 1080 - SCENE_PADDING * 2;
+
+// Inside mockup content split
+const CONTENT_GAP = 24;
+const DOC_VIEWER_RATIO = 0.67; // 2/3
+const BRANCH_TREE_RATIO = 0.33; // 1/3
 
 export const VersionControlScene: React.FC = () => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  // Content area dimensions (inside MockupFrame, accounting for title bar)
+  const contentHeight = MOCKUP_HEIGHT - 48; // 48px title bar
+  const contentPadding = 24;
+  const innerHeight = contentHeight - contentPadding * 2;
+  const innerWidth = MOCKUP_WIDTH - contentPadding * 2 - 2; // -2 for borders
 
-  // Split panel animation
-  const splitProgress = spring({
-    frame: frame - 50,
-    fps,
-    config: { damping: 20, stiffness: 100 },
-  });
-
-  // Show merge animation in last third of scene
-  const showMerge = frame > 200;
+  const docViewerWidth = (innerWidth - CONTENT_GAP) * DOC_VIEWER_RATIO;
+  const branchTreeWidth = (innerWidth - CONTENT_GAP) * BRANCH_TREE_RATIO;
 
   return (
     <AbsoluteFill>
@@ -38,89 +42,118 @@ export const VersionControlScene: React.FC = () => {
           padding: SCENE_PADDING,
         }}
       >
-        {/* Mockup frame with split view */}
         <div
           style={{
             width: "100%",
             height: "100%",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
+            gap: PANEL_GAP,
           }}
         >
-          <MockupFrame
-            title="Heliograph — Version Control"
-            width={1920 - SCENE_PADDING * 2}
-            height={1080 - SCENE_PADDING * 2}
+          {/* Left Panel - Feature Commentary */}
+          <div
+            style={{
+              width: LEFT_PANEL_WIDTH,
+              height: MOCKUP_HEIGHT,
+              flexShrink: 0,
+              background: "#ffffff",
+              borderRadius: 16,
+              border: "1px solid rgba(0, 0, 0, 0.08)",
+              boxShadow: "0 4px 24px rgba(0, 0, 0, 0.08)",
+              overflow: "hidden",
+            }}
           >
-            <div
-              style={{
-                display: "flex",
-                height: "100%",
-                padding: 32,
-                gap: 40,
-              }}
+            <FeatureCommentary
+              title="Version Control"
+              items={VC_FEATURE_ITEMS}
+              accentColor={MODULE_COLORS.versionControl.primary}
+            />
+          </div>
+
+          {/* Right Panel - Version Control Mockup */}
+          <div>
+            <MockupFrame
+              title="Heliograph — Version Control"
+              width={MOCKUP_WIDTH}
+              height={MOCKUP_HEIGHT}
             >
-              {/* Left panel - Branch tree */}
               <div
                 style={{
-                  flex: "0 0 350px",
-                  opacity: splitProgress,
-                  transform: `translateX(${interpolate(splitProgress, [0, 1], [-30, 0])}px)`,
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: 14,
-                    fontWeight: 600,
-                    color: "#64748b",
-                    fontFamily: FONTS.body,
-                    marginBottom: 20,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                  }}
-                >
-                  Branches
-                </div>
-                <BranchTree showMerge={showMerge} />
-              </div>
-
-              {/* Divider */}
-              <div
-                style={{
-                  width: 1,
-                  background: "rgba(0, 0, 0, 0.1)",
-                  opacity: splitProgress,
-                }}
-              />
-
-              {/* Right panel - Diff view */}
-              <div
-                style={{
-                  flex: 1,
                   display: "flex",
-                  flexDirection: "column",
-                  opacity: splitProgress,
-                  transform: `translateX(${interpolate(splitProgress, [0, 1], [30, 0])}px)`,
+                  height: "100%",
+                  padding: contentPadding,
+                  gap: CONTENT_GAP,
                 }}
               >
+                {/* Left side - Document Viewer */}
                 <div
                   style={{
-                    fontSize: 14,
-                    fontWeight: 600,
-                    color: "#64748b",
-                    fontFamily: FONTS.body,
-                    marginBottom: 20,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
+                    width: docViewerWidth,
+                    height: innerHeight,
+                    display: "flex",
+                    flexDirection: "column",
                   }}
                 >
-                  Changes
+                  <div
+                    style={{
+                      fontSize: 12,
+                      fontWeight: 600,
+                      color: "#64748b",
+                      fontFamily: FONTS.body,
+                      marginBottom: 12,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em",
+                    }}
+                  >
+                    Document
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <DocumentViewer width="100%" height="100%" />
+                  </div>
                 </div>
-                <DiffView />
+
+                {/* Divider */}
+                <div
+                  style={{
+                    width: 1,
+                    background: "rgba(0, 0, 0, 0.08)",
+                    alignSelf: "stretch",
+                  }}
+                />
+
+                {/* Right side - Branch Tree */}
+                <div
+                  style={{
+                    width: branchTreeWidth,
+                    height: innerHeight,
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: 12,
+                      fontWeight: 600,
+                      color: "#64748b",
+                      fontFamily: FONTS.body,
+                      marginBottom: 12,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em",
+                    }}
+                  >
+                    Branches & History
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <EnhancedBranchTree
+                      width={branchTreeWidth}
+                      height={innerHeight - 32}
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-          </MockupFrame>
+            </MockupFrame>
+          </div>
         </div>
       </AbsoluteFill>
     </AbsoluteFill>

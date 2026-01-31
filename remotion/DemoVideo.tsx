@@ -14,12 +14,12 @@ export const DemoVideo: React.FC = () => {
     loadFonts();
   }, []);
 
-  // Scene durations (in frames at 30fps) - Total 45s = 1350 frames
+  // Scene durations (in frames at 30fps) - Total ~62s = 1860 frames
   const introDuration = 90; // 3s
-  const projectMgmtDuration = 360; // 12s
-  const versionControlDuration = 360; // 12s
-  const stakeholderDuration = 360; // 12s
-  const outroDuration = 180; // 6s
+  const projectMgmtDuration = 450; // 15s
+  const versionControlDuration = 450; // 15s
+  const stakeholderDuration = 450; // 15s
+  const outroDuration = 450; // 15s
 
   // Transition configuration - macOS desktop swipe style (0.5s)
   const slideTransition = linearTiming({ durationInFrames: 15 });

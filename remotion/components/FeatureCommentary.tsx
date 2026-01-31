@@ -7,6 +7,7 @@ import { FONTS } from "../utils/fonts";
 type FeatureCommentaryProps = {
   title: string;
   items: FeatureItem[];
+  accentColor?: string; // Defaults to MODULE_COLORS.stakeholderManagement.primary
 };
 
 type FeatureItemComponentProps = {
@@ -14,6 +15,7 @@ type FeatureItemComponentProps = {
   isActive: boolean;
   isPast: boolean;
   index: number;
+  accentColor: string;
 };
 
 const FeatureItemComponent: React.FC<FeatureItemComponentProps> = ({
@@ -21,6 +23,7 @@ const FeatureItemComponent: React.FC<FeatureItemComponentProps> = ({
   isActive,
   isPast,
   index,
+  accentColor,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -37,11 +40,7 @@ const FeatureItemComponent: React.FC<FeatureItemComponentProps> = ({
 
   // Active state glow animation
   const activeGlow = isActive
-    ? interpolate(
-        Math.sin((frame - item.appearAt) * 0.1),
-        [-1, 1],
-        [0.4, 0.7],
-      )
+    ? interpolate(Math.sin((frame - item.appearAt) * 0.1), [-1, 1], [0.4, 0.7])
     : 0;
 
   return (
@@ -53,13 +52,13 @@ const FeatureItemComponent: React.FC<FeatureItemComponentProps> = ({
         marginBottom: 12,
         borderRadius: 12,
         background: isActive
-          ? `linear-gradient(135deg, ${MODULE_COLORS.stakeholderManagement.primary}15, ${MODULE_COLORS.stakeholderManagement.primary}08)`
+          ? `linear-gradient(135deg, ${accentColor}15, ${accentColor}08)`
           : "rgba(0, 0, 0, 0.02)",
         border: isActive
-          ? `1px solid ${MODULE_COLORS.stakeholderManagement.primary}40`
+          ? `1px solid ${accentColor}40`
           : "1px solid rgba(0, 0, 0, 0.04)",
         boxShadow: isActive
-          ? `0 0 24px ${MODULE_COLORS.stakeholderManagement.primary}${Math.round(activeGlow * 255)
+          ? `0 0 24px ${accentColor}${Math.round(activeGlow * 255)
               .toString(16)
               .padStart(2, "0")}`
           : "none",
@@ -77,7 +76,7 @@ const FeatureItemComponent: React.FC<FeatureItemComponentProps> = ({
           width: 4,
           height: isActive ? "60%" : "0%",
           borderRadius: 2,
-          background: MODULE_COLORS.stakeholderManagement.primary,
+          background: accentColor,
           opacity: isActive ? 1 : 0,
           transition: "height 0.2s ease",
         }}
@@ -97,7 +96,7 @@ const FeatureItemComponent: React.FC<FeatureItemComponentProps> = ({
             height: 28,
             borderRadius: "50%",
             background: isActive
-              ? MODULE_COLORS.stakeholderManagement.primary
+              ? accentColor
               : isPast
                 ? "rgba(0, 0, 0, 0.08)"
                 : "rgba(0, 0, 0, 0.05)",
@@ -121,6 +120,7 @@ const FeatureItemComponent: React.FC<FeatureItemComponentProps> = ({
               strokeWidth="3"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
               <polyline points="20 6 9 17 4 12" />
             </svg>
@@ -165,6 +165,7 @@ const FeatureItemComponent: React.FC<FeatureItemComponentProps> = ({
 export const FeatureCommentary: React.FC<FeatureCommentaryProps> = ({
   title,
   items,
+  accentColor = MODULE_COLORS.stakeholderManagement.primary,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -213,7 +214,7 @@ export const FeatureCommentary: React.FC<FeatureCommentaryProps> = ({
             fontSize: 18,
             fontWeight: 600,
             fontFamily: FONTS.display,
-            color: MODULE_COLORS.stakeholderManagement.primary,
+            color: accentColor,
             letterSpacing: "0.08em",
             textTransform: "uppercase",
             marginBottom: 8,
@@ -226,7 +227,7 @@ export const FeatureCommentary: React.FC<FeatureCommentaryProps> = ({
             width: 48,
             height: 3,
             borderRadius: 2,
-            background: `linear-gradient(90deg, ${MODULE_COLORS.stakeholderManagement.primary}, ${MODULE_COLORS.stakeholderManagement.secondary})`,
+            background: `linear-gradient(90deg, ${accentColor}, ${accentColor}88)`,
           }}
         />
       </div>
@@ -239,7 +240,7 @@ export const FeatureCommentary: React.FC<FeatureCommentaryProps> = ({
           flexDirection: "column",
         }}
       >
-        {visibleItems.map((item, visibleIndex) => {
+        {visibleItems.map((item) => {
           const originalIndex = items.findIndex((i) => i.id === item.id);
           const isActive = originalIndex === activeIndex;
           const isPast = originalIndex < activeIndex;
@@ -251,6 +252,7 @@ export const FeatureCommentary: React.FC<FeatureCommentaryProps> = ({
               isActive={isActive}
               isPast={isPast}
               index={originalIndex}
+              accentColor={accentColor}
             />
           );
         })}

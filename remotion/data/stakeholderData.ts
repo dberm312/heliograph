@@ -287,44 +287,44 @@ export const CALLOUTS: Callout[] = [
     id: "c1",
     text: "Track multiple client engagements in one place",
     position: { x: 72, y: 35 },
-    appearAt: 60,
-    duration: 75,
+    appearAt: 75,
+    duration: 94,
   },
   {
     id: "c2",
     text: "Individual stakeholders AND user personas",
     position: { x: 68, y: 42 },
     pointTo: { x: 22, y: 58 },
-    appearAt: 150,
-    duration: 75,
+    appearAt: 188,
+    duration: 94,
   },
   {
     id: "c3",
     text: "Requirements tracked per person or persona",
     position: { x: 75, y: 28 },
-    appearAt: 225,
-    duration: 55,
+    appearAt: 281,
+    duration: 69,
   },
   {
     id: "c4",
     text: "Never lose context from stakeholder meetings",
     position: { x: 72, y: 55 },
-    appearAt: 265,
-    duration: 55,
+    appearAt: 331,
+    duration: 69,
   },
   {
     id: "c5",
     text: "Track blockers and escalations by stakeholder",
     position: { x: 72, y: 38 },
-    appearAt: 305,
-    duration: 50,
+    appearAt: 381,
+    duration: 62,
   },
   {
     id: "c6",
     text: "Complete stakeholder visibility for Forward-Deployed Engineers",
     position: { x: 50, y: 82 },
-    appearAt: 340,
-    duration: 55,
+    appearAt: 425,
+    duration: 69,
   },
 ];
 
@@ -344,31 +344,31 @@ export const FEATURE_ITEMS: FeatureItem[] = [
     id: "f1",
     text: "Organize requirements by project",
     subtext: "Separate by customer, business unit, or product—with native hierarchy",
-    appearAt: 60,
+    appearAt: 75,
   },
   {
     id: "f2",
     text: "Assign stakeholders & personas",
     subtext: "Map requirements to executives and teams alike",
-    appearAt: 120,
+    appearAt: 150,
   },
   {
     id: "f3",
     text: "Capture stakeholder input",
     subtext: "Record requirements and decisions with full team visibility",
-    appearAt: 180,
+    appearAt: 225,
   },
   {
     id: "f4",
     text: "Link requirements to tasks",
     subtext: "Maintain context and traceability across projects",
-    appearAt: 240,
+    appearAt: 300,
   },
   {
     id: "f5",
     text: "Surface critical asks",
     subtext: "Automatically bubble up priorities to platform teams",
-    appearAt: 300,
+    appearAt: 375,
   },
 ];
 
@@ -377,24 +377,24 @@ export const FEATURE_ITEMS: FeatureItem[] = [
 // ============================================================
 
 export const TIMING = {
-  // Phase boundaries
-  PHASE_1_END: 90, // Projects view ends
-  PHASE_2_END: 180, // People/Personas view ends
-  PHASE_3_END: 240, // Requirements tab ends
-  PHASE_4_END: 280, // Tasks tab ends
-  PHASE_5_END: 320, // Issues tab ends
-  SCENE_END: 360,
+  // Phase boundaries (scaled 1.25x for 15s duration)
+  PHASE_1_END: 112, // Projects view ends
+  PHASE_2_END: 225, // People/Personas view ends
+  PHASE_3_END: 300, // Requirements tab ends
+  PHASE_4_END: 350, // Tasks tab ends
+  PHASE_5_END: 400, // Issues tab ends
+  SCENE_END: 450,
 
   // Animation delays
-  HEADER_DELAY: 20,
-  CARD_STAGGER: 15,
-  TRANSITION_DURATION: 20,
+  HEADER_DELAY: 25,
+  CARD_STAGGER: 19,
+  TRANSITION_DURATION: 25,
 
   // Key moments
-  PROJECT_CLICK: 85,
-  PERSONA_SELECT: 175,
-  TAB_TASKS: 240,
-  TAB_ISSUES: 280,
+  PROJECT_CLICK: 106,
+  PERSONA_SELECT: 219,
+  TAB_TASKS: 300,
+  TAB_ISSUES: 350,
 } as const;
 
 // ============================================================
