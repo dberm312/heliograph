@@ -1,17 +1,9 @@
 import type React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
-import { COLORS, STATUS_COLORS } from "../../utils/colors";
+import { STATUS_COLORS } from "../../utils/colors";
 import { FONTS } from "../../utils/fonts";
 import { GlassCard } from "./GlassCard";
-
-type Requirement = {
-  id: string;
-  title: string;
-  description: string;
-  status: "approved" | "inProgress" | "pending" | "blocked";
-  priority: "high" | "medium" | "low";
-  dueDate?: string;
-};
+import type { Requirement } from "../../data/stakeholderData";
 
 const REQUIREMENTS: Requirement[] = [
   {
@@ -20,6 +12,7 @@ const REQUIREMENTS: Requirement[] = [
     description: "Implement SAML-based SSO for enterprise authentication",
     status: "approved",
     priority: "high",
+    linkedTo: "sarah",
     dueDate: "Q1 2024",
   },
   {
@@ -28,6 +21,7 @@ const REQUIREMENTS: Requirement[] = [
     description: "Build configurable reporting dashboard with export options",
     status: "inProgress",
     priority: "high",
+    linkedTo: "sarah",
     dueDate: "Q2 2024",
   },
   {
@@ -36,6 +30,7 @@ const REQUIREMENTS: Requirement[] = [
     description: "Add configurable rate limits per client",
     status: "pending",
     priority: "medium",
+    linkedTo: "sarah",
   },
   {
     id: "4",
@@ -43,6 +38,7 @@ const REQUIREMENTS: Requirement[] = [
     description: "Implement automated data archival based on policy",
     status: "inProgress",
     priority: "medium",
+    linkedTo: "sarah",
     dueDate: "Q2 2024",
   },
 ];
@@ -215,21 +211,15 @@ const RequirementItem: React.FC<RequirementItemProps> = ({
 
 type RequirementListProps = {
   visible?: boolean;
+  requirements?: Requirement[];
+  baseDelay?: number;
 };
 
 export const RequirementList: React.FC<RequirementListProps> = ({
   visible = true,
+  requirements = REQUIREMENTS,
+  baseDelay = 190,
 }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-
-  // Header animation
-  const headerProgress = spring({
-    frame: frame - 120,
-    fps,
-    config: { damping: 20, stiffness: 100 },
-  });
-
   if (!visible) return null;
 
   return (
@@ -237,46 +227,19 @@ export const RequirementList: React.FC<RequirementListProps> = ({
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: 14,
-        flex: 1,
+        gap: 12,
       }}
     >
-      {/* Header */}
-      <div
-        style={{
-          fontSize: 14,
-          fontWeight: 600,
-          color: "#64748b",
-          fontFamily: FONTS.body,
-          marginBottom: 8,
-          textTransform: "uppercase",
-          letterSpacing: "0.05em",
-          opacity: headerProgress,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <span>Requirements</span>
-        <span
-          style={{
-            fontSize: 12,
-            color: "#94a3b8",
-            fontWeight: 500,
-          }}
-        >
-          Sarah Chen's Items
-        </span>
-      </div>
-
-      {/* Requirement cards */}
-      {REQUIREMENTS.map((requirement, index) => (
+      {requirements.map((requirement, index) => (
         <RequirementItem
           key={requirement.id}
           requirement={requirement}
-          delay={130 + index * 20}
+          delay={baseDelay + index * 18}
         />
       ))}
     </div>
   );
 };
+
+// Export the item component for more granular use
+export { RequirementItem };
