@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { CTACubeScene } from "@/components/cube/CTACubeScene";
 import { StaticCTA } from "@/components/StaticCTA";
+import { DemoVideoSection } from "@/components/DemoVideoSection";
 import { AnimatedSection } from "@/components/ScrollAnimation";
 
 export default function Home() {
@@ -84,6 +85,9 @@ export default function Home() {
 
         {/* Early CTA - Static version */}
         <StaticCTA />
+
+        {/* Product Demo Video */}
+        <DemoVideoSection />
 
         {/* Problem Section - The Struggle */}
         <section className="px-6 py-20 md:py-32 relative">
