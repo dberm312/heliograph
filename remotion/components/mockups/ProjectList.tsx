@@ -203,7 +203,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({
         display: "flex",
         flexDirection: "column",
         gap: 12,
-        width: 300,
+        width: "100%",
       }}
     >
       {/* Header */}

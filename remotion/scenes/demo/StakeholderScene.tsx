@@ -6,22 +6,21 @@ import {
   useVideoConfig,
 } from "remotion";
 import { AnimatedGradient } from "../../components/AnimatedGradient";
-import { CalloutOverlay } from "../../components/CalloutBubble";
+import { FeatureCommentary } from "../../components/FeatureCommentary";
 import { ContentHeader } from "../../components/mockups/ContentHeader";
 import { IssueList } from "../../components/mockups/IssueCard";
-import { MeetingList } from "../../components/mockups/MeetingCard";
 import { MockupFrame } from "../../components/mockups/MockupFrame";
 import { PeoplePersonaList } from "../../components/mockups/PeoplePersonaList";
 import { ProjectList } from "../../components/mockups/ProjectList";
 import { RequirementList } from "../../components/mockups/RequirementCard";
 import { DetailPanelHeader, TabBar } from "../../components/mockups/TabBar";
+import { TaskView } from "../../components/mockups/TaskView";
 import {
   ACME_INDIVIDUALS,
   ACME_PERSONAS,
-  CALLOUTS,
   DEVELOPER_ISSUES,
-  DEVELOPER_MEETINGS,
   DEVELOPER_REQUIREMENTS,
+  FEATURE_ITEMS,
   PROJECTS,
   TIMING,
   getActiveTab,
@@ -30,7 +29,11 @@ import {
 import { FONTS } from "../../utils/fonts";
 
 const SCENE_PADDING = 40;
-const MOCKUP_WIDTH = 1920 - SCENE_PADDING * 2;
+const PANEL_GAP = 32;
+// Left panel takes 1/3 of the available width
+const LEFT_PANEL_WIDTH = Math.floor((1920 - SCENE_PADDING * 2 - PANEL_GAP) / 3);
+// Right panel (mockup) takes remaining 2/3
+const MOCKUP_WIDTH = 1920 - SCENE_PADDING * 2 - LEFT_PANEL_WIDTH - PANEL_GAP;
 const MOCKUP_HEIGHT = 1080 - SCENE_PADDING * 2;
 
 // Project overview component for right panel in early phases
@@ -142,7 +145,7 @@ export const StakeholderScene: React.FC = () => {
       label: "Requirements",
       count: DEVELOPER_REQUIREMENTS.length,
     },
-    { id: "meetings", label: "Meetings", count: DEVELOPER_MEETINGS.length },
+    { id: "tasks", label: "Tasks", count: 3 },
     { id: "issues", label: "Issues", count: DEVELOPER_ISSUES.length },
   ];
 
@@ -163,10 +166,29 @@ export const StakeholderScene: React.FC = () => {
             height: "100%",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
-            position: "relative",
+            gap: PANEL_GAP,
           }}
         >
+          {/* Left Panel - Feature Commentary */}
+          <div
+            style={{
+              width: LEFT_PANEL_WIDTH,
+              height: MOCKUP_HEIGHT,
+              flexShrink: 0,
+              background: "#ffffff",
+              borderRadius: 16,
+              border: "1px solid rgba(0, 0, 0, 0.08)",
+              boxShadow: "0 4px 24px rgba(0, 0, 0, 0.08)",
+              overflow: "hidden",
+            }}
+          >
+            <FeatureCommentary
+              title="Stakeholder Intelligence"
+              items={FEATURE_ITEMS}
+            />
+          </div>
+
+          {/* Right Panel - Mockup */}
           <MockupFrame
             title="Heliograph — Stakeholder Intelligence"
             width={MOCKUP_WIDTH}
@@ -187,15 +209,15 @@ export const StakeholderScene: React.FC = () => {
                 style={{
                   flex: 1,
                   display: "flex",
-                  padding: 24,
-                  gap: 32,
+                  padding: 20,
+                  gap: 20,
                   overflow: "hidden",
                 }}
               >
                 {/* Left Panel - Projects or People/Personas */}
                 <div
                   style={{
-                    width: 320,
+                    width: 220,
                     flexShrink: 0,
                     position: "relative",
                     overflow: "hidden",
@@ -212,7 +234,7 @@ export const StakeholderScene: React.FC = () => {
                         transform: `translateX(${interpolate(
                           projectsToPeopleProgress,
                           [0, 1],
-                          [0, -340],
+                          [0, -240],
                         )}px)`,
                         opacity: interpolate(
                           projectsToPeopleProgress,
@@ -240,7 +262,7 @@ export const StakeholderScene: React.FC = () => {
                         transform: `translateX(${interpolate(
                           projectsToPeopleProgress,
                           [0, 1],
-                          [340, 0],
+                          [240, 0],
                         )}px)`,
                         opacity: interpolate(
                           projectsToPeopleProgress,
@@ -320,11 +342,8 @@ export const StakeholderScene: React.FC = () => {
                             visible
                           />
                         )}
-                        {activeTab === "meetings" && (
-                          <MeetingList
-                            meetings={DEVELOPER_MEETINGS}
-                            baseDelay={TIMING.TAB_MEETINGS + 10}
-                          />
+                        {activeTab === "tasks" && (
+                          <TaskView />
                         )}
                         {activeTab === "issues" && (
                           <IssueList
@@ -338,13 +357,6 @@ export const StakeholderScene: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* Callout Overlay */}
-            <CalloutOverlay
-              callouts={CALLOUTS}
-              containerWidth={MOCKUP_WIDTH}
-              containerHeight={MOCKUP_HEIGHT}
-            />
           </MockupFrame>
         </div>
       </AbsoluteFill>

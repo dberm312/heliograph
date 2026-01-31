@@ -12,7 +12,7 @@ interface StaticCTAProps {
 }
 
 export function StaticCTA({
-  heading = "Stop living in three disconnected worlds",
+  heading = "Stop living in disconnected worlds",
   description = "One platform where Product, Engineering, and Customer teams finally sync.",
   ctaText = "Get Early Access",
   ctaHref = "https://forms.gle/8eMhsfNjWp2hXFuX9",

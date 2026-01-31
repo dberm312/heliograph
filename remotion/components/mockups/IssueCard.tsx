@@ -29,6 +29,12 @@ export const IssueCard: React.FC<IssueCardProps> = ({ issue, delay }) => {
       ? interpolate(Math.sin(frame * 0.12) * 0.5 + 0.5, [0, 1], [0.7, 1])
       : 1;
 
+  // Enhanced pulse for critical priority items
+  const criticalPulse =
+    issue.priority === "critical"
+      ? interpolate(Math.sin(frame * 0.15) * 0.5 + 0.5, [0, 1], [0.6, 1])
+      : 1;
+
   const statusConfig = {
     open: {
       color: "#f59e0b",
@@ -67,7 +73,19 @@ export const IssueCard: React.FC<IssueCardProps> = ({ issue, delay }) => {
         opacity,
       }}
     >
-      <GlassCard padding={16} borderRadius={12} opacity={0.08}>
+      <GlassCard
+        padding={16}
+        borderRadius={12}
+        opacity={0.08}
+        style={
+          issue.priority === "critical"
+            ? {
+                boxShadow: `0 0 ${12 * criticalPulse}px rgba(220, 38, 38, ${0.15 * criticalPulse})`,
+                border: "1px solid rgba(220, 38, 38, 0.2)",
+              }
+            : undefined
+        }
+      >
         {/* Header row */}
         <div
           style={{

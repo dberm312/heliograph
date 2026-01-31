@@ -65,52 +65,6 @@ export const ContentHeader: React.FC<ContentHeaderProps> = ({
         ))}
       </div>
 
-      {/* Heliograph Logo */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 10,
-        }}
-      >
-        {/* Logo mark - gradient square */}
-        <div
-          style={{
-            width: 26,
-            height: 26,
-            borderRadius: 6,
-            background: "linear-gradient(135deg, #f97316 0%, #3b82f6 100%)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            boxShadow: "0 2px 8px rgba(249, 115, 22, 0.25)",
-          }}
-        >
-          {/* Inner mark - stylized "H" or sun rays */}
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path
-              d="M7 1V3M7 11V13M1 7H3M11 7H13M3 3L4.5 4.5M9.5 9.5L11 11M3 11L4.5 9.5M9.5 4.5L11 3"
-              stroke="white"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-            <circle cx="7" cy="7" r="2" fill="white" />
-          </svg>
-        </div>
-
-        {/* Logo text */}
-        <span
-          style={{
-            fontFamily: FONTS.display,
-            fontSize: 16,
-            fontWeight: 600,
-            color: "#1f2937",
-            letterSpacing: "-0.01em",
-          }}
-        >
-          Heliograph
-        </span>
-      </div>
     </div>
   );
 };

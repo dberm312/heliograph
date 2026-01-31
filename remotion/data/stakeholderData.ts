@@ -279,7 +279,7 @@ export const DEVELOPER_ISSUES: Issue[] = [
 ];
 
 // ============================================================
-// Callout Data with Timing
+// Callout Data with Timing (legacy - kept for reference)
 // ============================================================
 
 export const CALLOUTS: Callout[] = [
@@ -329,6 +329,50 @@ export const CALLOUTS: Callout[] = [
 ];
 
 // ============================================================
+// Feature Commentary Items (for left panel)
+// ============================================================
+
+export type FeatureItem = {
+  id: string;
+  text: string;
+  subtext: string;
+  appearAt: number;
+};
+
+export const FEATURE_ITEMS: FeatureItem[] = [
+  {
+    id: "f1",
+    text: "Organize requirements by project",
+    subtext: "Separate by customer, business unit, or product—with native hierarchy",
+    appearAt: 60,
+  },
+  {
+    id: "f2",
+    text: "Assign stakeholders & personas",
+    subtext: "Map requirements to executives and teams alike",
+    appearAt: 120,
+  },
+  {
+    id: "f3",
+    text: "Capture stakeholder input",
+    subtext: "Record requirements and decisions with full team visibility",
+    appearAt: 180,
+  },
+  {
+    id: "f4",
+    text: "Link requirements to tasks",
+    subtext: "Maintain context and traceability across projects",
+    appearAt: 240,
+  },
+  {
+    id: "f5",
+    text: "Surface critical asks",
+    subtext: "Automatically bubble up priorities to platform teams",
+    appearAt: 300,
+  },
+];
+
+// ============================================================
 // Animation Timing Constants
 // ============================================================
 
@@ -337,7 +381,7 @@ export const TIMING = {
   PHASE_1_END: 90, // Projects view ends
   PHASE_2_END: 180, // People/Personas view ends
   PHASE_3_END: 240, // Requirements tab ends
-  PHASE_4_END: 280, // Meetings tab ends
+  PHASE_4_END: 280, // Tasks tab ends
   PHASE_5_END: 320, // Issues tab ends
   SCENE_END: 360,
 
@@ -349,7 +393,7 @@ export const TIMING = {
   // Key moments
   PROJECT_CLICK: 85,
   PERSONA_SELECT: 175,
-  TAB_MEETINGS: 240,
+  TAB_TASKS: 240,
   TAB_ISSUES: 280,
 } as const;
 
@@ -365,9 +409,9 @@ export function getViewState(frame: number): "projects" | "people" | "detail" {
 
 export function getActiveTab(
   frame: number,
-): "requirements" | "meetings" | "issues" {
-  if (frame < TIMING.TAB_MEETINGS) return "requirements";
-  if (frame < TIMING.TAB_ISSUES) return "meetings";
+): "requirements" | "tasks" | "issues" {
+  if (frame < TIMING.TAB_TASKS) return "requirements";
+  if (frame < TIMING.TAB_ISSUES) return "tasks";
   return "issues";
 }
 

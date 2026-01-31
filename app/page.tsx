@@ -445,7 +445,7 @@ export default function Home() {
         {/* CTA Section with Cube Animation */}
         <section className="relative overflow-visible">
           <CTACubeScene
-            heading="Stop living in three disconnected worlds"
+            heading="Stop living in disconnected worlds"
             description="One platform where Product, Engineering, and Customer teams finally sync."
             ctaText="Get Early Access"
             ctaHref="https://forms.gle/8eMhsfNjWp2hXFuX9"

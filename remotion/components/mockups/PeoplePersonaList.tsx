@@ -235,7 +235,7 @@ export const PeoplePersonaList: React.FC<PeoplePersonaListProps> = ({
       style={{
         display: "flex",
         flexDirection: "column",
-        width: 300,
+        width: "100%",
         overflow: "hidden",
       }}
     >
