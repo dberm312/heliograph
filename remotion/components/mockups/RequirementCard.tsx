@@ -108,7 +108,7 @@ const RequirementItem: React.FC<RequirementItemProps> = ({
             style={{
               fontSize: 16,
               fontWeight: 600,
-              color: COLORS.textPrimary,
+              color: "#1f2937",
               fontFamily: FONTS.body,
               flex: 1,
             }}
@@ -124,7 +124,7 @@ const RequirementItem: React.FC<RequirementItemProps> = ({
               gap: 6,
               padding: "4px 10px",
               borderRadius: 6,
-              background: `${status.color}20`,
+              background: `${status.color}15`,
               border: `1px solid ${status.color}40`,
               opacity: statusPulse,
             }}
@@ -153,7 +153,7 @@ const RequirementItem: React.FC<RequirementItemProps> = ({
         <div
           style={{
             fontSize: 13,
-            color: COLORS.textSecondary,
+            color: "#64748b",
             fontFamily: FONTS.body,
             lineHeight: 1.5,
             marginBottom: 12,
@@ -178,16 +178,16 @@ const RequirementItem: React.FC<RequirementItemProps> = ({
               borderRadius: 4,
               background:
                 requirement.priority === "high"
-                  ? "rgba(239, 68, 68, 0.2)"
+                  ? "rgba(239, 68, 68, 0.15)"
                   : requirement.priority === "medium"
-                    ? "rgba(234, 179, 8, 0.2)"
-                    : "rgba(107, 114, 128, 0.2)",
+                    ? "rgba(234, 179, 8, 0.15)"
+                    : "rgba(107, 114, 128, 0.15)",
               color:
                 requirement.priority === "high"
-                  ? "#fca5a5"
+                  ? "#dc2626"
                   : requirement.priority === "medium"
-                    ? "#fde047"
-                    : "#9ca3af",
+                    ? "#ca8a04"
+                    : "#6b7280",
               textTransform: "uppercase",
               fontFamily: FONTS.body,
             }}
@@ -200,7 +200,7 @@ const RequirementItem: React.FC<RequirementItemProps> = ({
             <div
               style={{
                 fontSize: 11,
-                color: COLORS.textMuted,
+                color: "#94a3b8",
                 fontFamily: FONTS.body,
               }}
             >
@@ -246,7 +246,7 @@ export const RequirementList: React.FC<RequirementListProps> = ({
         style={{
           fontSize: 14,
           fontWeight: 600,
-          color: COLORS.textSecondary,
+          color: "#64748b",
           fontFamily: FONTS.body,
           marginBottom: 8,
           textTransform: "uppercase",
@@ -261,7 +261,7 @@ export const RequirementList: React.FC<RequirementListProps> = ({
         <span
           style={{
             fontSize: 12,
-            color: COLORS.textMuted,
+            color: "#94a3b8",
             fontWeight: 500,
           }}
         >

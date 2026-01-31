@@ -23,9 +23,9 @@ export const MockupFrame: React.FC<MockupFrameProps> = ({
         height,
         borderRadius: 16,
         overflow: "hidden",
-        background: "rgba(15, 23, 42, 0.95)",
-        border: "1px solid rgba(255, 255, 255, 0.1)",
-        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
+        background: "#ffffff",
+        border: "1px solid rgba(0, 0, 0, 0.1)",
+        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
         display: "flex",
         flexDirection: "column",
       }}
@@ -34,8 +34,8 @@ export const MockupFrame: React.FC<MockupFrameProps> = ({
       <div
         style={{
           height: 48,
-          background: "rgba(30, 41, 59, 0.8)",
-          borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+          background: "#f1f5f9",
+          borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
           display: "flex",
           alignItems: "center",
           padding: "0 16px",
@@ -80,10 +80,10 @@ export const MockupFrame: React.FC<MockupFrameProps> = ({
           <div
             style={{
               padding: "6px 24px",
-              background: "rgba(255, 255, 255, 0.05)",
+              background: "rgba(0, 0, 0, 0.05)",
               borderRadius: 8,
               fontSize: 14,
-              color: COLORS.textSecondary,
+              color: "#475569",
               fontFamily: "system-ui, sans-serif",
             }}
           >

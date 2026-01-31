@@ -51,8 +51,8 @@ export const DiffView: React.FC = () => {
       <div
         style={{
           padding: "12px 16px",
-          background: "rgba(0, 0, 0, 0.3)",
-          borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+          background: "rgba(0, 0, 0, 0.04)",
+          borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -63,7 +63,7 @@ export const DiffView: React.FC = () => {
           style={{
             fontSize: 13,
             fontWeight: 600,
-            color: COLORS.textPrimary,
+            color: "#1f2937",
             fontFamily: FONTS.body,
           }}
         >
@@ -77,8 +77,8 @@ export const DiffView: React.FC = () => {
             fontFamily: FONTS.body,
           }}
         >
-          <span style={{ color: "#22c55e" }}>+4</span>
-          <span style={{ color: "#ef4444" }}>-3</span>
+          <span style={{ color: "#16a34a" }}>+4</span>
+          <span style={{ color: "#dc2626" }}>-3</span>
         </div>
       </div>
 
@@ -102,16 +102,16 @@ export const DiffView: React.FC = () => {
           const x = interpolate(lineProgress, [0, 1], [20, 0]);
 
           let bgColor = "transparent";
-          let textColor: string = COLORS.textSecondary;
+          let textColor = "#64748b";
           let prefix = "  ";
 
           if (line.type === "added") {
-            bgColor = "rgba(34, 197, 94, 0.15)";
-            textColor = "#86efac";
+            bgColor = "rgba(34, 197, 94, 0.1)";
+            textColor = "#16a34a";
             prefix = "+ ";
           } else if (line.type === "removed") {
-            bgColor = "rgba(239, 68, 68, 0.15)";
-            textColor = "#fca5a5";
+            bgColor = "rgba(239, 68, 68, 0.1)";
+            textColor = "#dc2626";
             prefix = "- ";
           }
 
@@ -129,7 +129,7 @@ export const DiffView: React.FC = () => {
               <span
                 style={{
                   width: 40,
-                  color: COLORS.textMuted,
+                  color: "#94a3b8",
                   textAlign: "right",
                   paddingRight: 16,
                   userSelect: "none",

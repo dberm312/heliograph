@@ -16,7 +16,7 @@ const SAMPLE_TASKS: Task[] = [
   {
     id: "1",
     client: "Acme Corp",
-    title: "Deploy ML model to production",
+    title: "Deploy ML model",
     status: "inProgress",
     priority: "high",
   },
@@ -91,15 +91,13 @@ const CLIENT_COLORS: Record<string, string> = {
 type TaskCardProps = {
   task: Task;
   delay: number;
-  isDragging?: boolean;
-  dragProgress?: number;
+  isHighlighted?: boolean;
 };
 
 const TaskCard: React.FC<TaskCardProps> = ({
   task,
   delay,
-  isDragging = false,
-  dragProgress = 0,
+  isHighlighted = false,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -110,45 +108,40 @@ const TaskCard: React.FC<TaskCardProps> = ({
     config: { damping: 15, stiffness: 120 },
   });
 
-  const scale = interpolate(entrance, [0, 1], [0.8, 1]);
+  const scale = interpolate(entrance, [0, 1], [0.9, 1]);
   const opacity = interpolate(entrance, [0, 1], [0, 1]);
-  const y = interpolate(entrance, [0, 1], [20, 0]);
+  const y = interpolate(entrance, [0, 1], [15, 0]);
 
-  // Drag animation
-  const dragX = isDragging ? interpolate(dragProgress, [0, 1], [0, 280]) : 0;
-  const dragRotate = isDragging
-    ? interpolate(dragProgress, [0, 0.5, 1], [0, 3, 0])
+  // Subtle highlight pulse for selected card
+  const highlightPulse = isHighlighted
+    ? interpolate(Math.sin(frame * 0.08), [-1, 1], [0.8, 1])
     : 0;
-  const dragScale = isDragging
-    ? interpolate(dragProgress, [0, 0.5, 1], [1, 1.05, 1])
-    : 1;
 
   return (
     <div
       style={{
-        transform: `translateY(${y}px) translateX(${dragX}px) rotate(${dragRotate}deg) scale(${scale * dragScale})`,
+        transform: `translateY(${y}px) scale(${scale})`,
         opacity,
-        zIndex: isDragging ? 10 : 1,
       }}
     >
       <GlassCard
-        padding={16}
-        borderRadius={12}
-        opacity={isDragging ? 0.15 : 0.1}
+        padding={14}
+        borderRadius={10}
+        opacity={0.12}
         style={{
           borderLeft: `3px solid ${CLIENT_COLORS[task.client] || COLORS.accent}`,
-          boxShadow: isDragging
-            ? "0 12px 40px rgba(0,0,0,0.3)"
-            : "0 4px 12px rgba(0,0,0,0.1)",
+          boxShadow: isHighlighted
+            ? `0 0 20px rgba(249, 115, 22, ${highlightPulse * 0.3})`
+            : "none",
         }}
       >
         <div
           style={{
-            fontSize: 11,
+            fontSize: 10,
             fontWeight: 600,
             color: CLIENT_COLORS[task.client] || COLORS.accent,
             fontFamily: FONTS.body,
-            marginBottom: 6,
+            marginBottom: 5,
             textTransform: "uppercase",
             letterSpacing: "0.05em",
           }}
@@ -157,42 +150,41 @@ const TaskCard: React.FC<TaskCardProps> = ({
         </div>
         <div
           style={{
-            fontSize: 14,
+            fontSize: 13,
             fontWeight: 500,
-            color: COLORS.textPrimary,
+            color: "#1f2937",
             fontFamily: FONTS.body,
-            lineHeight: 1.4,
+            lineHeight: 1.3,
           }}
         >
           {task.title}
         </div>
         <div
           style={{
-            marginTop: 10,
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
+            marginTop: 8,
           }}
         >
           <div
             style={{
-              fontSize: 10,
+              display: "inline-block",
+              fontSize: 9,
               fontWeight: 600,
-              padding: "3px 8px",
-              borderRadius: 4,
+              padding: "2px 6px",
+              borderRadius: 3,
               background:
                 task.priority === "high"
-                  ? "rgba(239, 68, 68, 0.2)"
+                  ? "rgba(239, 68, 68, 0.15)"
                   : task.priority === "medium"
-                    ? "rgba(234, 179, 8, 0.2)"
-                    : "rgba(107, 114, 128, 0.2)",
+                    ? "rgba(234, 179, 8, 0.15)"
+                    : "rgba(107, 114, 128, 0.15)",
               color:
                 task.priority === "high"
-                  ? "#fca5a5"
+                  ? "#dc2626"
                   : task.priority === "medium"
-                    ? "#fde047"
-                    : "#9ca3af",
+                    ? "#ca8a04"
+                    : "#6b7280",
               textTransform: "uppercase",
+              letterSpacing: "0.03em",
             }}
           >
             {task.priority}
@@ -221,22 +213,15 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
     config: { damping: 20, stiffness: 100 },
   });
 
-  // Drag animation progress (starts at frame 180, lasts 60 frames)
-  const dragProgress = showDragAnimation
-    ? interpolate(frame, [180, 240], [0, 1], {
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      })
-    : 0;
-
-  const isDragging = showDragAnimation && frame >= 180 && frame <= 240;
+  // Highlight the first "inProgress" task after frame 150
+  const shouldHighlight = showDragAnimation && frame >= 150;
 
   return (
     <div
       style={{
         display: "flex",
-        gap: 20,
-        padding: 24,
+        gap: 16,
+        padding: 20,
         height: "100%",
       }}
     >
@@ -255,7 +240,7 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
               flex: 1,
               display: "flex",
               flexDirection: "column",
-              gap: 12,
+              gap: 10,
               transform: `translateY(${columnY}px)`,
               opacity: columnOpacity,
             }}
@@ -265,24 +250,24 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: 10,
-                paddingBottom: 12,
-                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                gap: 8,
+                paddingBottom: 10,
+                borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
               }}
             >
               <div
                 style={{
-                  width: 10,
-                  height: 10,
+                  width: 8,
+                  height: 8,
                   borderRadius: "50%",
                   background: column.color,
                 }}
               />
               <div
                 style={{
-                  fontSize: 14,
+                  fontSize: 13,
                   fontWeight: 600,
-                  color: COLORS.textPrimary,
+                  color: "#1f2937",
                   fontFamily: FONTS.body,
                 }}
               >
@@ -290,8 +275,8 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
               </div>
               <div
                 style={{
-                  fontSize: 12,
-                  color: COLORS.textMuted,
+                  fontSize: 11,
+                  color: "#94a3b8",
                   fontFamily: FONTS.body,
                   marginLeft: "auto",
                 }}
@@ -305,21 +290,22 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
               style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: 10,
+                gap: 8,
               }}
             >
               {tasksInColumn.map((task, taskIndex) => {
-                // Special handling for the dragging task
-                const isThisDragging =
-                  isDragging && task.status === "inProgress" && taskIndex === 0;
+                // Highlight the first inProgress task
+                const isHighlighted =
+                  shouldHighlight &&
+                  task.status === "inProgress" &&
+                  taskIndex === 0;
 
                 return (
                   <TaskCard
                     key={task.id}
                     task={task}
-                    delay={60 + colIndex * 15 + taskIndex * 10}
-                    isDragging={isThisDragging}
-                    dragProgress={dragProgress}
+                    delay={50 + colIndex * 12 + taskIndex * 8}
+                    isHighlighted={isHighlighted}
                   />
                 );
               })}

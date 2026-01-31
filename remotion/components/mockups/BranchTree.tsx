@@ -273,9 +273,10 @@ const BranchLabel: React.FC<{ name: string; color: string }> = ({
       alignItems: "center",
       gap: 8,
       padding: "4px 10px",
-      background: "rgba(0, 0, 0, 0.3)",
+      background: "rgba(255, 255, 255, 0.9)",
       borderRadius: 6,
-      border: `1px solid ${color}40`,
+      border: `1px solid ${color}60`,
+      boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
     }}
   >
     <div
@@ -290,7 +291,7 @@ const BranchLabel: React.FC<{ name: string; color: string }> = ({
       style={{
         fontSize: 12,
         fontWeight: 500,
-        color: COLORS.textSecondary,
+        color: "#374151",
         fontFamily: FONTS.body,
       }}
     >

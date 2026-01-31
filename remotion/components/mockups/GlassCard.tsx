@@ -26,10 +26,10 @@ export const GlassCard: React.FC<GlassCardProps> = ({
         height,
         padding,
         borderRadius,
-        background: `rgba(255, 255, 255, ${opacity})`,
+        background: `rgba(0, 0, 0, ${opacity * 0.4})`,
         backdropFilter: "blur(24px)",
-        border: "1px solid rgba(255, 255, 255, 0.15)",
-        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.12)",
+        border: "1px solid rgba(0, 0, 0, 0.08)",
+        boxShadow: "0 4px 16px rgba(0, 0, 0, 0.06)",
         ...style,
       }}
     >

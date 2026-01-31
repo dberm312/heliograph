@@ -1,7 +1,9 @@
 import {
   AbsoluteFill,
+  Img,
   interpolate,
   spring,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
@@ -13,46 +15,65 @@ export const IntroTitleScene: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Logo entrance
+  // Logo entrance (earliest)
   const logoScale = spring({
     frame,
+    fps,
+    config: { damping: 18, stiffness: 90 },
+  });
+
+  const logoOpacity = interpolate(frame, [0, 8], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  // Heliograph title entrance
+  const titleScale = spring({
+    frame: frame - 5,
     fps,
     config: { damping: 15, stiffness: 100 },
   });
 
-  const logoOpacity = interpolate(frame, [0, 10], [0, 1], {
+  const titleOpacity = interpolate(frame, [5, 15], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
-  // Title entrance (delayed)
-  const titleProgress = spring({
-    frame: frame - 15,
+  // "The modern toolchain for" entrance (delayed)
+  const tagline1Progress = spring({
+    frame: frame - 20,
     fps,
     config: { damping: 20, stiffness: 120 },
   });
 
-  const titleY = interpolate(titleProgress, [0, 1], [40, 0]);
-  const titleOpacity = interpolate(frame, [15, 30], [0, 1], {
+  const tagline1Y = interpolate(tagline1Progress, [0, 1], [30, 0]);
+  const tagline1Opacity = interpolate(frame, [20, 35], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
-  // Subtitle entrance (more delayed)
-  const subtitleProgress = spring({
-    frame: frame - 35,
+  // "customer-facing builders" entrance (more delayed)
+  const tagline2Progress = spring({
+    frame: frame - 30,
+    fps,
+    config: { damping: 22, stiffness: 110 },
+  });
+
+  const tagline2Y = interpolate(tagline2Progress, [0, 1], [30, 0]);
+  const tagline2Opacity = interpolate(frame, [30, 45], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  // URL entrance (most delayed)
+  const urlProgress = spring({
+    frame: frame - 45,
     fps,
     config: { damping: 25, stiffness: 100 },
   });
 
-  const subtitleY = interpolate(subtitleProgress, [0, 1], [30, 0]);
-  const subtitleOpacity = interpolate(frame, [35, 50], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-
-  // Fade out at end
-  const fadeOut = interpolate(frame, [70, 90], [1, 0], {
+  const urlY = interpolate(urlProgress, [0, 1], [20, 0]);
+  const urlOpacity = interpolate(frame, [45, 60], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -66,56 +87,84 @@ export const IntroTitleScene: React.FC = () => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          gap: 32,
-          opacity: fadeOut,
+          gap: 16,
         }}
       >
-        {/* Heliograph Logo */}
-        <div
+        {/* Logo */}
+        <Img
+          src={staticFile("heliograph-logo.svg")}
           style={{
-            fontSize: 32,
-            fontWeight: 700,
-            color: COLORS.textPrimary,
-            fontFamily: FONTS.display,
+            width: 480,
+            height: 480,
             transform: `scale(${logoScale})`,
             opacity: logoOpacity,
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
+            marginBottom: 24,
+          }}
+        />
+
+        {/* Heliograph Title */}
+        <div
+          style={{
+            fontSize: 120,
+            fontWeight: 800,
+            color: COLORS.textPrimary,
+            fontFamily: FONTS.display,
+            transform: `scale(${titleScale})`,
+            opacity: titleOpacity,
+            letterSpacing: "-3px",
           }}
         >
           Heliograph
         </div>
 
-        {/* Main title */}
+        {/* Tagline Part 1 */}
         <div
           style={{
-            fontSize: 80,
-            fontWeight: 700,
-            color: COLORS.textPrimary,
-            fontFamily: FONTS.display,
-            transform: `translateY(${titleY}px)`,
-            opacity: titleOpacity,
+            fontSize: 48,
+            fontWeight: 600,
+            color: "rgba(255, 255, 255, 0.9)",
+            fontFamily: FONTS.body,
+            transform: `translateY(${tagline1Y}px)`,
+            opacity: tagline1Opacity,
             textAlign: "center",
-            lineHeight: 1.1,
-            letterSpacing: "-0.02em",
+            marginTop: 16,
           }}
         >
-          See Heliograph in Action
+          The modern toolchain for
         </div>
 
-        {/* Subtitle */}
+        {/* Tagline Part 2 - Gradient Text */}
         <div
           style={{
-            fontSize: 28,
-            fontWeight: 500,
-            color: COLORS.textSecondary,
+            fontSize: 56,
+            fontWeight: 700,
+            background: "linear-gradient(90deg, #fdba74, #fb923c)",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            color: "transparent",
             fontFamily: FONTS.body,
-            transform: `translateY(${subtitleY}px)`,
-            opacity: subtitleOpacity,
+            transform: `translateY(${tagline2Y}px)`,
+            opacity: tagline2Opacity,
             textAlign: "center",
           }}
         >
-          Three modules. One platform.
+          customer-facing builders
+        </div>
+
+        {/* URL */}
+        <div
+          style={{
+            fontSize: 32,
+            fontWeight: 500,
+            color: "rgba(255, 255, 255, 0.6)",
+            fontFamily: FONTS.body,
+            transform: `translateY(${urlY}px)`,
+            opacity: urlOpacity,
+            textAlign: "center",
+            marginTop: 32,
+          }}
+        >
+          heliograph.dev
         </div>
       </AbsoluteFill>
     </AbsoluteFill>

@@ -98,7 +98,7 @@ const StakeholderCard: React.FC<StakeholderCardProps> = ({
         style={{
           border: isSelected
             ? `2px solid ${MODULE_COLORS.stakeholderManagement.primary}`
-            : "1px solid rgba(255, 255, 255, 0.1)",
+            : "1px solid rgba(0, 0, 0, 0.08)",
           boxShadow: isSelected
             ? `0 0 30px rgba(139, 92, 246, ${selectionGlow})`
             : "none",
@@ -112,14 +112,14 @@ const StakeholderCard: React.FC<StakeholderCardProps> = ({
               width: 48,
               height: 48,
               borderRadius: "50%",
-              background: `linear-gradient(135deg, ${COMPANY_COLORS[stakeholder.company]}40, ${COMPANY_COLORS[stakeholder.company]}20)`,
-              border: `2px solid ${COMPANY_COLORS[stakeholder.company]}60`,
+              background: `linear-gradient(135deg, ${COMPANY_COLORS[stakeholder.company]}90, ${COMPANY_COLORS[stakeholder.company]}70)`,
+              border: `2px solid ${COMPANY_COLORS[stakeholder.company]}`,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               fontSize: 16,
               fontWeight: 700,
-              color: COLORS.textPrimary,
+              color: "white",
               fontFamily: FONTS.body,
             }}
           >
@@ -132,7 +132,7 @@ const StakeholderCard: React.FC<StakeholderCardProps> = ({
               style={{
                 fontSize: 15,
                 fontWeight: 600,
-                color: COLORS.textPrimary,
+                color: "#1f2937",
                 fontFamily: FONTS.body,
                 marginBottom: 2,
               }}
@@ -142,7 +142,7 @@ const StakeholderCard: React.FC<StakeholderCardProps> = ({
             <div
               style={{
                 fontSize: 12,
-                color: COLORS.textSecondary,
+                color: "#64748b",
                 fontFamily: FONTS.body,
               }}
             >
@@ -215,7 +215,7 @@ export const StakeholderList: React.FC<StakeholderListProps> = ({
         style={{
           fontSize: 14,
           fontWeight: 600,
-          color: COLORS.textSecondary,
+          color: "#64748b",
           fontFamily: FONTS.body,
           marginBottom: 8,
           textTransform: "uppercase",

@@ -1,63 +1,13 @@
-import {
-  AbsoluteFill,
-  interpolate,
-  spring,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 import { AnimatedGradient } from "../../components/AnimatedGradient";
 import { MockupFrame } from "../../components/mockups/MockupFrame";
 import { RequirementList } from "../../components/mockups/RequirementCard";
 import { StakeholderList } from "../../components/mockups/StakeholderList";
-import { COLORS, MODULE_COLORS } from "../../utils/colors";
-import { FONTS } from "../../utils/fonts";
+
+const SCENE_PADDING = 40;
 
 export const StakeholderScene: React.FC = () => {
   const frame = useCurrentFrame();
-  const { fps, durationInFrames } = useVideoConfig();
-
-  // Scene title entrance
-  const titleProgress = spring({
-    frame,
-    fps,
-    config: { damping: 20, stiffness: 120 },
-  });
-
-  const titleX = interpolate(titleProgress, [0, 1], [-100, 0]);
-  const titleOpacity = interpolate(titleProgress, [0, 1], [0, 1]);
-
-  // Scene title exit
-  const titleExit = interpolate(frame, [40, 60], [1, 0], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-
-  // Mockup frame entrance
-  const frameProgress = spring({
-    frame: frame - 20,
-    fps,
-    config: { damping: 25, stiffness: 80 },
-  });
-
-  const frameScale = interpolate(frameProgress, [0, 1], [0.9, 1]);
-  const frameOpacity = interpolate(frameProgress, [0, 1], [0, 1]);
-
-  // Fade out at end
-  const fadeOut = interpolate(
-    frame,
-    [durationInFrames - 30, durationInFrames],
-    [1, 0],
-    {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    },
-  );
-
-  // Module badge
-  const badgeOpacity = interpolate(frame, [50, 70], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
 
   // Selection animation - select first stakeholder after delay
   const selectionProgress = interpolate(frame, [100, 120], [0, 1], {
@@ -74,99 +24,25 @@ export const StakeholderScene: React.FC = () => {
       <AbsoluteFill
         style={{
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          padding: 60,
-          opacity: fadeOut,
+          padding: SCENE_PADDING,
         }}
       >
-        {/* Scene title (shows briefly at start) */}
-        <div
-          style={{
-            position: "absolute",
-            top: 80,
-            left: 0,
-            right: 0,
-            display: "flex",
-            justifyContent: "center",
-            opacity: titleExit,
-          }}
-        >
-          <div
-            style={{
-              fontSize: 56,
-              fontWeight: 700,
-              color: COLORS.textPrimary,
-              fontFamily: FONTS.display,
-              transform: `translateX(${titleX}px)`,
-              opacity: titleOpacity,
-              display: "flex",
-              alignItems: "center",
-              gap: 20,
-            }}
-          >
-            <div
-              style={{
-                width: 16,
-                height: 16,
-                borderRadius: "50%",
-                background: MODULE_COLORS.stakeholderManagement.primary,
-                boxShadow: `0 0 20px ${MODULE_COLORS.stakeholderManagement.primary}`,
-              }}
-            />
-            Stakeholder Management
-          </div>
-        </div>
-
-        {/* Module badge (stays visible) */}
-        <div
-          style={{
-            position: "absolute",
-            top: 40,
-            left: 80,
-            opacity: badgeOpacity,
-            display: "flex",
-            alignItems: "center",
-            gap: 10,
-            padding: "8px 16px",
-            background: "rgba(139, 92, 246, 0.15)",
-            borderRadius: 8,
-            border: "1px solid rgba(139, 92, 246, 0.3)",
-          }}
-        >
-          <div
-            style={{
-              width: 8,
-              height: 8,
-              borderRadius: "50%",
-              background: MODULE_COLORS.stakeholderManagement.primary,
-            }}
-          />
-          <div
-            style={{
-              fontSize: 14,
-              fontWeight: 600,
-              color: MODULE_COLORS.stakeholderManagement.secondary,
-              fontFamily: FONTS.body,
-            }}
-          >
-            Stakeholder Management
-          </div>
-        </div>
-
         {/* Mockup frame with stakeholder view */}
         <div
           style={{
-            transform: `scale(${frameScale})`,
-            opacity: frameOpacity,
-            marginTop: 40,
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <MockupFrame
             title="Heliograph — Stakeholders"
-            width={1600}
-            height={750}
+            width={1920 - SCENE_PADDING * 2}
+            height={1080 - SCENE_PADDING * 2}
           >
             <div
               style={{
@@ -183,7 +59,7 @@ export const StakeholderScene: React.FC = () => {
               <div
                 style={{
                   width: 1,
-                  background: "rgba(255, 255, 255, 0.1)",
+                  background: "rgba(0, 0, 0, 0.1)",
                 }}
               />
 

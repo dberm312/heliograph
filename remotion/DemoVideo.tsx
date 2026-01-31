@@ -1,5 +1,5 @@
 import { linearTiming, TransitionSeries } from "@remotion/transitions";
-import { fade } from "@remotion/transitions/fade";
+import { slide } from "@remotion/transitions/slide";
 import { useEffect } from "react";
 import { AbsoluteFill } from "remotion";
 import { IntroTitleScene } from "./scenes/demo/IntroTitleScene";
@@ -21,8 +21,8 @@ export const DemoVideo: React.FC = () => {
   const stakeholderDuration = 360; // 12s
   const outroDuration = 180; // 6s
 
-  // Transition configuration
-  const fadeTransition = linearTiming({ durationInFrames: 20 });
+  // Transition configuration - macOS desktop swipe style (0.5s)
+  const slideTransition = linearTiming({ durationInFrames: 15 });
 
   return (
     <AbsoluteFill>
@@ -33,38 +33,38 @@ export const DemoVideo: React.FC = () => {
         </TransitionSeries.Sequence>
 
         <TransitionSeries.Transition
-          presentation={fade()}
-          timing={fadeTransition}
+          presentation={slide({ direction: "from-right" })}
+          timing={slideTransition}
         />
 
-        {/* Scene 2: Project Management */}
-        <TransitionSeries.Sequence durationInFrames={projectMgmtDuration}>
-          <ProjectMgmtScene />
-        </TransitionSeries.Sequence>
-
-        <TransitionSeries.Transition
-          presentation={fade()}
-          timing={fadeTransition}
-        />
-
-        {/* Scene 3: Version Control */}
-        <TransitionSeries.Sequence durationInFrames={versionControlDuration}>
-          <VersionControlScene />
-        </TransitionSeries.Sequence>
-
-        <TransitionSeries.Transition
-          presentation={fade()}
-          timing={fadeTransition}
-        />
-
-        {/* Scene 4: Stakeholder Management */}
+        {/* Scene 2: Stakeholder Management (CRM) */}
         <TransitionSeries.Sequence durationInFrames={stakeholderDuration}>
           <StakeholderScene />
         </TransitionSeries.Sequence>
 
         <TransitionSeries.Transition
-          presentation={fade()}
-          timing={fadeTransition}
+          presentation={slide({ direction: "from-right" })}
+          timing={slideTransition}
+        />
+
+        {/* Scene 3: Project Management */}
+        <TransitionSeries.Sequence durationInFrames={projectMgmtDuration}>
+          <ProjectMgmtScene />
+        </TransitionSeries.Sequence>
+
+        <TransitionSeries.Transition
+          presentation={slide({ direction: "from-right" })}
+          timing={slideTransition}
+        />
+
+        {/* Scene 4: Version Control */}
+        <TransitionSeries.Sequence durationInFrames={versionControlDuration}>
+          <VersionControlScene />
+        </TransitionSeries.Sequence>
+
+        <TransitionSeries.Transition
+          presentation={slide({ direction: "from-right" })}
+          timing={slideTransition}
         />
 
         {/* Scene 5: Outro */}
