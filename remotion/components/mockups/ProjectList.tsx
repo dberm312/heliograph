@@ -34,7 +34,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     : 0;
 
   const statusConfig = {
-    active: { label: "Active", color: "#22c55e", bg: "rgba(34, 197, 94, 0.15)" },
+    active: {
+      label: "Active",
+      color: "#22c55e",
+      bg: "rgba(34, 197, 94, 0.15)",
+    },
     onboarding: {
       label: "Onboarding",
       color: "#f59e0b",

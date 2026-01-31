@@ -26,7 +26,7 @@ export function PersonForm({
   const [role, setRole] = useState(person?.role || "");
   const [company, setCompany] = useState(person?.company || "");
   const [personType, setPersonType] = useState<PersonType[]>(
-    person?.personType || ["stakeholder"]
+    person?.personType || ["stakeholder"],
   );
 
   const handleSubmit = (e: React.FormEvent) => {

@@ -27,7 +27,11 @@ export function DemoHeader() {
   };
 
   const handleReset = () => {
-    if (window.confirm("Reset demo to initial state? This will clear all your changes.")) {
+    if (
+      window.confirm(
+        "Reset demo to initial state? This will clear all your changes.",
+      )
+    ) {
       dispatch({ type: "RESET_STATE" });
     }
   };

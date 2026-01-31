@@ -1,10 +1,4 @@
-import type {
-  Activity,
-  DemoState,
-  Person,
-  Requirement,
-  Task,
-} from "../types";
+import type { Activity, DemoState, Person, Requirement, Task } from "../types";
 
 // Sample people - mix of stakeholders, executors, and both
 export const SAMPLE_PERSONS: Person[] = [

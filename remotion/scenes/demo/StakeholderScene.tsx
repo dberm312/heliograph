@@ -1,4 +1,10 @@
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import {
+  AbsoluteFill,
+  interpolate,
+  spring,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
 import { AnimatedGradient } from "../../components/AnimatedGradient";
 import { CalloutOverlay } from "../../components/CalloutBubble";
 import { ContentHeader } from "../../components/mockups/ContentHeader";
@@ -28,10 +34,10 @@ const MOCKUP_WIDTH = 1920 - SCENE_PADDING * 2;
 const MOCKUP_HEIGHT = 1080 - SCENE_PADDING * 2;
 
 // Project overview component for right panel in early phases
-const ProjectOverview: React.FC<{ visible: boolean; entranceDelay: number }> = ({
-  visible,
-  entranceDelay,
-}) => {
+const ProjectOverview: React.FC<{
+  visible: boolean;
+  entranceDelay: number;
+}> = ({ visible, entranceDelay }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -106,8 +112,7 @@ export const StakeholderScene: React.FC = () => {
   const activeTab = getActiveTab(frame);
 
   // Selection states based on timing
-  const selectedProjectIndex =
-    frame >= TIMING.PROJECT_CLICK ? 0 : -1; // Select Acme project
+  const selectedProjectIndex = frame >= TIMING.PROJECT_CLICK ? 0 : -1; // Select Acme project
   const selectedStakeholderId =
     frame >= TIMING.PERSONA_SELECT ? "developer" : undefined; // Select Developer persona
 
@@ -132,7 +137,11 @@ export const StakeholderScene: React.FC = () => {
 
   // Tab configuration
   const tabs = [
-    { id: "requirements", label: "Requirements", count: DEVELOPER_REQUIREMENTS.length },
+    {
+      id: "requirements",
+      label: "Requirements",
+      count: DEVELOPER_REQUIREMENTS.length,
+    },
     { id: "meetings", label: "Meetings", count: DEVELOPER_MEETINGS.length },
     { id: "issues", label: "Issues", count: DEVELOPER_ISSUES.length },
   ];
@@ -203,12 +212,12 @@ export const StakeholderScene: React.FC = () => {
                         transform: `translateX(${interpolate(
                           projectsToPeopleProgress,
                           [0, 1],
-                          [0, -340]
+                          [0, -340],
                         )}px)`,
                         opacity: interpolate(
                           projectsToPeopleProgress,
                           [0, 0.5],
-                          [1, 0]
+                          [1, 0],
                         ),
                       }}
                     >
@@ -231,12 +240,12 @@ export const StakeholderScene: React.FC = () => {
                         transform: `translateX(${interpolate(
                           projectsToPeopleProgress,
                           [0, 1],
-                          [340, 0]
+                          [340, 0],
                         )}px)`,
                         opacity: interpolate(
                           projectsToPeopleProgress,
                           [0.5, 1],
-                          [0, 1]
+                          [0, 1],
                         ),
                       }}
                     >

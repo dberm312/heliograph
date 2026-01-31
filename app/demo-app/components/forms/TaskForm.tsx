@@ -16,37 +16,44 @@ interface TaskFormProps {
 
 const PRIORITIES: Priority[] = ["urgent", "high", "medium", "low"];
 
-export function TaskForm({ task, onSubmit, onCancel, onDelete }: TaskFormProps) {
+export function TaskForm({
+  task,
+  onSubmit,
+  onCancel,
+  onDelete,
+}: TaskFormProps) {
   const { state } = useDemo();
 
   const [title, setTitle] = useState(task?.title || "");
   const [description, setDescription] = useState(task?.description || "");
   const [status, setStatus] = useState<TaskStatus>(task?.status || "backlog");
-  const [priority, setPriority] = useState<Priority>(task?.priority || "medium");
+  const [priority, setPriority] = useState<Priority>(
+    task?.priority || "medium",
+  );
   const [stakeholderIds, setStakeholderIds] = useState<string[]>(
-    task?.stakeholderIds || []
+    task?.stakeholderIds || [],
   );
   const [executorIds, setExecutorIds] = useState<string[]>(
-    task?.executorIds || []
+    task?.executorIds || [],
   );
   const [requirementIds, setRequirementIds] = useState<string[]>(
-    task?.requirementIds || []
+    task?.requirementIds || [],
   );
   const [dueDate, setDueDate] = useState(
-    task?.dueDate ? formatDateForInput(task.dueDate) : ""
+    task?.dueDate ? formatDateForInput(task.dueDate) : "",
   );
 
   // Get persons by type
   const stakeholders = state.persons.filter((p) =>
-    p.personType.includes("stakeholder")
+    p.personType.includes("stakeholder"),
   );
   const executors = state.persons.filter((p) =>
-    p.personType.includes("executor")
+    p.personType.includes("executor"),
   );
 
   // Get available requirements (from selected stakeholders)
   const availableRequirements = state.requirements.filter((r) =>
-    stakeholderIds.includes(r.stakeholderId)
+    stakeholderIds.includes(r.stakeholderId),
   );
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -68,7 +75,7 @@ export function TaskForm({ task, onSubmit, onCancel, onDelete }: TaskFormProps) 
   const toggleSelection = (
     id: string,
     current: string[],
-    setter: (ids: string[]) => void
+    setter: (ids: string[]) => void,
   ) => {
     if (current.includes(id)) {
       setter(current.filter((i) => i !== id));

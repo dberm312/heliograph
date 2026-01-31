@@ -111,7 +111,11 @@ export const PRIORITY_CONFIG: Record<
     color: COLORS.yellow,
     bgColor: "rgba(234, 179, 8, 0.2)",
   },
-  low: { label: "Low", color: COLORS.gray, bgColor: "rgba(107, 114, 128, 0.2)" },
+  low: {
+    label: "Low",
+    color: COLORS.gray,
+    bgColor: "rgba(107, 114, 128, 0.2)",
+  },
 };
 
 // Person type colors

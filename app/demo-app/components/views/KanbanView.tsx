@@ -20,7 +20,7 @@ export function KanbanView() {
     ? state.tasks.filter(
         (t) =>
           t.stakeholderIds.includes(filterPersonId) ||
-          t.executorIds.includes(filterPersonId)
+          t.executorIds.includes(filterPersonId),
       )
     : state.tasks;
 
@@ -30,7 +30,7 @@ export function KanbanView() {
       acc[status] = filteredTasks.filter((t) => t.status === status);
       return acc;
     },
-    {} as Record<TaskStatus, Task[]>
+    {} as Record<TaskStatus, Task[]>,
   );
 
   const handleDrop = (e: React.DragEvent, newStatus: TaskStatus) => {

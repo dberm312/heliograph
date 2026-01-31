@@ -82,7 +82,10 @@ export interface DemoState {
 // Form types for creating new entities (without id and timestamps)
 export type NewPerson = Omit<Person, "id" | "createdAt">;
 export type NewTask = Omit<Task, "id" | "createdAt" | "updatedAt">;
-export type NewRequirement = Omit<Requirement, "id" | "createdAt" | "updatedAt">;
+export type NewRequirement = Omit<
+  Requirement,
+  "id" | "createdAt" | "updatedAt"
+>;
 
 // Action types for the reducer
 export type DemoAction =

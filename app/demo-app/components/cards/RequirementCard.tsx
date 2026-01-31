@@ -12,12 +12,15 @@ interface RequirementCardProps {
   onClick?: () => void;
 }
 
-export function RequirementCard({ requirement, onClick }: RequirementCardProps) {
+export function RequirementCard({
+  requirement,
+  onClick,
+}: RequirementCardProps) {
   const { state } = useDemo();
 
   // Find tasks linked to this requirement
   const linkedTasks = state.tasks.filter((t) =>
-    t.requirementIds.includes(requirement.id)
+    t.requirementIds.includes(requirement.id),
   );
 
   return (

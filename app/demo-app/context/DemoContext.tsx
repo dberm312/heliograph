@@ -78,9 +78,7 @@ function demoReducer(state: DemoState, action: DemoAction): DemoState {
         ...state,
         tasks: state.tasks.filter((t) => t.id !== action.payload),
         selectedTaskId:
-          state.selectedTaskId === action.payload
-            ? null
-            : state.selectedTaskId,
+          state.selectedTaskId === action.payload ? null : state.selectedTaskId,
       };
     }
 
@@ -101,7 +99,9 @@ function demoReducer(state: DemoState, action: DemoAction): DemoState {
       return {
         ...state,
         tasks: state.tasks.map((t) =>
-          t.id === taskId ? { ...t, status: newStatus, updatedAt: timestamp } : t
+          t.id === taskId
+            ? { ...t, status: newStatus, updatedAt: timestamp }
+            : t,
         ),
         activities: [newActivity, ...state.activities],
       };
@@ -137,7 +137,7 @@ function demoReducer(state: DemoState, action: DemoAction): DemoState {
       return {
         ...state,
         persons: state.persons.map((p) =>
-          p.id === id ? { ...p, ...updates } : p
+          p.id === id ? { ...p, ...updates } : p,
         ),
       };
     }
@@ -149,12 +149,14 @@ function demoReducer(state: DemoState, action: DemoAction): DemoState {
         // Also remove person from tasks
         tasks: state.tasks.map((t) => ({
           ...t,
-          stakeholderIds: t.stakeholderIds.filter((id) => id !== action.payload),
+          stakeholderIds: t.stakeholderIds.filter(
+            (id) => id !== action.payload,
+          ),
           executorIds: t.executorIds.filter((id) => id !== action.payload),
         })),
         // Remove requirements for this stakeholder
         requirements: state.requirements.filter(
-          (r) => r.stakeholderId !== action.payload
+          (r) => r.stakeholderId !== action.payload,
         ),
         selectedPersonId:
           state.selectedPersonId === action.payload
@@ -171,7 +173,7 @@ function demoReducer(state: DemoState, action: DemoAction): DemoState {
         updatedAt: timestamp,
       };
       const stakeholder = state.persons.find(
-        (p) => p.id === action.payload.stakeholderId
+        (p) => p.id === action.payload.stakeholderId,
       );
       const newActivity: Activity = {
         id: generateId(),
@@ -213,7 +215,7 @@ function demoReducer(state: DemoState, action: DemoAction): DemoState {
       return {
         ...state,
         requirements: state.requirements.map((r) =>
-          r.id === id ? updatedReq : r
+          r.id === id ? updatedReq : r,
         ),
         activities: [newActivity, ...state.activities],
       };
@@ -222,14 +224,12 @@ function demoReducer(state: DemoState, action: DemoAction): DemoState {
     case "DELETE_REQUIREMENT": {
       return {
         ...state,
-        requirements: state.requirements.filter(
-          (r) => r.id !== action.payload
-        ),
+        requirements: state.requirements.filter((r) => r.id !== action.payload),
         // Also unlink from tasks
         tasks: state.tasks.map((t) => ({
           ...t,
           requirementIds: t.requirementIds.filter(
-            (id) => id !== action.payload
+            (id) => id !== action.payload,
           ),
         })),
       };
@@ -266,7 +266,7 @@ interface DemoContextType {
   getRequirementsByStakeholder: (stakeholderId: string) => Requirement[];
   getTasksByPerson: (
     personId: string,
-    role: "stakeholder" | "executor"
+    role: "stakeholder" | "executor",
   ) => Task[];
 }
 
@@ -330,7 +330,7 @@ export function DemoProvider({ children }: { children: ReactNode }) {
 
   // Save state to localStorage on changes (debounced)
   const debouncedSave = useRef(
-    debounce((s: DemoState) => saveToStorage(s), 300)
+    debounce((s: DemoState) => saveToStorage(s), 300),
   ).current;
 
   useEffect(() => {
@@ -342,23 +342,23 @@ export function DemoProvider({ children }: { children: ReactNode }) {
   // Convenience getters
   const getPersonById = useCallback(
     (id: string) => state.persons.find((p) => p.id === id),
-    [state.persons]
+    [state.persons],
   );
 
   const getTaskById = useCallback(
     (id: string) => state.tasks.find((t) => t.id === id),
-    [state.tasks]
+    [state.tasks],
   );
 
   const getRequirementById = useCallback(
     (id: string) => state.requirements.find((r) => r.id === id),
-    [state.requirements]
+    [state.requirements],
   );
 
   const getRequirementsByStakeholder = useCallback(
     (stakeholderId: string) =>
       state.requirements.filter((r) => r.stakeholderId === stakeholderId),
-    [state.requirements]
+    [state.requirements],
   );
 
   const getTasksByPerson = useCallback(
@@ -366,9 +366,9 @@ export function DemoProvider({ children }: { children: ReactNode }) {
       state.tasks.filter((t) =>
         role === "stakeholder"
           ? t.stakeholderIds.includes(personId)
-          : t.executorIds.includes(personId)
+          : t.executorIds.includes(personId),
       ),
-    [state.tasks]
+    [state.tasks],
   );
 
   return (

@@ -23,8 +23,14 @@ const TASKS: Task[] = [
   {
     id: "1",
     title: "Review Q4 product roadmap",
-    description: "Analyze proposed features and provide feedback on timeline feasibility. Coordinate with engineering leads.",
-    stakeholder: { name: "Sarah Chen", initials: "SC", company: "Acme Corp", role: "CTO" },
+    description:
+      "Analyze proposed features and provide feedback on timeline feasibility. Coordinate with engineering leads.",
+    stakeholder: {
+      name: "Sarah Chen",
+      initials: "SC",
+      company: "Acme Corp",
+      role: "CTO",
+    },
     status: "in_progress",
     priority: "high",
     dueDate: "Jan 15",
@@ -33,7 +39,12 @@ const TASKS: Task[] = [
     id: "2",
     title: "Finalize API documentation",
     description: "Complete OpenAPI spec and developer guides for v2 endpoints.",
-    stakeholder: { name: "Marcus Johnson", initials: "MJ", company: "TechStart", role: "VP Engineering" },
+    stakeholder: {
+      name: "Marcus Johnson",
+      initials: "MJ",
+      company: "TechStart",
+      role: "VP Engineering",
+    },
     status: "todo",
     priority: "medium",
     dueDate: "Jan 18",
@@ -42,7 +53,12 @@ const TASKS: Task[] = [
     id: "3",
     title: "Security compliance audit",
     description: "Review SOC2 requirements and prepare documentation.",
-    stakeholder: { name: "Elena Rodriguez", initials: "ER", company: "DataFlow", role: "Product Lead" },
+    stakeholder: {
+      name: "Elena Rodriguez",
+      initials: "ER",
+      company: "DataFlow",
+      role: "Product Lead",
+    },
     status: "done",
     priority: "high",
     dueDate: "Jan 10",
@@ -57,7 +73,11 @@ const STAKEHOLDER_COLORS: Record<string, string> = {
 
 const STATUS_CONFIG = {
   todo: { label: "To Do", color: "#6b7280", bg: "rgba(107, 114, 128, 0.2)" },
-  in_progress: { label: "In Progress", color: "#f59e0b", bg: "rgba(245, 158, 11, 0.2)" },
+  in_progress: {
+    label: "In Progress",
+    color: "#f59e0b",
+    bg: "rgba(245, 158, 11, 0.2)",
+  },
   done: { label: "Done", color: "#10b981", bg: "rgba(16, 185, 129, 0.2)" },
 };
 
@@ -85,7 +105,8 @@ const TaskRow: React.FC<TaskRowProps> = ({
   const opacity = interpolate(entrance, [0, 1], [0, 1]);
   const x = interpolate(entrance, [0, 1], [-20, 0]);
 
-  const stakeholderColor = STAKEHOLDER_COLORS[task.stakeholder.name] || COLORS.accent;
+  const stakeholderColor =
+    STAKEHOLDER_COLORS[task.stakeholder.name] || COLORS.accent;
   const status = STATUS_CONFIG[task.status];
 
   return (
@@ -103,9 +124,7 @@ const TaskRow: React.FC<TaskRowProps> = ({
           border: isSelected
             ? `1px solid ${MODULE_COLORS.projectManagement.primary}`
             : "1px solid rgba(0, 0, 0, 0.05)",
-          boxShadow: isSelected
-            ? `0 0 20px rgba(249, 115, 22, 0.2)`
-            : "none",
+          boxShadow: isSelected ? `0 0 20px rgba(249, 115, 22, 0.2)` : "none",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
@@ -125,7 +144,13 @@ const TaskRow: React.FC<TaskRowProps> = ({
           >
             {task.status === "done" && (
               <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-                <path d="M2 6L5 9L10 3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path
+                  d="M2 6L5 9L10 3"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             )}
           </div>
@@ -138,7 +163,8 @@ const TaskRow: React.FC<TaskRowProps> = ({
                 fontWeight: 500,
                 color: task.status === "done" ? "#94a3b8" : "#1f2937",
                 fontFamily: FONTS.body,
-                textDecoration: task.status === "done" ? "line-through" : "none",
+                textDecoration:
+                  task.status === "done" ? "line-through" : "none",
               }}
             >
               {task.title}
@@ -192,26 +218,39 @@ type TaskDetailProps = {
 
 const TaskDetail: React.FC<TaskDetailProps> = ({ task, entranceProgress }) => {
   const frame = useCurrentFrame();
-  const stakeholderColor = STAKEHOLDER_COLORS[task.stakeholder.name] || COLORS.accent;
+  const stakeholderColor =
+    STAKEHOLDER_COLORS[task.stakeholder.name] || COLORS.accent;
   const status = STATUS_CONFIG[task.status];
 
   const x = interpolate(entranceProgress, [0, 1], [50, 0]);
   const opacity = interpolate(entranceProgress, [0, 1], [0, 1]);
 
   // Activity items appear sequentially
-  const activity1Opacity = interpolate(entranceProgress, [0.5, 0.7], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const activity2Opacity = interpolate(entranceProgress, [0.7, 0.9], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-
-  // Typing animation for adding a comment
-  const commentTypingStart = 200;
-  const typingProgress = interpolate(frame, [commentTypingStart, commentTypingStart + 60], [0, 1], {
+  const activity1Opacity = interpolate(entranceProgress, [0.5, 0.7], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
+  const activity2Opacity = interpolate(entranceProgress, [0.7, 0.9], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  // Typing animation for adding a comment
+  const commentTypingStart = 200;
+  const typingProgress = interpolate(
+    frame,
+    [commentTypingStart, commentTypingStart + 60],
+    [0, 1],
+    {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    },
+  );
   const commentText = "Updated timeline confirmed with Sarah";
   const visibleChars = Math.floor(typingProgress * commentText.length);
   const displayComment = commentText.slice(0, visibleChars);
-  const showCursor = frame >= commentTypingStart && frame % 15 < 10 && typingProgress < 1;
+  const showCursor =
+    frame >= commentTypingStart && frame % 15 < 10 && typingProgress < 1;
 
   return (
     <div
@@ -225,7 +264,14 @@ const TaskDetail: React.FC<TaskDetailProps> = ({ task, entranceProgress }) => {
     >
       {/* Header */}
       <div style={{ marginBottom: 16 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            marginBottom: 8,
+          }}
+        >
           <div
             style={{
               width: 20,
@@ -262,27 +308,107 @@ const TaskDetail: React.FC<TaskDetailProps> = ({ task, entranceProgress }) => {
       {/* Meta info */}
       <div style={{ display: "flex", gap: 16, marginBottom: 16 }}>
         <div>
-          <div style={{ fontSize: 10, color: "#64748b", fontFamily: FONTS.body, marginBottom: 4, textTransform: "uppercase" }}>Status</div>
-          <div style={{ padding: "4px 10px", borderRadius: 6, background: status.bg, fontSize: 11, fontWeight: 600, color: status.color, fontFamily: FONTS.body }}>
+          <div
+            style={{
+              fontSize: 10,
+              color: "#64748b",
+              fontFamily: FONTS.body,
+              marginBottom: 4,
+              textTransform: "uppercase",
+            }}
+          >
+            Status
+          </div>
+          <div
+            style={{
+              padding: "4px 10px",
+              borderRadius: 6,
+              background: status.bg,
+              fontSize: 11,
+              fontWeight: 600,
+              color: status.color,
+              fontFamily: FONTS.body,
+            }}
+          >
             {status.label}
           </div>
         </div>
         <div>
-          <div style={{ fontSize: 10, color: "#64748b", fontFamily: FONTS.body, marginBottom: 4, textTransform: "uppercase" }}>Priority</div>
+          <div
+            style={{
+              fontSize: 10,
+              color: "#64748b",
+              fontFamily: FONTS.body,
+              marginBottom: 4,
+              textTransform: "uppercase",
+            }}
+          >
+            Priority
+          </div>
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-            <div style={{ width: 8, height: 8, borderRadius: "50%", background: task.priority === "high" ? "#ef4444" : task.priority === "medium" ? "#f59e0b" : "#6b7280" }} />
-            <span style={{ fontSize: 12, color: "#1f2937", fontFamily: FONTS.body, textTransform: "capitalize" }}>{task.priority}</span>
+            <div
+              style={{
+                width: 8,
+                height: 8,
+                borderRadius: "50%",
+                background:
+                  task.priority === "high"
+                    ? "#ef4444"
+                    : task.priority === "medium"
+                      ? "#f59e0b"
+                      : "#6b7280",
+              }}
+            />
+            <span
+              style={{
+                fontSize: 12,
+                color: "#1f2937",
+                fontFamily: FONTS.body,
+                textTransform: "capitalize",
+              }}
+            >
+              {task.priority}
+            </span>
           </div>
         </div>
         <div>
-          <div style={{ fontSize: 10, color: "#64748b", fontFamily: FONTS.body, marginBottom: 4, textTransform: "uppercase" }}>Due Date</div>
-          <span style={{ fontSize: 12, color: "#1f2937", fontFamily: FONTS.body }}>{task.dueDate}</span>
+          <div
+            style={{
+              fontSize: 10,
+              color: "#64748b",
+              fontFamily: FONTS.body,
+              marginBottom: 4,
+              textTransform: "uppercase",
+            }}
+          >
+            Due Date
+          </div>
+          <span
+            style={{ fontSize: 12, color: "#1f2937", fontFamily: FONTS.body }}
+          >
+            {task.dueDate}
+          </span>
         </div>
       </div>
 
       {/* Stakeholder section */}
-      <GlassCard padding={12} borderRadius={10} opacity={0.08} style={{ marginBottom: 16 }}>
-        <div style={{ fontSize: 10, color: "#64748b", fontFamily: FONTS.body, marginBottom: 8, textTransform: "uppercase" }}>Assigned Stakeholder</div>
+      <GlassCard
+        padding={12}
+        borderRadius={10}
+        opacity={0.08}
+        style={{ marginBottom: 16 }}
+      >
+        <div
+          style={{
+            fontSize: 10,
+            color: "#64748b",
+            fontFamily: FONTS.body,
+            marginBottom: 8,
+            textTransform: "uppercase",
+          }}
+        >
+          Assigned Stakeholder
+        </div>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div
             style={{
@@ -302,38 +428,141 @@ const TaskDetail: React.FC<TaskDetailProps> = ({ task, entranceProgress }) => {
             {task.stakeholder.initials}
           </div>
           <div>
-            <div style={{ fontSize: 13, fontWeight: 500, color: "#1f2937", fontFamily: FONTS.body }}>{task.stakeholder.name}</div>
-            <div style={{ fontSize: 11, color: "#64748b", fontFamily: FONTS.body }}>{task.stakeholder.role} · {task.stakeholder.company}</div>
+            <div
+              style={{
+                fontSize: 13,
+                fontWeight: 500,
+                color: "#1f2937",
+                fontFamily: FONTS.body,
+              }}
+            >
+              {task.stakeholder.name}
+            </div>
+            <div
+              style={{ fontSize: 11, color: "#64748b", fontFamily: FONTS.body }}
+            >
+              {task.stakeholder.role} · {task.stakeholder.company}
+            </div>
           </div>
         </div>
       </GlassCard>
 
       {/* Activity */}
       <div style={{ flex: 1 }}>
-        <div style={{ fontSize: 10, color: "#64748b", fontFamily: FONTS.body, marginBottom: 10, textTransform: "uppercase" }}>Activity</div>
+        <div
+          style={{
+            fontSize: 10,
+            color: "#64748b",
+            fontFamily: FONTS.body,
+            marginBottom: 10,
+            textTransform: "uppercase",
+          }}
+        >
+          Activity
+        </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
           <div style={{ display: "flex", gap: 10, opacity: activity1Opacity }}>
-            <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#10b981", marginTop: 5, flexShrink: 0 }} />
+            <div
+              style={{
+                width: 6,
+                height: 6,
+                borderRadius: "50%",
+                background: "#10b981",
+                marginTop: 5,
+                flexShrink: 0,
+              }}
+            />
             <div>
-              <div style={{ fontSize: 12, color: "#1f2937", fontFamily: FONTS.body }}>Task created and assigned to {task.stakeholder.name}</div>
-              <div style={{ fontSize: 10, color: "#94a3b8", fontFamily: FONTS.body }}>2 days ago</div>
+              <div
+                style={{
+                  fontSize: 12,
+                  color: "#1f2937",
+                  fontFamily: FONTS.body,
+                }}
+              >
+                Task created and assigned to {task.stakeholder.name}
+              </div>
+              <div
+                style={{
+                  fontSize: 10,
+                  color: "#94a3b8",
+                  fontFamily: FONTS.body,
+                }}
+              >
+                2 days ago
+              </div>
             </div>
           </div>
           <div style={{ display: "flex", gap: 10, opacity: activity2Opacity }}>
-            <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#f59e0b", marginTop: 5, flexShrink: 0 }} />
+            <div
+              style={{
+                width: 6,
+                height: 6,
+                borderRadius: "50%",
+                background: "#f59e0b",
+                marginTop: 5,
+                flexShrink: 0,
+              }}
+            />
             <div>
-              <div style={{ fontSize: 12, color: "#1f2937", fontFamily: FONTS.body }}>Status changed to In Progress</div>
-              <div style={{ fontSize: 10, color: "#94a3b8", fontFamily: FONTS.body }}>1 day ago</div>
+              <div
+                style={{
+                  fontSize: 12,
+                  color: "#1f2937",
+                  fontFamily: FONTS.body,
+                }}
+              >
+                Status changed to In Progress
+              </div>
+              <div
+                style={{
+                  fontSize: 10,
+                  color: "#94a3b8",
+                  fontFamily: FONTS.body,
+                }}
+              >
+                1 day ago
+              </div>
             </div>
           </div>
           {typingProgress > 0 && (
             <div style={{ display: "flex", gap: 10 }}>
-              <div style={{ width: 6, height: 6, borderRadius: "50%", background: MODULE_COLORS.projectManagement.primary, marginTop: 5, flexShrink: 0 }} />
+              <div
+                style={{
+                  width: 6,
+                  height: 6,
+                  borderRadius: "50%",
+                  background: MODULE_COLORS.projectManagement.primary,
+                  marginTop: 5,
+                  flexShrink: 0,
+                }}
+              />
               <div>
-                <div style={{ fontSize: 12, color: "#1f2937", fontFamily: FONTS.body }}>
-                  {displayComment}{showCursor && <span style={{ color: MODULE_COLORS.projectManagement.primary }}>|</span>}
+                <div
+                  style={{
+                    fontSize: 12,
+                    color: "#1f2937",
+                    fontFamily: FONTS.body,
+                  }}
+                >
+                  {displayComment}
+                  {showCursor && (
+                    <span
+                      style={{ color: MODULE_COLORS.projectManagement.primary }}
+                    >
+                      |
+                    </span>
+                  )}
                 </div>
-                <div style={{ fontSize: 10, color: "#94a3b8", fontFamily: FONTS.body }}>Just now</div>
+                <div
+                  style={{
+                    fontSize: 10,
+                    color: "#94a3b8",
+                    fontFamily: FONTS.body,
+                  }}
+                >
+                  Just now
+                </div>
               </div>
             </div>
           )}
@@ -368,12 +597,14 @@ export const TaskView: React.FC = () => {
   return (
     <div style={{ padding: 20, height: "100%", display: "flex", gap: 20 }}>
       {/* Left side - Task list */}
-      <div style={{
-        flex: showDetail ? "0 0 45%" : 1,
-        display: "flex",
-        flexDirection: "column",
-        transition: "flex 0.3s ease",
-      }}>
+      <div
+        style={{
+          flex: showDetail ? "0 0 45%" : 1,
+          display: "flex",
+          flexDirection: "column",
+          transition: "flex 0.3s ease",
+        }}
+      >
         {/* Header */}
         <div
           style={{
@@ -386,8 +617,26 @@ export const TaskView: React.FC = () => {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <div style={{ fontSize: 15, fontWeight: 600, color: "#1f2937", fontFamily: FONTS.body }}>Tasks</div>
-            <div style={{ fontSize: 11, color: "#64748b", fontFamily: FONTS.body, padding: "2px 6px", background: "rgba(0, 0, 0, 0.05)", borderRadius: 4 }}>
+            <div
+              style={{
+                fontSize: 15,
+                fontWeight: 600,
+                color: "#1f2937",
+                fontFamily: FONTS.body,
+              }}
+            >
+              Tasks
+            </div>
+            <div
+              style={{
+                fontSize: 11,
+                color: "#64748b",
+                fontFamily: FONTS.body,
+                padding: "2px 6px",
+                background: "rgba(0, 0, 0, 0.05)",
+                borderRadius: 4,
+              }}
+            >
               3 items
             </div>
           </div>
@@ -398,10 +647,16 @@ export const TaskView: React.FC = () => {
                 style={{
                   padding: "4px 10px",
                   borderRadius: 5,
-                  background: i === 0 ? "rgba(249, 115, 22, 0.15)" : "rgba(0, 0, 0, 0.05)",
+                  background:
+                    i === 0
+                      ? "rgba(249, 115, 22, 0.15)"
+                      : "rgba(0, 0, 0, 0.05)",
                   fontSize: 11,
                   fontWeight: 500,
-                  color: i === 0 ? MODULE_COLORS.projectManagement.primary : "#64748b",
+                  color:
+                    i === 0
+                      ? MODULE_COLORS.projectManagement.primary
+                      : "#64748b",
                   fontFamily: FONTS.body,
                 }}
               >
@@ -426,11 +681,13 @@ export const TaskView: React.FC = () => {
 
       {/* Right side - Task detail */}
       {showDetail && (
-        <div style={{
-          flex: "0 0 53%",
-          borderLeft: "1px solid rgba(0, 0, 0, 0.08)",
-          paddingLeft: 20,
-        }}>
+        <div
+          style={{
+            flex: "0 0 53%",
+            borderLeft: "1px solid rgba(0, 0, 0, 0.08)",
+            paddingLeft: 20,
+          }}
+        >
           <TaskDetail task={selectedTask} entranceProgress={detailEntrance} />
         </div>
       )}

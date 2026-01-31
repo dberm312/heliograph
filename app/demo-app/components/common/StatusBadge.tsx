@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  REQUIREMENT_STATUS_CONFIG,
-  TASK_STATUS_CONFIG,
-} from "../../constants";
+import { REQUIREMENT_STATUS_CONFIG, TASK_STATUS_CONFIG } from "../../constants";
 import type { RequirementStatus, TaskStatus } from "../../types";
 
 interface TaskStatusBadgeProps {

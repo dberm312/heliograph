@@ -36,21 +36,23 @@ export function RequirementForm({
   const { state } = useDemo();
 
   const [title, setTitle] = useState(requirement?.title || "");
-  const [description, setDescription] = useState(requirement?.description || "");
+  const [description, setDescription] = useState(
+    requirement?.description || "",
+  );
   const [status, setStatus] = useState<RequirementStatus>(
-    requirement?.status || "draft"
+    requirement?.status || "draft",
   );
   const [priority, setPriority] = useState<Priority>(
-    requirement?.priority || "medium"
+    requirement?.priority || "medium",
   );
   const [stakeholderId, setStakeholderId] = useState(
-    requirement?.stakeholderId || ""
+    requirement?.stakeholderId || "",
   );
   const [notes, setNotes] = useState(requirement?.notes || "");
 
   // Get stakeholders
   const stakeholders = state.persons.filter((p) =>
-    p.personType.includes("stakeholder")
+    p.personType.includes("stakeholder"),
   );
 
   const handleSubmit = (e: React.FormEvent) => {

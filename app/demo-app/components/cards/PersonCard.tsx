@@ -50,10 +50,7 @@ export function PersonCard({ person, isSelected, onClick }: PersonCardProps) {
         <div className="flex-1 min-w-0">
           <h3 className="font-medium text-white truncate">{person.name}</h3>
           <p className="text-sm text-white/60 truncate">{person.role}</p>
-          <p
-            className="text-xs mt-1 truncate"
-            style={{ color: companyColor }}
-          >
+          <p className="text-xs mt-1 truncate" style={{ color: companyColor }}>
             {person.company}
           </p>
 
@@ -67,9 +64,7 @@ export function PersonCard({ person, isSelected, onClick }: PersonCardProps) {
 
         {/* Stats */}
         <div className="flex flex-col items-end gap-1 text-xs text-white/50">
-          {requirements.length > 0 && (
-            <span>{requirements.length} req</span>
-          )}
+          {requirements.length > 0 && <span>{requirements.length} req</span>}
           {tasksAsStakeholder.length > 0 && (
             <span>{tasksAsStakeholder.length} tasks (for)</span>
           )}

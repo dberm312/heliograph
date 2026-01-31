@@ -215,7 +215,8 @@ export const DEVELOPER_MEETINGS: MeetingNote[] = [
     title: "API Design Review",
     date: "Jan 15, 2024",
     attendees: ["sarah", "david"],
-    summary: "Reviewed REST vs GraphQL approaches. Decided on REST with optional GraphQL gateway.",
+    summary:
+      "Reviewed REST vs GraphQL approaches. Decided on REST with optional GraphQL gateway.",
     actionItems: 3,
   },
   {
@@ -223,7 +224,8 @@ export const DEVELOPER_MEETINGS: MeetingNote[] = [
     title: "SDK Architecture Discussion",
     date: "Jan 22, 2024",
     attendees: ["david"],
-    summary: "Discussed code generation strategy and versioning approach for the TypeScript SDK.",
+    summary:
+      "Discussed code generation strategy and versioning approach for the TypeScript SDK.",
     actionItems: 2,
   },
   {
@@ -231,7 +233,8 @@ export const DEVELOPER_MEETINGS: MeetingNote[] = [
     title: "Developer Experience Feedback",
     date: "Jan 29, 2024",
     attendees: ["sarah", "david"],
-    summary: "Gathered feedback from internal devs. Top requests: better error messages, faster iteration cycles.",
+    summary:
+      "Gathered feedback from internal devs. Top requests: better error messages, faster iteration cycles.",
     actionItems: 5,
   },
 ];
@@ -361,7 +364,7 @@ export function getViewState(frame: number): "projects" | "people" | "detail" {
 }
 
 export function getActiveTab(
-  frame: number
+  frame: number,
 ): "requirements" | "meetings" | "issues" {
   if (frame < TIMING.TAB_MEETINGS) return "requirements";
   if (frame < TIMING.TAB_ISSUES) return "meetings";

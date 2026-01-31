@@ -71,22 +71,24 @@ export function PeopleView() {
         <div className="flex items-center gap-2 mb-4">
           <Filter className="w-4 h-4 text-white/40" aria-hidden="true" />
           <div className="flex gap-1">
-            {(["all", "stakeholder", "executor"] as FilterType[]).map((type) => (
-              <button
-                key={type}
-                type="button"
-                onClick={() => setFilterType(type)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-                  filterType === type
-                    ? "bg-white/10 text-white"
-                    : "text-white/50 hover:text-white/80 hover:bg-white/5"
-                }`}
-              >
-                {type === "all"
-                  ? "All"
-                  : type.charAt(0).toUpperCase() + type.slice(1) + "s"}
-              </button>
-            ))}
+            {(["all", "stakeholder", "executor"] as FilterType[]).map(
+              (type) => (
+                <button
+                  key={type}
+                  type="button"
+                  onClick={() => setFilterType(type)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                    filterType === type
+                      ? "bg-white/10 text-white"
+                      : "text-white/50 hover:text-white/80 hover:bg-white/5"
+                  }`}
+                >
+                  {type === "all"
+                    ? "All"
+                    : type.charAt(0).toUpperCase() + type.slice(1) + "s"}
+                </button>
+              ),
+            )}
           </div>
         </div>
 

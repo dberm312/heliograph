@@ -19,8 +19,7 @@ export const CalloutBubble: React.FC<CalloutBubbleProps> = ({
   const { fps } = useVideoConfig();
 
   const isVisible =
-    frame >= callout.appearAt &&
-    frame < callout.appearAt + callout.duration;
+    frame >= callout.appearAt && frame < callout.appearAt + callout.duration;
 
   if (!isVisible) return null;
 
@@ -36,7 +35,7 @@ export const CalloutBubble: React.FC<CalloutBubbleProps> = ({
     frame,
     [exitStart, callout.appearAt + callout.duration],
     [1, 0],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
   const combinedOpacity = Math.min(entranceProgress, exitProgress);
@@ -52,7 +51,7 @@ export const CalloutBubble: React.FC<CalloutBubbleProps> = ({
         callout.position,
         callout.pointTo,
         containerWidth,
-        containerHeight
+        containerHeight,
       )
     : null;
 
@@ -170,7 +169,7 @@ function calculatePointerPath(
   from: { x: number; y: number },
   to: { x: number; y: number },
   containerWidth: number,
-  containerHeight: number
+  containerHeight: number,
 ): string {
   const x1 = (from.x / 100) * containerWidth;
   const y1 = (from.y / 100) * containerHeight;

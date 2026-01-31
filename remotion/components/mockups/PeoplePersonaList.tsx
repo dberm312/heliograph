@@ -286,7 +286,7 @@ export const PeoplePersonaList: React.FC<PeoplePersonaListProps> = ({
               config: { damping: 20, stiffness: 100 },
             }),
             [0, 1],
-            [0, 1]
+            [0, 1],
           ),
         }}
       />

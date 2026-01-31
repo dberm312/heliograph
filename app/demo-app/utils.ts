@@ -54,7 +54,7 @@ export function getCompanyColor(company: string): string {
 // Debounce function for localStorage writes
 export function debounce<T extends (...args: Parameters<T>) => void>(
   fn: T,
-  delay: number
+  delay: number,
 ): (...args: Parameters<T>) => void {
   let timeoutId: ReturnType<typeof setTimeout>;
   return (...args: Parameters<T>) => {
@@ -64,22 +64,28 @@ export function debounce<T extends (...args: Parameters<T>) => void>(
 }
 
 // Pluralize helper
-export function pluralize(count: number, singular: string, plural?: string): string {
+export function pluralize(
+  count: number,
+  singular: string,
+  plural?: string,
+): string {
   if (count === 1) return singular;
   return plural || `${singular}s`;
 }
 
 // Sort by date (newest first)
-export function sortByDateDesc<T extends { createdAt: string }>(items: T[]): T[] {
+export function sortByDateDesc<T extends { createdAt: string }>(
+  items: T[],
+): T[] {
   return [...items].sort(
-    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
   );
 }
 
 // Filter helpers
 export function filterByStatus<T extends { status: string }>(
   items: T[],
-  status: string
+  status: string,
 ): T[] {
   return items.filter((item) => item.status === status);
 }
@@ -87,7 +93,7 @@ export function filterByStatus<T extends { status: string }>(
 // Group items by a key
 export function groupBy<T, K extends keyof T>(
   items: T[],
-  key: K
+  key: K,
 ): Map<T[K], T[]> {
   const map = new Map<T[K], T[]>();
   for (const item of items) {

@@ -20,12 +20,12 @@ export function RequirementsView() {
   // Group requirements by stakeholder
   const requirementsByStakeholder = groupBy(
     state.requirements,
-    "stakeholderId"
+    "stakeholderId",
   );
 
   // Get stakeholders who can have requirements
   const stakeholders = state.persons.filter((p) =>
-    p.personType.includes("stakeholder")
+    p.personType.includes("stakeholder"),
   );
 
   return (
@@ -105,7 +105,7 @@ export function RequirementsView() {
                   </div>
                 </div>
               );
-            }
+            },
           )}
         </div>
       ) : (

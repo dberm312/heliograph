@@ -9,14 +9,16 @@ interface AvatarGroupProps {
   size?: "sm" | "md" | "lg";
 }
 
-export function AvatarGroup({ persons, max = 3, size = "sm" }: AvatarGroupProps) {
+export function AvatarGroup({
+  persons,
+  max = 3,
+  size = "sm",
+}: AvatarGroupProps) {
   const displayed = persons.slice(0, max);
   const remaining = persons.length - max;
 
   if (persons.length === 0) {
-    return (
-      <span className="text-xs text-white/40 italic">Unassigned</span>
-    );
+    return <span className="text-xs text-white/40 italic">Unassigned</span>;
   }
 
   return (

@@ -21,23 +21,23 @@ export function DashboardView() {
   const totalTasks = state.tasks.length;
   const completedTasks = state.tasks.filter((t) => t.status === "done").length;
   const urgentTasks = state.tasks.filter(
-    (t) => t.priority === "urgent" && t.status !== "done"
+    (t) => t.priority === "urgent" && t.status !== "done",
   ).length;
   const inProgressTasks = state.tasks.filter(
-    (t) => t.status === "inProgress"
+    (t) => t.status === "inProgress",
   ).length;
 
   const totalPeople = state.persons.length;
   const stakeholderCount = state.persons.filter((p) =>
-    p.personType.includes("stakeholder")
+    p.personType.includes("stakeholder"),
   ).length;
   const executorCount = state.persons.filter((p) =>
-    p.personType.includes("executor")
+    p.personType.includes("executor"),
   ).length;
 
   const totalRequirements = state.requirements.length;
   const completedRequirements = state.requirements.filter(
-    (r) => r.status === "completed"
+    (r) => r.status === "completed",
   ).length;
 
   // Tasks by status for mini chart
@@ -174,7 +174,9 @@ export function DashboardView() {
             <h2 className="font-medium text-white">Requirements</h2>
             <button
               type="button"
-              onClick={() => dispatch({ type: "SET_VIEW", payload: "requirements" })}
+              onClick={() =>
+                dispatch({ type: "SET_VIEW", payload: "requirements" })
+              }
               className="text-xs text-orange-300 hover:text-orange-200 transition-colors"
             >
               View all
@@ -183,7 +185,10 @@ export function DashboardView() {
 
           <div className="flex items-center gap-4 mb-4">
             <div className="w-14 h-14 rounded-full bg-orange-500/20 flex items-center justify-center">
-              <FileText className="w-7 h-7 text-orange-300" aria-hidden="true" />
+              <FileText
+                className="w-7 h-7 text-orange-300"
+                aria-hidden="true"
+              />
             </div>
             <div>
               <div className="text-2xl font-display font-semibold text-white">
@@ -212,7 +217,7 @@ export function DashboardView() {
               <span className="text-yellow-400">
                 {
                   state.requirements.filter(
-                    (r) => r.status === "pending" || r.status === "draft"
+                    (r) => r.status === "pending" || r.status === "draft",
                   ).length
                 }
               </span>
