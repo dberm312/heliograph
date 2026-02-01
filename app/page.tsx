@@ -29,7 +29,7 @@ export default function Home() {
 
       <main className="overflow-x-clip">
         {/* Hero Text - Asymmetric layout */}
-        <section className="px-6 pt-24 pb-32 md:pt-32 md:pb-20 relative">
+        <section className="px-6 pt-8 pb-8 relative">
           {/* Light beam decoration */}
           <div
             className="light-beam w-[2px] h-64 absolute top-0 left-1/4 rotate-12 opacity-50"
@@ -459,7 +459,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="px-6 py-12 border-t border-white/10 relative">
+      <footer className="px-6 py-8 border-t border-white/10 relative">
         <div
           className="absolute inset-0 bg-linear-to-t from-blue-900/20 to-transparent pointer-events-none"
           aria-hidden="true"

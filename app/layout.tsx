@@ -47,7 +47,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <div className="fixed inset-0 bg-linear-to-br from-orange-400 via-blue-500 to-blue-600 -z-10" />
-        <header className="sticky top-0 z-50 px-6 py-4 backdrop-blur-3xl bg-white/25">
+        <header className="sticky top-0 z-50 px-6 py-8 backdrop-blur-3xl bg-white/25">
           <div className="max-w-6xl mx-auto flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3">
               <div className="bg-white/80 rounded-lg p-1.5">
