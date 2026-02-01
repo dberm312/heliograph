@@ -260,11 +260,13 @@ const WorkItemRow: React.FC<WorkItemRowProps> = ({
             <div style={{ flex: 1, minWidth: 0 }}>
               <div
                 style={{
-                  fontSize: item.type === "epic" ? 14 : item.type === "story" ? 13 : 12,
+                  fontSize:
+                    item.type === "epic" ? 14 : item.type === "story" ? 13 : 12,
                   fontWeight: item.type === "task" ? 500 : 600,
                   color: item.status === "done" ? "#94a3b8" : "#1f2937",
                   fontFamily: FONTS.body,
-                  textDecoration: item.status === "done" ? "line-through" : "none",
+                  textDecoration:
+                    item.status === "done" ? "line-through" : "none",
                 }}
               >
                 {item.title}
@@ -275,7 +277,9 @@ const WorkItemRow: React.FC<WorkItemRowProps> = ({
             <AssigneeAvatar
               assignee={item.assignee}
               fallbackInitials={item.stakeholder.initials}
-              fallbackColor={TASK_STAKEHOLDER_COLORS[item.stakeholder.name] || COLORS.accent}
+              fallbackColor={
+                TASK_STAKEHOLDER_COLORS[item.stakeholder.name] || COLORS.accent
+              }
               size={item.type === "epic" ? 26 : 22}
             />
 
@@ -494,9 +498,12 @@ const WorkItemDetail: React.FC<WorkItemDetailProps> = ({
   // Message highlight animation
   const messageHighlightProgress = interpolate(
     frame,
-    [TASK_TIMING.INBOX_MESSAGE_HIGHLIGHT, TASK_TIMING.INBOX_MESSAGE_HIGHLIGHT + 20],
+    [
+      TASK_TIMING.INBOX_MESSAGE_HIGHLIGHT,
+      TASK_TIMING.INBOX_MESSAGE_HIGHLIGHT + 20,
+    ],
     [0, 1],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
   // Typing animation for adding a comment
@@ -510,7 +517,8 @@ const WorkItemDetail: React.FC<WorkItemDetailProps> = ({
       extrapolateRight: "clamp",
     },
   );
-  const commentText = "Yes, let's support both - SAML 2.0 for enterprise and OIDC for modern apps";
+  const commentText =
+    "Yes, let's support both - SAML 2.0 for enterprise and OIDC for modern apps";
   const visibleChars = Math.floor(typingProgress * commentText.length);
   const displayComment = commentText.slice(0, visibleChars);
   const showCursor =
@@ -537,7 +545,7 @@ const WorkItemDetail: React.FC<WorkItemDetailProps> = ({
 
   // Filter messages for this item
   const relevantMessages = inboxMessages.filter(
-    (msg) => msg.workItemId === item.id
+    (msg) => msg.workItemId === item.id,
   );
 
   // Calculate unread count
@@ -745,7 +753,9 @@ const WorkItemDetail: React.FC<WorkItemDetailProps> = ({
             <AssigneeAvatar
               assignee={item.assignee}
               fallbackInitials={item.stakeholder.initials}
-              fallbackColor={TASK_STAKEHOLDER_COLORS[item.stakeholder.name] || COLORS.accent}
+              fallbackColor={
+                TASK_STAKEHOLDER_COLORS[item.stakeholder.name] || COLORS.accent
+              }
               size={28}
             />
             <div>
@@ -989,7 +999,7 @@ const WorkItemDetail: React.FC<WorkItemDetailProps> = ({
                   inboxEntrance,
                   [idx * 0.2, idx * 0.2 + 0.5],
                   [0, 1],
-                  { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+                  { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
                 )}
                 isHighlighted={idx === 0 && messageHighlightProgress > 0.5}
               />
@@ -1005,7 +1015,9 @@ const WorkItemDetail: React.FC<WorkItemDetailProps> = ({
                   borderLeft: `3px solid ${MODULE_COLORS.projectManagement.primary}`,
                 }}
               >
-                <div style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+                <div
+                  style={{ display: "flex", gap: 8, alignItems: "flex-start" }}
+                >
                   <AssigneeAvatar
                     assignee={{
                       type: "human",
@@ -1028,7 +1040,9 @@ const WorkItemDetail: React.FC<WorkItemDetailProps> = ({
                       {displayComment}
                       {showCursor && (
                         <span
-                          style={{ color: MODULE_COLORS.projectManagement.primary }}
+                          style={{
+                            color: MODULE_COLORS.projectManagement.primary,
+                          }}
                         >
                           |
                         </span>
@@ -1075,7 +1089,9 @@ export const TaskViewEnhanced: React.FC = () => {
   const getIsLastChild = (item: WorkItem, index: number) => {
     if (!item.parentId) return false;
     // Find all siblings
-    const siblings = DEMO_WORK_ITEMS.filter((i) => i.parentId === item.parentId);
+    const siblings = DEMO_WORK_ITEMS.filter(
+      (i) => i.parentId === item.parentId,
+    );
     return siblings[siblings.length - 1].id === item.id;
   };
 

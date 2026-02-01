@@ -154,7 +154,8 @@ export const DEMO_DOCUMENTS: Document[] = [
         {
           type: "code",
           content: "df.groupby('client').mean()",
-          output: "        latency   throughput\nacme      45.2      1250\ntechstart 38.7      1480",
+          output:
+            "        latency   throughput\nacme      45.2      1250\ntechstart 38.7      1480",
         },
       ],
     } as NotebookContent,
@@ -356,7 +357,10 @@ export function getDocumentTransitionProgress(
   transitionStart: number,
   duration: number = 20,
 ): { entering: number; exiting: number } {
-  const progress = Math.min(1, Math.max(0, (frame - transitionStart) / duration));
+  const progress = Math.min(
+    1,
+    Math.max(0, (frame - transitionStart) / duration),
+  );
   return {
     entering: progress,
     exiting: 1 - progress,

@@ -23,11 +23,7 @@ const FileIcon: React.FC<{ type: string; size?: number }> = ({
   size = 16,
 }) => {
   const iconColor =
-    type === "code"
-      ? "#3b82f6"
-      : type === "notebook"
-        ? "#f97316"
-        : "#8b5cf6";
+    type === "code" ? "#3b82f6" : type === "notebook" ? "#f97316" : "#8b5cf6";
 
   if (type === "code") {
     return (
@@ -91,10 +87,10 @@ const FileIcon: React.FC<{ type: string; size?: number }> = ({
 // Code View Component
 // ============================================================
 
-const CodeView: React.FC<{ content: CodeContent; entranceProgress: number }> = ({
-  content,
-  entranceProgress,
-}) => {
+const CodeView: React.FC<{
+  content: CodeContent;
+  entranceProgress: number;
+}> = ({ content, entranceProgress }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 

@@ -37,11 +37,13 @@ async function generateGradient(): Promise<void> {
   `;
 
   // Convert SVG to PNG using sharp
-  const outputPath = path.join(process.cwd(), "public", "gradient-background.png");
+  const outputPath = path.join(
+    process.cwd(),
+    "public",
+    "gradient-background.png",
+  );
 
-  await sharp(Buffer.from(svg))
-    .png()
-    .toFile(outputPath);
+  await sharp(Buffer.from(svg)).png().toFile(outputPath);
 
   const stats = fs.statSync(outputPath);
   const fileSizeMB = (stats.size / (1024 * 1024)).toFixed(2);

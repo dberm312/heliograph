@@ -369,7 +369,7 @@ export const OutroScene: React.FC = () => {
     frame,
     [TIMING.FOLD_START, TIMING.FOLD_END],
     [0, 1],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
   // Card positions during fold
@@ -399,7 +399,7 @@ export const OutroScene: React.FC = () => {
     frame,
     [TIMING.SPIN_START, TIMING.SPIN_END],
     [0, 1],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
   const spinRotationY = spinProgress * -540; // 1.5 rotations clockwise
 
@@ -417,7 +417,7 @@ export const OutroScene: React.FC = () => {
     frame,
     [TIMING.TAGLINE_APPEAR, TIMING.TAGLINE_APPEAR + 30],
     [0, 1],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
   // -------------------------------------------------------------------------
@@ -427,7 +427,7 @@ export const OutroScene: React.FC = () => {
     frame,
     [TIMING.TILT_START, TIMING.TILT_END],
     [0, 1],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
   const tiltRotationX = tiltProgress * 90;
 
@@ -436,7 +436,7 @@ export const OutroScene: React.FC = () => {
     frame,
     [TIMING.TILT_START, TIMING.TILT_END],
     [0.3, 1],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
   // Fade out tagline during tilt
@@ -444,7 +444,7 @@ export const OutroScene: React.FC = () => {
     frame,
     [TIMING.TILT_START, TIMING.TILT_START + 30],
     [1, 0],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
   // -------------------------------------------------------------------------
@@ -456,7 +456,7 @@ export const OutroScene: React.FC = () => {
     frame,
     [TIMING.CUBE_SHRINK_START, TIMING.CUBE_SHRINK_END],
     [1, 0.45],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
   // Cube moves up as it shrinks
@@ -464,7 +464,7 @@ export const OutroScene: React.FC = () => {
     frame,
     [TIMING.CUBE_SHRINK_START, TIMING.CUBE_SHRINK_END],
     [0, -100],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
   // Title entrance (after cube shrinks)
@@ -478,7 +478,7 @@ export const OutroScene: React.FC = () => {
     frame,
     [TIMING.TITLE_APPEAR, TIMING.TITLE_APPEAR + 25],
     [0, 1],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
   // CTA entrance
@@ -492,7 +492,7 @@ export const OutroScene: React.FC = () => {
     frame,
     [TIMING.CTA_APPEAR, TIMING.CTA_APPEAR + 20],
     [0, 1],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
   // URL entrance
@@ -506,7 +506,7 @@ export const OutroScene: React.FC = () => {
     frame,
     [TIMING.URL_APPEAR, TIMING.URL_APPEAR + 20],
     [0, 1],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
   // -------------------------------------------------------------------------
@@ -610,7 +610,9 @@ export const OutroScene: React.FC = () => {
               <>
                 {/* Left face (Stakeholder - purple - MODULES[2]) */}
                 <CubeFace
-                  module={isCubeFormed ? getPillar(3, rotationQuarter) : MODULES[2]}
+                  module={
+                    isCubeFormed ? getPillar(3, rotationQuarter) : MODULES[2]
+                  }
                   transform={`translateX(${leftX}px) rotateY(${leftRotY}deg) translateZ(${leftZ}px)`}
                   opacity={1}
                   showDescription
@@ -618,7 +620,9 @@ export const OutroScene: React.FC = () => {
 
                 {/* Front face (Task - orange - MODULES[0]) */}
                 <CubeFace
-                  module={isCubeFormed ? getPillar(0, rotationQuarter) : MODULES[0]}
+                  module={
+                    isCubeFormed ? getPillar(0, rotationQuarter) : MODULES[0]
+                  }
                   transform={`translateZ(${centerZ}px)`}
                   opacity={1}
                   showDescription
@@ -626,7 +630,9 @@ export const OutroScene: React.FC = () => {
 
                 {/* Right face (Version Control - blue - MODULES[1]) */}
                 <CubeFace
-                  module={isCubeFormed ? getPillar(1, rotationQuarter) : MODULES[1]}
+                  module={
+                    isCubeFormed ? getPillar(1, rotationQuarter) : MODULES[1]
+                  }
                   transform={`translateX(${rightX}px) rotateY(${rightRotY}deg) translateZ(${rightZ}px)`}
                   opacity={1}
                   showDescription

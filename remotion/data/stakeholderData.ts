@@ -343,7 +343,8 @@ export const FEATURE_ITEMS: FeatureItem[] = [
   {
     id: "f1",
     text: "Organize requirements by project",
-    subtext: "Separate by customer, business unit, or product—with native hierarchy",
+    subtext:
+      "Separate by customer, business unit, or product—with native hierarchy",
     appearAt: 75,
   },
   {

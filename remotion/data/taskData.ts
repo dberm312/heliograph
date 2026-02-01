@@ -352,7 +352,8 @@ export const DEMO_WORK_ITEMS: WorkItem[] = [
     id: "task-1",
     type: "task",
     title: "Implement SSO SAML endpoint",
-    description: "Build the SAML authentication endpoint for enterprise SSO integration",
+    description:
+      "Build the SAML authentication endpoint for enterprise SSO integration",
     status: "in_progress",
     priority: "high",
     dueDate: "Jan 15",
@@ -408,7 +409,8 @@ export const DEMO_WORK_ITEMS: WorkItem[] = [
     id: "story-2",
     type: "story",
     title: "API Security",
-    description: "Enhance API security with rate limiting and auth improvements",
+    description:
+      "Enhance API security with rate limiting and auth improvements",
     status: "in_progress",
     priority: "medium",
     depth: 1,

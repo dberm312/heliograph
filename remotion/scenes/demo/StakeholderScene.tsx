@@ -342,9 +342,7 @@ export const StakeholderScene: React.FC = () => {
                             visible
                           />
                         )}
-                        {activeTab === "tasks" && (
-                          <TaskView />
-                        )}
+                        {activeTab === "tasks" && <TaskView />}
                         {activeTab === "issues" && (
                           <IssueList
                             issues={DEVELOPER_ISSUES}

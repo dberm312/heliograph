@@ -65,12 +65,7 @@ const CommitBadge: React.FC<CommitBadgeProps> = ({
       />
 
       {/* Compact badge */}
-      <foreignObject
-        x={x + offsetX}
-        y={y - 10}
-        width={58}
-        height={20}
-      >
+      <foreignObject x={x + offsetX} y={y - 10} width={58} height={20}>
         <div
           style={{
             display: "flex",
@@ -320,7 +315,8 @@ export const EnhancedBranchTree: React.FC<EnhancedBranchTreeProps> = ({
       : 0;
 
   // Layout calculations
-  const treeHeight = height - TREE_CONFIG.padding.top - TREE_CONFIG.padding.bottom;
+  const treeHeight =
+    height - TREE_CONFIG.padding.top - TREE_CONFIG.padding.bottom;
   const mainX = TREE_CONFIG.mainX;
   const acmeX = mainX + 50;
   const techstartX = mainX + 100;
@@ -457,7 +453,8 @@ export const EnhancedBranchTree: React.FC<EnhancedBranchTreeProps> = ({
             );
 
             const isCherryPickResult =
-              commit.isCherryPickTarget && frame >= VC_TIMING.CHERRY_PICK_COMPLETE;
+              commit.isCherryPickTarget &&
+              frame >= VC_TIMING.CHERRY_PICK_COMPLETE;
 
             return (
               <g key={commit.id}>

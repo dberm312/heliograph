@@ -64,7 +64,6 @@ export const ContentHeader: React.FC<ContentHeaderProps> = ({
           </span>
         ))}
       </div>
-
     </div>
   );
 };
