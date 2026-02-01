@@ -64,12 +64,10 @@ export default function RootLayout({
               </span>
             </Link>
             <div className="flex items-center gap-1">
-              <a
-                href="https://docs.google.com/document/d/1Bhz-gXssQFHJ31JLAg4Aa87URd8jNXnq/edit"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/blog"
                 className="hover:opacity-80 transition-opacity"
-                aria-label="View design document"
+                aria-label="Read our blog"
               >
                 <span className="flex items-center justify-center w-12 h-12 rounded-full">
                   <svg
@@ -81,7 +79,7 @@ export default function RootLayout({
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6zm2-7h8v2H8v-2zm0 4h8v2H8v-2zm0-8h4v2H8V9z" />
                   </svg>
                 </span>
-              </a>
+              </Link>
               <a
                 href="https://github.com/dberm312/heliograph"
                 target="_blank"
