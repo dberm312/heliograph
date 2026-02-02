@@ -27,11 +27,23 @@ heliograph/
 
 ## Development Commands
 
+This project uses **pnpm** as the package manager. Do not use npm or yarn.
+
 ```bash
+pnpm install  # Install dependencies (creates pnpm-lock.yaml, NOT package-lock.json)
 pnpm dev      # Start development server
 pnpm build    # Build for production
 pnpm start    # Start production server
 pnpm lint     # Run Biome
+```
+
+### Remotion Video
+
+To render the product demo video:
+
+```bash
+pnpm remotion:build  # Renders to public/videos/heliograph-demo.mp4
+pnpm remotion:dev    # Opens Remotion Studio for preview
 ```
 
 ## When Working on This Codebase
