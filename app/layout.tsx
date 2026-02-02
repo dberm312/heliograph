@@ -59,7 +59,7 @@ export default function RootLayout({
                   className="w-8 h-8"
                 />
               </div>
-              <span className="text-3xl font-semibold tracking-tight text-white">
+              <span className="font-display text-3xl font-semibold tracking-tight text-white">
                 Heliograph
               </span>
             </Link>

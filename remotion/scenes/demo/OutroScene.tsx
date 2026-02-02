@@ -729,7 +729,7 @@ export const OutroScene: React.FC = () => {
             <div
               style={{
                 fontSize: 72,
-                fontWeight: 700,
+                fontWeight: 600,
                 color: COLORS.textPrimary,
                 fontFamily: FONTS.display,
                 letterSpacing: "-2px",

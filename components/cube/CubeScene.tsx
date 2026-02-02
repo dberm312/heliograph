@@ -216,7 +216,7 @@ export function CubeScene() {
                 fontSize: 32,
                 fontWeight: 600,
                 color: "rgba(255, 255, 255, 1)",
-                fontFamily: "var(--font-clash-display), sans-serif",
+                fontFamily: "var(--font-display), sans-serif",
                 textAlign: "center",
                 textShadow: "0 4px 20px rgba(0,0,0,0.3)",
               }}
@@ -226,9 +226,9 @@ export function CubeScene() {
             <div
               style={{
                 fontSize: 48,
-                fontWeight: 700,
+                fontWeight: 600,
                 color: "#fdba74",
-                fontFamily: "var(--font-clash-display), sans-serif",
+                fontFamily: "var(--font-display), sans-serif",
                 textAlign: "center",
                 textShadow: "0 4px 20px rgba(0,0,0,0.3)",
               }}
