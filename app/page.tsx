@@ -62,23 +62,11 @@ export default function Home() {
               <p className="text-xl md:text-2xl text-white/90 leading-relaxed animate-fade-in-up delay-400 mb-4">
                 Turn customer requirements into last-mile solutions—without starting from scratch every time.
               </p>
-              <p className="text-lg text-white/70 leading-relaxed animate-fade-in-up delay-500 mb-6">
+              <p className="text-lg text-white/70 leading-relaxed animate-fade-in-up delay-500">
                 One integrated platform combining project management, version
                 control, and stakeholder tracking—built for people who ship
                 custom solutions.
               </p>
-              {/* Role list */}
-              <div className="flex flex-wrap gap-3 animate-fade-in-up delay-600">
-                <span className="text-sm text-white/70 px-3 py-1.5 rounded-full border border-white/20 bg-white/10">
-                  Forward Deployed Engineers
-                </span>
-                <span className="text-sm text-white/70 px-3 py-1.5 rounded-full border border-white/20 bg-white/10">
-                  Consultants
-                </span>
-                <span className="text-sm text-white/70 px-3 py-1.5 rounded-full border border-white/20 bg-white/10">
-                  Customer Success
-                </span>
-              </div>
             </div>
           </AnimatedSection>
         </section>
