@@ -1,6 +1,6 @@
 # Heliograph
 
-**The modern toolchain for customer-facing builders.**
+**The modern toolchain for forward-deployed teams to deliver impact & repeat deliberately.**
 
 One integrated platform combining project management, version control, and stakeholder tracking—built for teams who ship custom solutions.
 

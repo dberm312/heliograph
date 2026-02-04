@@ -49,12 +49,15 @@ export default function Home() {
                   toolchain for
                 </span>
                 <span className="block animate-fade-in-up delay-200 gradient-text">
-                  customer-facing
+                  forward-deployed
                 </span>
                 <span className="block animate-fade-in-up delay-300 text-orange-300">
-                  builders.
+                  teams.
                 </span>
               </h1>
+              <p className="text-xl md:text-2xl text-white/80 animate-fade-in-up delay-400 italic">
+                Deliver impact & repeat deliberately.
+              </p>
             </div>
 
             {/* Offset description */}
@@ -239,7 +242,7 @@ export default function Home() {
                 One integrated platform
               </h2>
               <p className="text-xl text-white/60 max-w-2xl mx-auto animate-fade-in-up delay-100">
-                Three core modules. Built for the way customer-facing builders
+                Three core modules. Built for the way forward-deployed teams
                 actually work.
               </p>
             </div>
@@ -352,7 +355,7 @@ export default function Home() {
                 <p className="text-white/60 leading-relaxed flex-1">
                   AI has shifted the bottleneck from &quot;can we build
                   it?&quot; to &quot;should we build it and for
-                  whom?&quot;—exactly where customer-facing builders operate.
+                  whom?&quot;—exactly where forward-deployed teams operate.
                 </p>
               </div>
 
@@ -365,7 +368,7 @@ export default function Home() {
                   />
                 </div>
                 <h3 className="font-display text-xl font-semibold mb-3 gradient-text-orange">
-                  Customer-facing builders are the new standard
+                  Forward-deployed teams are the new standard
                 </h3>
                 <p className="text-white/60 leading-relaxed flex-1">
                   Palantir. Databricks. Every AI startup. Customer-facing
@@ -398,7 +401,7 @@ export default function Home() {
         <section className="px-6 py-20 md:py-32 relative">
           <AnimatedSection className="max-w-5xl mx-auto relative">
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-center animate-fade-in-up">
-              Built for customer-facing teams
+              Built for forward-deployed teams
             </h2>
             <p className="text-lg text-white/60 text-center mb-16 max-w-xl mx-auto animate-fade-in-up delay-100">
               Builders who sit at the intersection of sales, consulting, and
@@ -453,7 +456,7 @@ export default function Home() {
             description="One platform where Product, Engineering, and Customer teams finally sync."
             ctaText="Get Early Access"
             ctaHref="https://forms.gle/8eMhsfNjWp2hXFuX9"
-            secondaryText="Join the customer-facing builders transforming how they ship custom solutions."
+            secondaryText="Join the forward-deployed teams transforming how they ship custom solutions."
           />
         </section>
       </main>

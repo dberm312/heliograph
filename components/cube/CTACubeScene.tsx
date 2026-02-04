@@ -45,7 +45,7 @@ export function CTACubeScene({
   description = "One platform where Product, Engineering, and Customer teams finally sync.",
   ctaText = "Get Early Access",
   ctaHref = "https://forms.gle/8eMhsfNjWp2hXFuX9",
-  secondaryText = "Join the customer-facing builders transforming how they ship custom solutions.",
+  secondaryText = "Join the forward-deployed teams transforming how they ship custom solutions.",
 }: CTACubeSceneProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { progress } = useScrollProgress({ containerRef });

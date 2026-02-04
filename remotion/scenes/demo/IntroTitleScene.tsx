@@ -52,7 +52,7 @@ export const IntroTitleScene: React.FC = () => {
     extrapolateRight: "clamp",
   });
 
-  // "customer-facing builders" entrance (more delayed)
+  // "forward-deployed teams" entrance (more delayed)
   const tagline2Progress = spring({
     frame: frame - 30,
     fps,
@@ -148,7 +148,7 @@ export const IntroTitleScene: React.FC = () => {
             textAlign: "center",
           }}
         >
-          customer-facing builders
+          forward-deployed teams
         </div>
 
         {/* URL */}

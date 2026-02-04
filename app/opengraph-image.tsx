@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Heliograph - The modern toolchain for customer-facing builders";
+  "Heliograph - The modern toolchain for forward-deployed teams to deliver impact & repeat deliberately";
 export const size = {
   width: 1200,
   height: 630,
@@ -40,7 +40,7 @@ export default async function Image() {
         style={{
           maxWidth: "1000px",
           textAlign: "center",
-          fontSize: 40,
+          fontSize: 36,
           color: "rgba(255, 255, 255, 0.9)",
           fontWeight: 600,
           marginTop: "16px",
@@ -52,14 +52,26 @@ export default async function Image() {
         style={{
           maxWidth: "1000px",
           textAlign: "center",
-          fontSize: 48,
+          fontSize: 44,
           background: "linear-gradient(90deg, #fdba74, #fb923c)",
           backgroundClip: "text",
           color: "transparent",
           fontWeight: 700,
         }}
       >
-        customer-facing builders
+        forward-deployed teams
+      </div>
+      <div
+        style={{
+          maxWidth: "1000px",
+          textAlign: "center",
+          fontSize: 32,
+          color: "rgba(255, 255, 255, 0.8)",
+          fontWeight: 500,
+          marginTop: "8px",
+        }}
+      >
+        to deliver impact & repeat deliberately
       </div>
 
       {/* URL */}
