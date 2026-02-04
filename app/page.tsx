@@ -49,36 +49,24 @@ export default function Home() {
                   toolchain for
                 </span>
                 <span className="block animate-fade-in-up delay-200 gradient-text">
-                  customer-facing
-                </span>
-                <span className="block animate-fade-in-up delay-300 text-orange-300">
-                  builders.
+                  forward-deployed teams.
                 </span>
               </h1>
+              <p className="text-2xl md:text-3xl lg:text-4xl text-orange-200/90 animate-fade-in-up delay-400 italic font-medium">
+                Deliver impact & repeat deliberately.
+              </p>
             </div>
 
             {/* Offset description */}
             <div className="md:ml-auto md:mr-12 lg:mr-24 md:max-w-xl mt-8">
               <p className="text-xl md:text-2xl text-white/90 leading-relaxed animate-fade-in-up delay-400 mb-4">
-                Quickly align, build, and codify your customer solutions.
+                Turn customer requirements into last-mile solutions—without starting from scratch every time.
               </p>
-              <p className="text-lg text-white/70 leading-relaxed animate-fade-in-up delay-500 mb-6">
+              <p className="text-lg text-white/70 leading-relaxed animate-fade-in-up delay-500">
                 One integrated platform combining project management, version
                 control, and stakeholder tracking—built for people who ship
                 custom solutions.
               </p>
-              {/* Role list */}
-              <div className="flex flex-wrap gap-3 animate-fade-in-up delay-600">
-                <span className="text-sm text-white/70 px-3 py-1.5 rounded-full border border-white/20 bg-white/10">
-                  Forward Deployed Engineers
-                </span>
-                <span className="text-sm text-white/70 px-3 py-1.5 rounded-full border border-white/20 bg-white/10">
-                  Consultants
-                </span>
-                <span className="text-sm text-white/70 px-3 py-1.5 rounded-full border border-white/20 bg-white/10">
-                  Customer Success
-                </span>
-              </div>
             </div>
           </AnimatedSection>
         </section>
@@ -239,7 +227,7 @@ export default function Home() {
                 One integrated platform
               </h2>
               <p className="text-xl text-white/60 max-w-2xl mx-auto animate-fade-in-up delay-100">
-                Three core modules. Built for the way customer-facing builders
+                Three core modules. Built for the way forward-deployed teams
                 actually work.
               </p>
             </div>
@@ -352,7 +340,7 @@ export default function Home() {
                 <p className="text-white/60 leading-relaxed flex-1">
                   AI has shifted the bottleneck from &quot;can we build
                   it?&quot; to &quot;should we build it and for
-                  whom?&quot;—exactly where customer-facing builders operate.
+                  whom?&quot;—exactly where forward-deployed teams operate.
                 </p>
               </div>
 
@@ -365,7 +353,7 @@ export default function Home() {
                   />
                 </div>
                 <h3 className="font-display text-xl font-semibold mb-3 gradient-text-orange">
-                  Customer-facing builders are the new standard
+                  Forward-deployed teams are the new standard
                 </h3>
                 <p className="text-white/60 leading-relaxed flex-1">
                   Palantir. Databricks. Every AI startup. Customer-facing
@@ -398,7 +386,7 @@ export default function Home() {
         <section className="px-6 py-20 md:py-32 relative">
           <AnimatedSection className="max-w-5xl mx-auto relative">
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-center animate-fade-in-up">
-              Built for customer-facing teams
+              Built for forward-deployed teams
             </h2>
             <p className="text-lg text-white/60 text-center mb-16 max-w-xl mx-auto animate-fade-in-up delay-100">
               Builders who sit at the intersection of sales, consulting, and
@@ -453,7 +441,7 @@ export default function Home() {
             description="One platform where Product, Engineering, and Customer teams finally sync."
             ctaText="Get Early Access"
             ctaHref="https://forms.gle/8eMhsfNjWp2hXFuX9"
-            secondaryText="Join the customer-facing builders transforming how they ship custom solutions."
+            secondaryText="Join the forward-deployed teams transforming how they ship custom solutions."
           />
         </section>
       </main>

@@ -11,7 +11,7 @@ import { AnimatedSection } from "@/components/ScrollAnimation";
 export const metadata = {
   title: "Demo | Heliograph",
   description:
-    "See Heliograph in action. Watch how our three core modules work together to transform how customer-facing teams ship solutions.",
+    "See Heliograph in action. Watch how our three core modules work together to transform how forward-deployed teams ship solutions.",
 };
 
 export default function DemoPage() {
@@ -57,7 +57,7 @@ export default function DemoPage() {
 
             <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-2xl mx-auto animate-fade-in-up delay-200">
               Watch how our three core modules work together to transform the
-              way customer-facing teams ship solutions.
+              way forward-deployed teams ship solutions.
             </p>
           </AnimatedSection>
         </section>
