@@ -49,13 +49,10 @@ export default function Home() {
                   toolchain for
                 </span>
                 <span className="block animate-fade-in-up delay-200 gradient-text">
-                  forward-deployed
-                </span>
-                <span className="block animate-fade-in-up delay-300 text-orange-300">
-                  teams.
+                  forward-deployed teams.
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/80 animate-fade-in-up delay-400 italic">
+              <p className="text-2xl md:text-3xl lg:text-4xl text-orange-200/90 animate-fade-in-up delay-400 italic font-medium">
                 Deliver impact & repeat deliberately.
               </p>
             </div>
@@ -63,7 +60,7 @@ export default function Home() {
             {/* Offset description */}
             <div className="md:ml-auto md:mr-12 lg:mr-24 md:max-w-xl mt-8">
               <p className="text-xl md:text-2xl text-white/90 leading-relaxed animate-fade-in-up delay-400 mb-4">
-                Quickly align, build, and codify your customer solutions.
+                Turn customer requirements into last-mile solutions—without starting from scratch every time.
               </p>
               <p className="text-lg text-white/70 leading-relaxed animate-fade-in-up delay-500 mb-6">
                 One integrated platform combining project management, version
