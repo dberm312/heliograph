@@ -60,7 +60,8 @@ export default function Home() {
             {/* Offset description */}
             <div className="md:ml-auto md:mr-12 lg:mr-24 md:max-w-xl mt-8">
               <p className="text-xl md:text-2xl text-white/90 leading-relaxed animate-fade-in-up delay-400 mb-4">
-                Turn customer requirements into last-mile solutions—without starting from scratch every time.
+                Turn customer requirements into last-mile solutions—without
+                starting from scratch every time.
               </p>
               <p className="text-lg text-white/70 leading-relaxed animate-fade-in-up delay-500">
                 One integrated platform combining project management, version
